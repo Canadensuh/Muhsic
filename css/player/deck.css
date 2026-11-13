@@ -254,6 +254,11 @@ body.controls-buttons .mode-switch-knob {
 }
 .mode-switch:active .mode-switch-knob { filter: brightness(0.9); }
 
+/* Celular: travado em BOTÕES (arrastar disco não funciona no toque) */
+body.controls-locked .mode-switch { cursor: default; pointer-events: none; }
+body.controls-locked .mode-switch-track,
+body.controls-locked .mode-manual { opacity: 0.35; }
+
 /* ============================================================
    O QUE APARECE EM CADA MODO
    ============================================================ */

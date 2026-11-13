@@ -18,18 +18,30 @@ let dragMoved         = false;
 
 /* ============================================================
    MODO DE CONTROLE  (chave MANUAL / BOTÕES na vitrola)
-     manual  → gestos no disco: girar troca a faixa, scroll = volume
-     buttons → teclado e volume −/+ visíveis; giro e scroll desligados
+     manual  → gestos no disco: girar troca a faixa, scroll = volume;
+               para tocar um disco da prateleira, ARRASTE-o até a vitrola
+     buttons → teclado e volume −/+ visíveis; giro e scroll desligados;
+               um CLIQUE no disco da prateleira já o leva à vitrola
    Clique (tocar/pausar), duplo clique (curtir) e botão direito
    (menu) funcionam nos dois modos. A escolha é salva por usuário.
+
+   CELULAR (PLAYER.mobileQuery): segurar e arrastar não funciona no
+   toque, então o modo fica travado em BOTÕES e a chave é desativada.
+   Voltando ao layout de PC, volta a escolha salva.
    ============================================================ */
 let controlMode = CONTROL_MODES.manual;
+const consultaCelular = window.matchMedia ? window.matchMedia(PLAYER.mobileQuery) : null;
 
 function isManualMode() {
     return controlMode === CONTROL_MODES.manual;
 }
 
+function isLayoutCelular() {
+    return !!(consultaCelular && consultaCelular.matches);
+}
+
 function setControlMode(mode, salvar = true) {
+    if (isLayoutCelular()) { mode = CONTROL_MODES.buttons; salvar = false; }
     controlMode = mode === CONTROL_MODES.buttons ? CONTROL_MODES.buttons : CONTROL_MODES.manual;
     const botoes = controlMode === CONTROL_MODES.buttons;
     document.body.classList.toggle('controls-buttons', botoes);
@@ -38,19 +50,28 @@ function setControlMode(mode, salvar = true) {
     if (salvar) Store.set(STORAGE_KEYS.controls(currentUserId), controlMode);
 }
 
-/** Modo salvo; sem escolha salva, telas de toque começam em BOTÕES */
+/** Celular → BOTÕES travado; PC → modo salvo (padrão MANUAL) */
 function loadControlMode() {
+    const celular = isLayoutCelular();
+    document.body.classList.toggle('controls-locked', celular);
+    const chave = $('controlModeSwitch');
+    if (chave) {
+        chave.disabled = celular;
+        chave.setAttribute('aria-disabled', String(celular));
+    }
     const salvo = Store.get(STORAGE_KEYS.controls(currentUserId), null);
-    const toque = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
-    setControlMode(salvo || (toque ? CONTROL_MODES.buttons : CONTROL_MODES.manual), false);
+    setControlMode(salvo || CONTROL_MODES.manual, false);
 }
 
 function bindControlModeSwitch() {
     $('controlModeSwitch')?.addEventListener('click', (e) => {
         e.currentTarget.blur();
+        if (isLayoutCelular()) return;
         playClickSound();
         setControlMode(isManualMode() ? CONTROL_MODES.buttons : CONTROL_MODES.manual);
     });
+    /* Girar o celular / redimensionar a janela troca o layout */
+    consultaCelular?.addEventListener?.('change', loadControlMode);
 }
 
 /* ============================================================

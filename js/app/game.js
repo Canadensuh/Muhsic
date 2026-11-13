@@ -356,6 +356,8 @@ function entrarModoJogo() {
     TECLAS_BLOQUEADAS_NO_JOGO.forEach(id => { const b = $(id); if (b) b.disabled = true; });
     $('deckQueueLabel').textContent = 'Opções';
     $('deckQueueIcon').className = 'fas fa-circle-question';
+    acoesDeFaixaMidia(false);                       // sem próxima/anterior no sistema
+    atualizarMidiaSistema(null, true);              // disco "?" na barra de mídia
 }
 
 function sairModoJogo() {
@@ -366,6 +368,7 @@ function sairModoJogo() {
     TECLAS_BLOQUEADAS_NO_JOGO.forEach(id => { const b = $(id); if (b) b.disabled = false; });
     $('deckQueueLabel').textContent = 'Próximas';
     $('deckQueueIcon').className = 'fas fa-layer-group';
+    acoesDeFaixaMidia(true);
 
     /* Devolve à vitrola a música que estava nela */
     const faixa = getCurrentSong();
@@ -401,6 +404,7 @@ function revelarNaVitrola(song) {
     setCover(song.coverImage, `Capa - ${song.title}`);
     if (titleEl)  titleEl.textContent = song.title;
     if (artistEl) artistEl.textContent = song.artist;
+    atualizarMidiaSistema(song);                    // revela também na barra de mídia
 }
 
 /** "Próximas" da vitrola vira "Opções": as 4 músicas da rodada */
@@ -659,6 +663,7 @@ function iniciarRodadaJogo() {
     atualizarVisorJogo();
     animarBarra(0, 0);
     mensagemJogo('ADIVINHE A MÚSICA');
+    atualizarMidiaSistema(null, true);
 }
 
 /** Disco grande (igual aos da prateleira) */

@@ -5,6 +5,17 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ## [2.0] — 2026-11-13 · BETA 2.0
 
+### Catálogo revisado (gêneros e créditos)
+- Gêneros reorganizados com base em pesquisa. Novos gêneros: **Alternativo** (Gorillaz),
+  **Rap Nacional** (Baco, BK, 2ZDinizz, Matchola, LEALL), **Funk** (JETSKI, Dupê)
+  e **Dancehall** (Sean Paul). O gênero "Underground" foi absorvido pelo Rap Nacional.
+- Músicas trocadas de gênero: Master Of Puppets → Metal; Go Bananas, The Largest e
+  Beautiful → Hip Hop; After The Storm e Miami → R&B.
+- Participações (feat.) saíram do título e foram para o campo de artista
+  (ex.: *Monster*, *STRATEGY*, *SPAGHETTI*, *Yellowjacket*, *COME SAY SUM*).
+- Nomes corrigidos: Engine No. 9, Arctic Monkeys, The Night Begins to Shine,
+  Cheios do Espírito Santo.
+
 ### Novo: jogo GUESS THE MUSIC
 - A aba **Coleção** saiu do menu (a **Buscar** já mostra todos os discos e ainda
   filtra) e deu lugar ao jogo **Guess the Music** (`js/app/game.js`, `css/pages/game.css`).
@@ -40,7 +51,14 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 - **Chave MANUAL / BOTÕES** na vitrola. *Manual*: gestos no disco (girar troca a
   faixa, scroll muda o volume). *Botões*: aparecem o teclado
   e o volume −/+, e o giro e o scroll do disco ficam desligados. A escolha é salva
-  por usuário; em telas de toque o padrão é Botões.
+  por usuário. No **celular** (layout até 900px) fica travada em **Botões**, porque
+  segurar e arrastar não funciona bem no toque.
+- **Clicar para tocar** no modo Botões: um clique no disco da prateleira já o leva
+  voando até a vitrola. No modo Manual continua sendo preciso arrastar.
+- **Barra de mídia do sistema** (Media Session API): ao usar as teclas de mídia, a
+  barra do Windows mostra o **disco** da música atual (capa no selo, anel na cor do
+  tema), título, artista e tocar/pausar/próxima/anterior. No Guess the Music aparece
+  um disco "?" com título "???" e sem próxima/anterior.
 - **Embaralhar** agora sorteia de novo só as **próximas** faixas (sem repetir) e não
   troca a música que está tocando. Cada clique gera uma nova sequência.
 - **Próximas faixas** em lista, uma embaixo da outra (número, disco, título, artista,

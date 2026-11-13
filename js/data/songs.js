@@ -46,7 +46,7 @@ const baseSongs = [
     },
     {
         id: 11,
-        title: 'Engine No 9',
+        title: 'Engine No. 9',
         artist: 'Deftones',
         category: 'playlist',
         playlist: 'MuhMetal',
@@ -112,8 +112,8 @@ const baseSongs = [
     },
     {
         id: 201,
-        title: 'COME SAY SUM (ft. Fred Durst)',
-        artist: 'Lauren Sanderson',
+        title: 'COME SAY SUM',
+        artist: 'Lauren Sanderson, Fred Durst',
         category: 'playlist',
         playlist: 'MuhMetal',
         coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684138/ab67616d00001e02615a6ea451d7099d02fcaf0d.jpg',
@@ -134,8 +134,8 @@ const baseSongs = [
     },
     {
         id: 203,
-        title: 'Yellowjacket (feat. Sam Carter)',
-        artist: 'Spiritbox',
+        title: 'Yellowjacket',
+        artist: 'Spiritbox, Sam Carter',
         category: 'playlist',
         playlist: 'MuhMetal',
         coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684137/ab67616d00001e023e234c82f96fa4ded8e5ca47.jpg',
@@ -654,20 +654,9 @@ const baseSongs = [
         userIds: [0]
     },
     {
-        id: 303,
-        title: 'Go Bananas',
-        artist: 'Baby Gravy',
-        category: 'genre',
-        genre: 'Indie',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684131/ab67616d0000e1a315f04c6e3d7c57a5a4348bca.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682345/Go_Bananas_spotdown.org.mp3',
-        duration: 190,
-        userIds: [0]
-    },
-    {
         id: 304,
         title: 'Knee Socks',
-        artist: 'Artic Monkeys',
+        artist: 'Arctic Monkeys',
         category: 'genre',
         genre: 'Indie',
         coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684137/ab67616d00001e024ae1c4c5c45aabe565499163.jpg',
@@ -706,6 +695,143 @@ const baseSongs = [
         coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684133/ab67616d0000e1a3791f14bd8b23dad1638c9d41.webp',
         url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682369/The_Ballad_of_Eddie_Jabuley_spotdown.org.mp3',
         duration: 220,
+        userIds: [0]
+    },
+    {
+        id: 1104,
+        title: 'Glimpse of Us',
+        artist: 'Joji',
+        category: 'genre',
+        genre: 'Indie',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795693/ab67616d0000e1a3f3f7d2ea2ad435b57d6697df.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795642/Glimpse_of_Us_spotdown.org.mp3',
+        duration: 220,
+        userIds: [0]
+    },
+    {
+        id: 1105,
+        title: 'Chamber Of Reflection',
+        artist: 'Mac DeMarco',
+        category: 'genre',
+        genre: 'Indie',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795693/ab67616d0000e1a38b221f2ccf777ae0d4b0db50.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795644/Chamber_Of_Reflection_spotdown.org.mp3',
+        duration: 210,
+        userIds: [0]
+    },
+    {
+        id: 1106,
+        title: 'Breathe',
+        artist: 'Malcolm Todd',
+        category: 'genre',
+        genre: 'Indie',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795697/ab67616d00001e026ad1bfc5a6102f8e926a8c5f.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795645/Breathe_spotdown.org.mp3',
+        duration: 195,
+        userIds: [0]
+    },
+    {
+        id: 1107,
+        title: 'You Owe Me',
+        artist: 'Malcolm Todd',
+        category: 'genre',
+        genre: 'Indie',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795693/ab67616d0000e1a3ec2143e5aa8537a7de47b004.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795649/You_Owe_Me_spotdown.org.mp3',
+        duration: 200,
+        userIds: [0]
+    },
+    {
+        id: 1108,
+        title: 'Dracula (Remix)',
+        artist: 'Tame Impala, JENNIE',
+        category: 'genre',
+        genre: 'Indie',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795692/ab67616d0000e1a3c7c031ce9d06b131f8563676.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795651/Dracula_-_JENNIE_Remix_spotdown.org.mp3',
+        duration: 225,
+        userIds: [0]
+    },
+    {
+        id: 1109,
+        title: 'Concrete',
+        artist: 'Malcolm Todd',
+        category: 'genre',
+        genre: 'Indie',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795695/ab67616d0000e1a387607b2c8f5f52f1f057be0d.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795652/Concrete_spotdown.org.mp3',
+        duration: 205,
+        userIds: [0]
+    },
+
+    /* ============================================================
+       GÊNERO: ALTERNATIVO  (GLOBAL — todos veem, ID 0)
+       ============================================================ */
+
+    {
+        id: 403,
+        title: 'Delirium',
+        artist: 'Gorillaz, Mark E. Smith',
+        category: 'genre',
+        genre: 'Alternativo',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684135/ab67616d00001e02eeb01b41f48210d032d1b6a4.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682327/Delirium_feat._Mark_E._Smith__spotdown.org.mp3',
+        duration: 240,
+        userIds: [0]
+    },
+    {
+        id: 404,
+        title: 'The God of Lying',
+        artist: 'Gorillaz, IDLES',
+        category: 'genre',
+        genre: 'Alternativo',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684135/ab67616d00001e02eeb01b41f48210d032d1b6a4.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682317/The_God_of_Lying_feat._IDLES__spotdown.org.mp3',
+        duration: 250,
+        userIds: [0]
+    },
+    {
+        id: 405,
+        title: 'The Happy Dictator',
+        artist: 'Gorillaz, Sparks',
+        category: 'genre',
+        genre: 'Alternativo',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684135/ab67616d00001e02eeb01b41f48210d032d1b6a4.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682306/The_Happy_Dictator_feat._Sparks__spotdown.org.mp3',
+        duration: 240,
+        userIds: [0]
+    },
+    {
+        id: 406,
+        title: 'Plastic Beach',
+        artist: 'Gorillaz, Mick Jones, Paul Simonon',
+        category: 'genre',
+        genre: 'Alternativo',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684132/ab67616d0000e1a3661d019f34569f79eae9e985.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682298/Plastic_Beach_feat._Mick_Jones_and_Paul_Simonon__spotdown.org.mp3',
+        duration: 210,
+        userIds: [0]
+    },
+    {
+        id: 1158,
+        title: 'On Melancholy Hill',
+        artist: 'Gorillaz',
+        category: 'genre',
+        genre: 'Alternativo',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684132/ab67616d0000e1a3661d019f34569f79eae9e985.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839342/On_Melancholy_Hill_spotdown.org.mp3',
+        duration: 210,
+        userIds: [0]
+    },
+    {
+        id: 1147,
+        title: "She's My Collar",
+        artist: 'Gorillaz, Kali Uchis',
+        category: 'genre',
+        genre: 'Alternativo',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839380/ab67616d0000e1a3a5952c0e2e649f588603b743.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839342/She_s_My_Collar_feat._Kali_Uchis__spotdown.org.mp3',
+        duration: 210,
         userIds: [0]
     },
 
@@ -771,7 +897,7 @@ const baseSongs = [
     {
         id: 66,
         title: 'JAPONÊS',
-        artist: 'Brandão85, Matuê',
+        artist: 'Matuê, Brandão85',
         category: 'genre',
         genre: 'Trap',
         coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786600799/ab67616d0000e1a30c34ec2101bd4ecf853dbf56.webp',
@@ -810,6 +936,203 @@ const baseSongs = [
         coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839379/ab67616d00001e02eb021b18fcead1189954756d.jpg',
         url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839339/PARTY_spotdown.org.mp3',
         duration: 200,
+        userIds: [0]
+    },
+
+    /* ============================================================
+       GÊNERO: RAP NACIONAL  (GLOBAL — todos veem, ID 0)
+       ============================================================ */
+
+    {
+        id: 70,
+        title: 'Lágrimas',
+        artist: 'Baco Exu do Blues',
+        category: 'genre',
+        genre: 'Rap Nacional',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786599222/ab67616d00001e02e4f4bac5cfa8a7945ac12a82.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786599320/L%C3%A1grimas_spotdown.org.mp3',
+        duration: 240,
+        userIds: [0]
+    },
+    {
+        id: 72,
+        title: 'Deusa',
+        artist: 'BK, 2ZDinizz, Anchietx, Nansy Silvvz',
+        category: 'genre',
+        genre: 'Rap Nacional',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786599222/ab67616d00001e02dd12836650253ee55aefc990.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786599342/Deusa_spotdown.org.mp3',
+        duration: 235,
+        userIds: [0]
+    },
+    {
+        id: 73,
+        title: 'Beatriz',
+        artist: '2ZDinizz, Leborato, HHR',
+        category: 'genre',
+        genre: 'Rap Nacional',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786599223/ab67616d00001e02f8fc839361eacee6af4af11a.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786599354/Beatriz_spotdown.org.mp3',
+        duration: 210,
+        userIds: [0]
+    },
+    {
+        id: 905,
+        title: 'PENSANDO EM MIM',
+        artist: 'Matchola, 2ZDinizz',
+        category: 'genre',
+        genre: 'Rap Nacional',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684136/ab67616d00001e021d3e1aa544727851b836e908.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682368/PENSANDO_EM_MIM_spotdown.org.mp3',
+        duration: 210,
+        userIds: [0]
+    },
+    {
+        id: 75,
+        title: 'Jóias do Bairro',
+        artist: 'LEALL, Borges, Rock Danger',
+        category: 'genre',
+        genre: 'Rap Nacional',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786599218/ab67616d0000e1a3ba4fda5eb4b7b216e4efd3be.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786599348/J%C3%B3ias_do_Bairro_spotdown.org.mp3',
+        duration: 215,
+        userIds: [0]
+    },
+
+    /* ============================================================
+       GÊNERO: HIP HOP  (GLOBAL — todos veem, ID 0)
+       ============================================================ */
+
+    {
+        id: 303,
+        title: 'Go Bananas',
+        artist: 'Baby Gravy',
+        category: 'genre',
+        genre: 'Hip Hop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684131/ab67616d0000e1a315f04c6e3d7c57a5a4348bca.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682345/Go_Bananas_spotdown.org.mp3',
+        duration: 190,
+        userIds: [0]
+    },
+    {
+        id: 60,
+        title: 'WE ON GO',
+        artist: 'BIA',
+        category: 'genre',
+        genre: 'Hip Hop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786599219/ab67616d0000e1a38b08b8fa3e0d46fd47f8dbf7.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786599266/WE_ON_GO_spotdown.org.mp3',
+        duration: 180,
+        userIds: [0]
+    },
+    {
+        id: 400,
+        title: 'Monster',
+        artist: 'Kanye West, JAY-Z, Rick Ross, Nicki Minaj, Bon Iver',
+        category: 'genre',
+        genre: 'Hip Hop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684128/ab67616d0000e1a3d9194aa18fa4c9362b47464f.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682352/Monster_spotdown.org.mp3',
+        duration: 360,
+        userIds: [0]
+    },
+    {
+        id: 401,
+        title: 'POWER',
+        artist: 'Kanye West',
+        category: 'genre',
+        genre: 'Hip Hop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684128/ab67616d0000e1a3d9194aa18fa4c9362b47464f.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682343/POWER_spotdown.org.mp3',
+        duration: 280,
+        userIds: [0]
+    },
+    {
+        id: 402,
+        title: 'BURN',
+        artist: 'Kanye West, Ty Dolla $ign',
+        category: 'genre',
+        genre: 'Hip Hop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684130/ab67616d0000e1a39c654f315df05ae7c6ec8980.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682325/BURN_spotdown.org.mp3',
+        duration: 190,
+        userIds: [0]
+    },
+    {
+        id: 407,
+        title: 'Touch The Sky',
+        artist: 'Kanye West, Lupe Fiasco',
+        category: 'genre',
+        genre: 'Hip Hop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684132/ab67616d0000e1a3428d2255141c2119409a31b2.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682275/Touch_The_Sky_spotdown.org.mp3',
+        duration: 220,
+        userIds: [0]
+    },
+    {
+        id: 1123,
+        title: "I'm Good Luv, Enjoy.",
+        artist: 'Aaron May',
+        category: 'genre',
+        genre: 'Hip Hop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795693/ab67616d0000e1a3f0c12c7831413fddf24a1c1a.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795647/I_m_Good_Luv_Enjoy._spotdown.org.mp3',
+        duration: 220,
+        userIds: [0]
+    },
+    {
+        id: 1124,
+        title: 'Hello Miss Johnson',
+        artist: 'Jack Harlow',
+        category: 'genre',
+        genre: 'Hip Hop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795695/ab67616d0000e1a31039ec791b25bf52050ef7fe.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795649/Hello_Miss_Johnson_spotdown.org.mp3',
+        duration: 200,
+        userIds: [0]
+    },
+    {
+        id: 1125,
+        title: 'Tokyo Drift',
+        artist: 'Teriyaki Boyz',
+        category: 'genre',
+        genre: 'Hip Hop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795696/ab67616d00001e02aac3b3863e8f7a43a9b65a19.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795650/Tokyo_Drift_Fast_Furious_-_From__The_Fast_And_The_Furious__Tokyo_Drift__Soundtrack_spotdown.org.mp3',
+        duration: 260,
+        userIds: [0]
+    },
+    {
+        id: 1126,
+        title: 'i',
+        artist: 'Kendrick Lamar',
+        category: 'genre',
+        genre: 'Hip Hop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795698/ab67616d00001e026d89f336fbfbdf2089701da0.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795655/i_spotdown.org.mp3',
+        duration: 235,
+        userIds: [0]
+    },
+    {
+        id: 801,
+        title: 'The Largest',
+        artist: 'BigXthaPlug',
+        category: 'genre',
+        genre: 'Hip Hop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684135/ab67616d00001e02fed9afd601a1732fdae85ea8.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682271/The_Largest_spotdown.org.mp3',
+        duration: 200,
+        userIds: [0]
+    },
+    {
+        id: 1119,
+        title: 'Beautiful',
+        artist: 'Snoop Dogg, Pharrell Williams, Charlie Wilson',
+        category: 'genre',
+        genre: 'Hip Hop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795693/ab67616d0000e1a38cdb0d29bb99ad4febccac39.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795646/Beautiful_spotdown.org.mp3',
+        duration: 270,
         userIds: [0]
     },
 
@@ -960,163 +1283,119 @@ const baseSongs = [
         duration: 285,
         userIds: [0]
     },
-
-    /* ============================================================
-       GÊNERO: HIP HOP  (GLOBAL — todos veem, ID 0)
-       ============================================================ */
-
     {
-        id: 60,
-        title: 'WE ON GO',
-        artist: 'BIA',
+        id: 1142,
+        title: 'Goodbye Yellow Brick Road',
+        artist: 'Elton John',
         category: 'genre',
-        genre: 'Hip Hop',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786599219/ab67616d0000e1a38b08b8fa3e0d46fd47f8dbf7.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786599266/WE_ON_GO_spotdown.org.mp3',
-        duration: 180,
-        userIds: [0]
-    },
-    {
-        id: 400,
-        title: 'Monster',
-        artist: 'Kanye West',
-        category: 'genre',
-        genre: 'Hip Hop',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684128/ab67616d0000e1a3d9194aa18fa4c9362b47464f.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682352/Monster_spotdown.org.mp3',
-        duration: 360,
-        userIds: [0]
-    },
-    {
-        id: 401,
-        title: 'POWER',
-        artist: 'Kanye West',
-        category: 'genre',
-        genre: 'Hip Hop',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684128/ab67616d0000e1a3d9194aa18fa4c9362b47464f.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682343/POWER_spotdown.org.mp3',
-        duration: 280,
-        userIds: [0]
-    },
-    {
-        id: 402,
-        title: 'BURN',
-        artist: 'Kanye West',
-        category: 'genre',
-        genre: 'Hip Hop',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684130/ab67616d0000e1a39c654f315df05ae7c6ec8980.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682325/BURN_spotdown.org.mp3',
-        duration: 190,
-        userIds: [0]
-    },
-    {
-        id: 403,
-        title: 'Delirium',
-        artist: 'Gorillaz',
-        category: 'genre',
-        genre: 'Hip Hop',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684135/ab67616d00001e02eeb01b41f48210d032d1b6a4.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682327/Delirium_feat._Mark_E._Smith__spotdown.org.mp3',
-        duration: 240,
-        userIds: [0]
-    },
-    {
-        id: 404,
-        title: 'The God of Lying',
-        artist: 'Gorillaz',
-        category: 'genre',
-        genre: 'Hip Hop',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684135/ab67616d00001e02eeb01b41f48210d032d1b6a4.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682317/The_God_of_Lying_feat._IDLES__spotdown.org.mp3',
-        duration: 250,
-        userIds: [0]
-    },
-    {
-        id: 405,
-        title: 'The Happy Dictator',
-        artist: 'Gorillaz',
-        category: 'genre',
-        genre: 'Hip Hop',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684135/ab67616d00001e02eeb01b41f48210d032d1b6a4.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682306/The_Happy_Dictator_feat._Sparks__spotdown.org.mp3',
-        duration: 240,
-        userIds: [0]
-    },
-    {
-        id: 406,
-        title: 'Plastic Beach',
-        artist: 'Gorillaz',
-        category: 'genre',
-        genre: 'Hip Hop',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684132/ab67616d0000e1a3661d019f34569f79eae9e985.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682298/Plastic_Beach_feat._Mick_Jones_and_Paul_Simonon__spotdown.org.mp3',
-        duration: 210,
-        userIds: [0]
-    },
-    {
-        id: 407,
-        title: 'Touch The Sky',
-        artist: 'Kanye West',
-        category: 'genre',
-        genre: 'Hip Hop',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684132/ab67616d0000e1a3428d2255141c2119409a31b2.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682275/Touch_The_Sky_spotdown.org.mp3',
-        duration: 220,
-        userIds: [0]
-    },
-    {
-        id: 1123,
-        title: "I'm Good Luv, Enjoy.",
-        artist: 'Aaron May',
-        category: 'genre',
-        genre: 'Hip Hop',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795693/ab67616d0000e1a3f0c12c7831413fddf24a1c1a.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795647/I_m_Good_Luv_Enjoy._spotdown.org.mp3',
-        duration: 220,
-        userIds: [0]
-    },
-    {
-        id: 1124,
-        title: 'Hello Miss Johnson',
-        artist: 'Jack Harlow',
-        category: 'genre',
-        genre: 'Hip Hop',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795695/ab67616d0000e1a31039ec791b25bf52050ef7fe.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795649/Hello_Miss_Johnson_spotdown.org.mp3',
-        duration: 200,
-        userIds: [0]
-    },
-    {
-        id: 1125,
-        title: 'Tokyo Drift',
-        artist: 'Teriyaki Boyz',
-        category: 'genre',
-        genre: 'Hip Hop',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795696/ab67616d00001e02aac3b3863e8f7a43a9b65a19.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795650/Tokyo_Drift_Fast_Furious_-_From__The_Fast_And_The_Furious__Tokyo_Drift__Soundtrack_spotdown.org.mp3',
-        duration: 260,
-        userIds: [0]
-    },
-    {
-        id: 1126,
-        title: 'i',
-        artist: 'Kendrick Lamar',
-        category: 'genre',
-        genre: 'Hip Hop',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795698/ab67616d00001e026d89f336fbfbdf2089701da0.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795655/i_spotdown.org.mp3',
+        genre: 'Pop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839379/ab67616d0000e1a3f72f1e38e9bd48f18a17ed9b.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839331/Goodbye_Yellow_Brick_Road_-_Remastered_2014_spotdown.org.mp3',
         duration: 235,
         userIds: [0]
     },
     {
-        id: 1158,
-        title: 'On Melancholy Hill',
-        artist: 'Gorillaz',
+        id: 1144,
+        title: "I'm Still Standing",
+        artist: 'Elton John',
         category: 'genre',
-        genre: 'Hip Hop',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684132/ab67616d0000e1a3661d019f34569f79eae9e985.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839342/On_Melancholy_Hill_spotdown.org.mp3',
+        genre: 'Pop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839380/ab67616d00001e02eb11e2abccdca41f39ad3b89.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839334/I_m_Still_Standing_spotdown.org.mp3',
+        duration: 195,
+        userIds: [0]
+    },
+    {
+        id: 1146,
+        title: 'Be Like a Woman',
+        artist: 'Chris Rainbow',
+        category: 'genre',
+        genre: 'Pop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839377/ab67616d0000e1a3f96aee01fdb9a8d00db869c5.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839338/Be_Like_a_Woman_spotdown.org.mp3',
         duration: 210,
+        userIds: [0]
+    },
+    {
+        id: 1148,
+        title: 'Rock Your Body',
+        artist: 'Justin Timberlake',
+        category: 'genre',
+        genre: 'Pop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839378/ab67616d00001e02346a5742374ab4cf9ed32dee.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839340/Rock_Your_Body_spotdown.org.mp3',
+        duration: 260,
+        userIds: [0]
+    },
+    {
+        id: 1149,
+        title: 'Maneater',
+        artist: 'Nelly Furtado',
+        category: 'genre',
+        genre: 'Pop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839380/ab67616d00001e02a6f439c8957170652f9410e2.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839343/Maneater_spotdown.org.mp3',
+        duration: 240,
+        userIds: [0]
+    },
+
+    /* ============================================================
+       GÊNERO: R&B  (GLOBAL — todos veem, ID 0)
+       ============================================================ */
+
+    {
+        id: 800,
+        title: 'Superpowers',
+        artist: 'Daniel Caesar',
+        category: 'genre',
+        genre: 'R&B',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684135/ab67616d00001e02e242f18dafe885fcf425fe1f.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682326/Superpowers_spotdown.org.mp3',
+        duration: 230,
+        userIds: [0]
+    },
+    {
+        id: 1120,
+        title: 'I Wish you Roses',
+        artist: 'Kali Uchis',
+        category: 'genre',
+        genre: 'R&B',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795698/ab67616d00001e0281fccd758776d16b87721b17.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795651/I_Wish_you_Roses_spotdown.org.mp3',
+        duration: 225,
+        userIds: [0]
+    },
+    {
+        id: 1122,
+        title: 'Love Me',
+        artist: 'JMSN',
+        category: 'genre',
+        genre: 'R&B',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795695/ab67616d0000e1a383541947535fe7841504d1b4.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795655/Love_Me_spotdown.org.mp3',
+        duration: 240,
+        userIds: [0]
+    },
+    {
+        id: 1143,
+        title: 'After The Storm',
+        artist: 'Kali Uchis, Tyler, The Creator, Bootsy Collins',
+        category: 'genre',
+        genre: 'R&B',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786599224/ab67616d00001e0290b4e1905b1fc48c537ec053.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839331/After_The_Storm_feat._Tyler_The_Creator_Bootsy_Collins__spotdown.org.mp3',
+        duration: 215,
+        userIds: [0]
+    },
+    {
+        id: 1145,
+        title: 'Miami',
+        artist: 'Kali Uchis, BIA',
+        category: 'genre',
+        genre: 'R&B',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786599224/ab67616d00001e0290b4e1905b1fc48c537ec053.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839338/Miami_feat._BIA__spotdown.org.mp3',
+        duration: 220,
         userIds: [0]
     },
 
@@ -1124,17 +1403,6 @@ const baseSongs = [
        GÊNERO: MPB  (GLOBAL — todos veem, ID 0)
        ============================================================ */
 
-    {
-        id: 70,
-        title: 'Lágrimas',
-        artist: 'Baco Exu do Blues',
-        category: 'genre',
-        genre: 'MPB',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786599222/ab67616d00001e02e4f4bac5cfa8a7945ac12a82.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786599320/L%C3%A1grimas_spotdown.org.mp3',
-        duration: 240,
-        userIds: [0]
-    },
     {
         id: 71,
         title: 'Lisboa',
@@ -1144,50 +1412,6 @@ const baseSongs = [
         coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786599221/ab67616d00001e02b1e8a9fa2c21159ea637b766.jpg',
         url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786599340/Lisboa_spotdown.org.mp3',
         duration: 220,
-        userIds: [0]
-    },
-    {
-        id: 72,
-        title: 'Deusa',
-        artist: 'BK, 2ZDinizz, Anchietx, Nansy Silvvz',
-        category: 'genre',
-        genre: 'MPB',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786599222/ab67616d00001e02dd12836650253ee55aefc990.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786599342/Deusa_spotdown.org.mp3',
-        duration: 235,
-        userIds: [0]
-    },
-    {
-        id: 73,
-        title: 'Beatriz',
-        artist: '2ZDinizz, Leborato, HHR',
-        category: 'genre',
-        genre: 'MPB',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786599223/ab67616d00001e02f8fc839361eacee6af4af11a.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786599354/Beatriz_spotdown.org.mp3',
-        duration: 210,
-        userIds: [0]
-    },
-    {
-        id: 904,
-        title: 'JETSKI',
-        artist: 'PEDRO SAMPAIO',
-        category: 'genre',
-        genre: 'MPB',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684137/ab67616d00001e021f7ed7c8c424c74a5ee07f35.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682291/JETSKI_spotdown.org.mp3',
-        duration: 195,
-        userIds: [0]
-    },
-    {
-        id: 905,
-        title: 'PENSANDO EM MIM',
-        artist: 'Matchola',
-        category: 'genre',
-        genre: 'MPB',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684136/ab67616d00001e021d3e1aa544727851b836e908.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682368/PENSANDO_EM_MIM_spotdown.org.mp3',
-        duration: 210,
         userIds: [0]
     },
     {
@@ -1203,34 +1427,56 @@ const baseSongs = [
     },
 
     /* ============================================================
-       GÊNERO: REGGAETON  (GLOBAL — todos veem, ID 0)
+       GÊNERO: SAMBA  (GLOBAL — todos veem, ID 0)
        ============================================================ */
 
     {
-        id: 74,
-        title: 'DtMF',
-        artist: 'Bad Bunny',
+        id: 1153,
+        title: 'Disritmia',
+        artist: 'Casuarina',
         category: 'genre',
-        genre: 'Reggaeton',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786599222/ab67616d00001e02bbd45c8d36e0e045ef640411.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786599340/DtMF_spotdown.org.mp3',
+        genre: 'Samba',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839377/ab67616d00001e027b9e0964a3da8315e9131a52.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839332/Disritmia_spotdown.org.mp3',
         duration: 200,
+        userIds: [0]
+    },
+    {
+        id: 1154,
+        title: 'Mina Feia',
+        artist: 'Seu Jorge',
+        category: 'genre',
+        genre: 'Samba',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839378/ab67616d0000e1a302c77637cc19ad1520c2b352.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839344/Mina_Feia_spotdown.org.mp3',
+        duration: 215,
         userIds: [0]
     },
 
     /* ============================================================
-       GÊNERO: UNDERGROUND  (GLOBAL — todos veem, ID 0)
+       GÊNERO: FUNK  (GLOBAL — todos veem, ID 0)
        ============================================================ */
 
     {
-        id: 75,
-        title: 'Jóias do Bairro',
-        artist: 'LEALL, Borges, Rock Danger',
+        id: 904,
+        title: 'JETSKI',
+        artist: 'Pedro Sampaio, Melody, MC Meno K',
         category: 'genre',
-        genre: 'Underground',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786599218/ab67616d0000e1a3ba4fda5eb4b7b216e4efd3be.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786599348/J%C3%B3ias_do_Bairro_spotdown.org.mp3',
-        duration: 215,
+        genre: 'Funk',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684137/ab67616d00001e021f7ed7c8c424c74a5ee07f35.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682291/JETSKI_spotdown.org.mp3',
+        duration: 195,
+        userIds: [0]
+    },
+    {
+        id: 300,
+        title: 'I Love You',
+        artist: 'Dupê',
+        category: 'genre',
+        genre: 'Funk',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684133/ab67616d0000e1a3659844e850c85c1f0abd6d81.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682366/I_Love_You_spotdown.org.mp3',
+        duration: 220,
         userIds: [0]
     },
 
@@ -1258,17 +1504,6 @@ const baseSongs = [
         coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786591723/ab67616d0000e1a3affbc662fdc4630890d21353.webp',
         url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786591692/Fa%C3%A7o_Chover_It_Will_Rain__spotdown.org.mp3',
         duration: 230,
-        userIds: [0]
-    },
-    {
-        id: 300,
-        title: 'I Love You',
-        artist: 'Dupê',
-        category: 'genre',
-        genre: 'Forró',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684133/ab67616d0000e1a3659844e850c85c1f0abd6d81.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682366/I_Love_You_spotdown.org.mp3',
-        duration: 220,
         userIds: [0]
     },
     {
@@ -1343,19 +1578,8 @@ const baseSongs = [
         userIds: [0]
     },
     {
-        id: 1117,
-        title: 'Master Of Puppets',
-        artist: 'Metallica',
-        category: 'genre',
-        genre: 'Rock',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795698/ab67616d00001e02668e3aca3167e6e569a9aa20.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795645/Master_Of_Puppets_spotdown.org.mp3',
-        duration: 510,
-        userIds: [0]
-    },
-    {
         id: 1118,
-        title: 'The Night Begin to Shine',
+        title: 'The Night Begins to Shine',
         artist: 'B.E.R',
         category: 'genre',
         genre: 'Rock',
@@ -1366,73 +1590,149 @@ const baseSongs = [
     },
 
     /* ============================================================
-       GÊNERO: R&B  (GLOBAL — todos veem, ID 0)
+       GÊNERO: METAL  (GLOBAL — todos veem, ID 0)
        ============================================================ */
 
     {
-        id: 800,
-        title: 'Superpowers',
-        artist: 'Daniel Caesar',
+        id: 1117,
+        title: 'Master Of Puppets',
+        artist: 'Metallica',
         category: 'genre',
-        genre: 'R&B',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684135/ab67616d00001e02e242f18dafe885fcf425fe1f.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682326/Superpowers_spotdown.org.mp3',
-        duration: 230,
+        genre: 'Metal',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795698/ab67616d00001e02668e3aca3167e6e569a9aa20.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795645/Master_Of_Puppets_spotdown.org.mp3',
+        duration: 510,
         userIds: [0]
     },
     {
-        id: 801,
-        title: 'The Largest',
-        artist: 'BigXthaPlug',
+        id: 1133,
+        title: 'GJ!',
+        artist: 'BABYMETAL',
         category: 'genre',
-        genre: 'R&B',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684135/ab67616d00001e02fed9afd601a1732fdae85ea8.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786682271/The_Largest_spotdown.org.mp3',
-        duration: 200,
+        genre: 'Metal',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839377/ab67616d0000e1a37ee1677ea6b0d68cc01984fb.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839331/GJ__spotdown.org.mp3',
+        duration: 190,
         userIds: [0]
     },
     {
-        id: 1119,
-        title: 'Beautiful',
-        artist: 'Snoop Dogg, Pharrell Williams',
+        id: 1135,
+        title: 'Kool-Aid',
+        artist: 'Bring Me The Horizon',
         category: 'genre',
-        genre: 'R&B',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795693/ab67616d0000e1a38cdb0d29bb99ad4febccac39.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795646/Beautiful_spotdown.org.mp3',
-        duration: 270,
-        userIds: [0]
-    },
-    {
-        id: 1120,
-        title: 'I Wish you Roses',
-        artist: 'Kali Uchis',
-        category: 'genre',
-        genre: 'R&B',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795698/ab67616d00001e0281fccd758776d16b87721b17.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795651/I_Wish_you_Roses_spotdown.org.mp3',
+        genre: 'Metal',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839377/ab67616d00001e02df51a3d66223e5b01813e0c4.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839336/Kool-Aid_spotdown.org.mp3',
         duration: 225,
         userIds: [0]
     },
     {
-        id: 1121,
-        title: '(When You Gonna) Give It Up to Me',
-        artist: 'Sean Paul',
+        id: 1136,
+        title: 'Freak on a Leash',
+        artist: 'Korn',
         category: 'genre',
-        genre: 'R&B',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795695/ab67616d00001e02a539563b3d77bd3ba17d016e.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795652/When_You_Gonna_Give_It_Up_to_Me_-_Radio_Version_spotdown.org.mp3',
-        duration: 230,
+        genre: 'Metal',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839381/ab67616d00001e024e492e787ed64de43c3a3a21.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839336/Freak_On_a_Leash_spotdown.org.mp3',
+        duration: 260,
         userIds: [0]
     },
     {
-        id: 1122,
-        title: 'Love Me',
-        artist: 'JMSN',
+        id: 1137,
+        title: 'Song 3',
+        artist: 'BABYMETAL, Slaughter To Prevail',
         category: 'genre',
-        genre: 'R&B',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795695/ab67616d0000e1a383541947535fe7841504d1b4.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795655/Love_Me_spotdown.org.mp3',
-        duration: 240,
+        genre: 'Metal',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839377/ab67616d0000e1a34b0ed3119e27ff6e56298053.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839337/Song_3_spotdown.org.mp3',
+        duration: 200,
+        userIds: [0]
+    },
+    {
+        id: 1138,
+        title: 'Hot Dog',
+        artist: 'Limp Bizkit',
+        category: 'genre',
+        genre: 'Metal',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839379/ab67616d00001e024a31b146c7cf07705d912efe.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839340/Hot_Dog_spotdown.org.mp3',
+        duration: 245,
+        userIds: [0]
+    },
+    {
+        id: 1139,
+        title: 'Nookie',
+        artist: 'Limp Bizkit',
+        category: 'genre',
+        genre: 'Metal',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839379/ab67616d00001e023783782de74f61e36795bf9c.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839343/Nookie_spotdown.org.mp3',
+        duration: 255,
+        userIds: [0]
+    },
+    {
+        id: 1140,
+        title: 'Blind',
+        artist: 'Korn',
+        category: 'genre',
+        genre: 'Metal',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786589285/ab67616d00001e027153b1cf6ee990c2a9fa46cc.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839346/Blind_spotdown.org.mp3',
+        duration: 280,
+        userIds: [0]
+    },
+    {
+        id: 1141,
+        title: 'Take a Look Around',
+        artist: 'Limp Bizkit',
+        category: 'genre',
+        genre: 'Metal',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839379/ab67616d00001e024a31b146c7cf07705d912efe.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839346/Take_A_Look_Around_spotdown.org.mp3',
+        duration: 310,
+        userIds: [0]
+    },
+    {
+        id: 1134,
+        title: 'mea culpa',
+        artist: 'LVCAS',
+        category: 'genre',
+        genre: 'Metal',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839378/ab67616d0000e1a3dd986b82796751ebedac22e4.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839332/mea_culpa_spotdown.org.mp3',
+        duration: 230,
+        userIds: [1]
+    },
+
+    /* ============================================================
+       GÊNERO: REGGAETON  (GLOBAL — todos veem, ID 0)
+       ============================================================ */
+
+    {
+        id: 74,
+        title: 'DtMF',
+        artist: 'Bad Bunny',
+        category: 'genre',
+        genre: 'Reggaeton',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786599222/ab67616d00001e02bbd45c8d36e0e045ef640411.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1786599340/DtMF_spotdown.org.mp3',
+        duration: 200,
+        userIds: [0]
+    },
+
+    /* ============================================================
+       GÊNERO: DANCEHALL  (GLOBAL — todos veem, ID 0)
+       ============================================================ */
+
+    {
+        id: 1121,
+        title: '(When You Gonna) Give It Up to Me',
+        artist: 'Sean Paul, Keyshia Cole',
+        category: 'genre',
+        genre: 'Dancehall',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795695/ab67616d00001e02a539563b3d77bd3ba17d016e.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795652/When_You_Gonna_Give_It_Up_to_Me_-_Radio_Version_spotdown.org.mp3',
+        duration: 230,
         userIds: [0]
     },
 
@@ -1492,7 +1792,7 @@ const baseSongs = [
     {
         id: 1000,
         title: 'SPAGHETTI',
-        artist: 'LE SSERAFIM',
+        artist: 'LE SSERAFIM, j-hope',
         category: 'genre',
         genre: 'K-POP',
         coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684129/ab67616d0000e1a36c4a726c271daf4a4b97e35b.webp',
@@ -1503,7 +1803,7 @@ const baseSongs = [
     {
         id: 1150,
         title: 'STRATEGY',
-        artist: 'Twice',
+        artist: 'TWICE, Megan Thee Stallion',
         category: 'genre',
         genre: 'K-POP',
         coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839379/ab67616d00001e02acf8ff27be32aec99d6c99a0.jpg',
@@ -1578,7 +1878,7 @@ const baseSongs = [
     },
     {
         id: 1155,
-        title: 'Cheios do Espirito Santo',
+        title: 'Cheios do Espírito Santo',
         artist: 'Thalles Roberto',
         category: 'genre',
         genre: 'Gospel',
@@ -1646,306 +1946,6 @@ const baseSongs = [
         url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839341/Virtual_Insanity_-_Remastered_2006_spotdown.org.mp3',
         duration: 260,
         userIds: [0]
-    },
-
-    /* ============================================================
-       GÊNERO: SAMBA  (GLOBAL — todos veem, ID 0)
-       ============================================================ */
-
-    {
-        id: 1153,
-        title: 'Disritmia',
-        artist: 'Casuarina',
-        category: 'genre',
-        genre: 'Samba',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839377/ab67616d00001e027b9e0964a3da8315e9131a52.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839332/Disritmia_spotdown.org.mp3',
-        duration: 200,
-        userIds: [0]
-    },
-    {
-        id: 1154,
-        title: 'Mina Feia',
-        artist: 'Seu Jorge',
-        category: 'genre',
-        genre: 'Samba',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839378/ab67616d0000e1a302c77637cc19ad1520c2b352.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839344/Mina_Feia_spotdown.org.mp3',
-        duration: 215,
-        userIds: [0]
-    },
-
-    /* ============================================================
-       GÊNERO: METAL  (GLOBAL — todos veem, ID 0)
-       ============================================================ */
-
-    {
-        id: 1133,
-        title: 'GJ!',
-        artist: 'BABYMETAL',
-        category: 'genre',
-        genre: 'Metal',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839377/ab67616d0000e1a37ee1677ea6b0d68cc01984fb.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839331/GJ__spotdown.org.mp3',
-        duration: 190,
-        userIds: [0]
-    },
-    {
-        id: 1135,
-        title: 'Kool-Aid',
-        artist: 'Bring Me The Horizon',
-        category: 'genre',
-        genre: 'Metal',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839377/ab67616d00001e02df51a3d66223e5b01813e0c4.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839336/Kool-Aid_spotdown.org.mp3',
-        duration: 225,
-        userIds: [0]
-    },
-    {
-        id: 1136,
-        title: 'Freak on a Leash',
-        artist: 'Korn',
-        category: 'genre',
-        genre: 'Metal',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839381/ab67616d00001e024e492e787ed64de43c3a3a21.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839336/Freak_On_a_Leash_spotdown.org.mp3',
-        duration: 260,
-        userIds: [0]
-    },
-    {
-        id: 1137,
-        title: 'Song 3',
-        artist: 'BABYMETAL',
-        category: 'genre',
-        genre: 'Metal',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839377/ab67616d0000e1a34b0ed3119e27ff6e56298053.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839337/Song_3_spotdown.org.mp3',
-        duration: 200,
-        userIds: [0]
-    },
-    {
-        id: 1138,
-        title: 'Hot Dog',
-        artist: 'Limp Bizkit',
-        category: 'genre',
-        genre: 'Metal',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839379/ab67616d00001e024a31b146c7cf07705d912efe.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839340/Hot_Dog_spotdown.org.mp3',
-        duration: 245,
-        userIds: [0]
-    },
-    {
-        id: 1139,
-        title: 'Nookie',
-        artist: 'Limp Bizkit',
-        category: 'genre',
-        genre: 'Metal',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839379/ab67616d00001e023783782de74f61e36795bf9c.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839343/Nookie_spotdown.org.mp3',
-        duration: 255,
-        userIds: [0]
-    },
-    {
-        id: 1140,
-        title: 'Blind',
-        artist: 'Korn',
-        category: 'genre',
-        genre: 'Metal',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786589285/ab67616d00001e027153b1cf6ee990c2a9fa46cc.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839346/Blind_spotdown.org.mp3',
-        duration: 280,
-        userIds: [0]
-    },
-    {
-        id: 1141,
-        title: 'Take a Look Around',
-        artist: 'Limp Bizkit',
-        category: 'genre',
-        genre: 'Metal',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839379/ab67616d00001e024a31b146c7cf07705d912efe.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839346/Take_A_Look_Around_spotdown.org.mp3',
-        duration: 310,
-        userIds: [0]
-    },
-
-    /* ============================================================
-       GÊNERO: INDIE — MÚSICAS ADICIONAIS (GLOBAL — ID 0)
-       ============================================================ */
-
-    {
-        id: 1104,
-        title: 'Glimpse of Us',
-        artist: 'Joji',
-        category: 'genre',
-        genre: 'Indie',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795693/ab67616d0000e1a3f3f7d2ea2ad435b57d6697df.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795642/Glimpse_of_Us_spotdown.org.mp3',
-        duration: 220,
-        userIds: [0]
-    },
-    {
-        id: 1105,
-        title: 'Chamber Of Reflection',
-        artist: 'Mac DeMarco',
-        category: 'genre',
-        genre: 'Indie',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795693/ab67616d0000e1a38b221f2ccf777ae0d4b0db50.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795644/Chamber_Of_Reflection_spotdown.org.mp3',
-        duration: 210,
-        userIds: [0]
-    },
-    {
-        id: 1106,
-        title: 'Breathe',
-        artist: 'Malcolm Todd',
-        category: 'genre',
-        genre: 'Indie',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795697/ab67616d00001e026ad1bfc5a6102f8e926a8c5f.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795645/Breathe_spotdown.org.mp3',
-        duration: 195,
-        userIds: [0]
-    },
-    {
-        id: 1107,
-        title: 'You Owe Me',
-        artist: 'Malcolm Todd',
-        category: 'genre',
-        genre: 'Indie',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795693/ab67616d0000e1a3ec2143e5aa8537a7de47b004.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795649/You_Owe_Me_spotdown.org.mp3',
-        duration: 200,
-        userIds: [0]
-    },
-    {
-        id: 1108,
-        title: 'Dracula (with JENNIE)',
-        artist: 'Tame Impala, JENNIE',
-        category: 'genre',
-        genre: 'Indie',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795692/ab67616d0000e1a3c7c031ce9d06b131f8563676.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795651/Dracula_-_JENNIE_Remix_spotdown.org.mp3',
-        duration: 225,
-        userIds: [0]
-    },
-    {
-        id: 1109,
-        title: 'Concrete',
-        artist: 'Malcolm Todd',
-        category: 'genre',
-        genre: 'Indie',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795695/ab67616d0000e1a387607b2c8f5f52f1f057be0d.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795652/Concrete_spotdown.org.mp3',
-        duration: 205,
-        userIds: [0]
-    },
-
-    /* ============================================================
-       GÊNERO: POP — MÚSICAS ADICIONAIS (GLOBAL — ID 0)
-       ============================================================ */
-
-    {
-        id: 1142,
-        title: 'Goodbye Yellow Brick Road',
-        artist: 'Elton John',
-        category: 'genre',
-        genre: 'Pop',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839379/ab67616d0000e1a3f72f1e38e9bd48f18a17ed9b.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839331/Goodbye_Yellow_Brick_Road_-_Remastered_2014_spotdown.org.mp3',
-        duration: 235,
-        userIds: [0]
-    },
-    {
-        id: 1143,
-        title: 'After The Storm',
-        artist: 'Kali Uchis',
-        category: 'genre',
-        genre: 'Pop',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786599224/ab67616d00001e0290b4e1905b1fc48c537ec053.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839331/After_The_Storm_feat._Tyler_The_Creator_Bootsy_Collins__spotdown.org.mp3',
-        duration: 215,
-        userIds: [0]
-    },
-    {
-        id: 1144,
-        title: "I'm Still Standing",
-        artist: 'Elton John',
-        category: 'genre',
-        genre: 'Pop',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839380/ab67616d00001e02eb11e2abccdca41f39ad3b89.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839334/I_m_Still_Standing_spotdown.org.mp3',
-        duration: 195,
-        userIds: [0]
-    },
-    {
-        id: 1145,
-        title: 'Miami (feat. BIA)',
-        artist: 'Kali Uchis',
-        category: 'genre',
-        genre: 'Pop',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786599224/ab67616d00001e0290b4e1905b1fc48c537ec053.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839338/Miami_feat._BIA__spotdown.org.mp3',
-        duration: 220,
-        userIds: [0]
-    },
-    {
-        id: 1146,
-        title: 'Be Like a Woman',
-        artist: 'Chris Rainbow',
-        category: 'genre',
-        genre: 'Pop',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839377/ab67616d0000e1a3f96aee01fdb9a8d00db869c5.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839338/Be_Like_a_Woman_spotdown.org.mp3',
-        duration: 210,
-        userIds: [0]
-    },
-    {
-        id: 1147,
-        title: "She's My Collar",
-        artist: 'Gorillaz',
-        category: 'genre',
-        genre: 'Pop',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839380/ab67616d0000e1a3a5952c0e2e649f588603b743.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839342/She_s_My_Collar_feat._Kali_Uchis__spotdown.org.mp3',
-        duration: 210,
-        userIds: [0]
-    },
-    {
-        id: 1148,
-        title: 'Rock Your Body',
-        artist: 'Justin Timberlake',
-        category: 'genre',
-        genre: 'Pop',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839378/ab67616d00001e02346a5742374ab4cf9ed32dee.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839340/Rock_Your_Body_spotdown.org.mp3',
-        duration: 260,
-        userIds: [0]
-    },
-    {
-        id: 1149,
-        title: 'Maneater',
-        artist: 'Nelly Furtado',
-        category: 'genre',
-        genre: 'Pop',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839380/ab67616d00001e02a6f439c8957170652f9410e2.jpg',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839343/Maneater_spotdown.org.mp3',
-        duration: 240,
-        userIds: [0]
-    },
-
-    /* ============================================================
-       GÊNERO: METAL — MÚSICAS EXCLUSIVAS (só Murilo, ID 1)
-       ============================================================ */
-
-    {
-        id: 1134,
-        title: 'mea culpa',
-        artist: 'LVCAS',
-        category: 'genre',
-        genre: 'Metal',
-        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839378/ab67616d0000e1a3dd986b82796751ebedac22e4.webp',
-        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839332/mea_culpa_spotdown.org.mp3',
-        duration: 230,
-        userIds: [1]
     }
 
 ];

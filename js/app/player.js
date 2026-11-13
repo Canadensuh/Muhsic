@@ -121,6 +121,7 @@ function exibirFaixa(track) {
     if (maxArtist)     maxArtist.textContent = track.artist;
     if (maxCover && track.coverImage) maxCover.src = track.coverImage;
     atualizarBotaoCurtir(track);        // ♥ afundado se a faixa já é curtida
+    atualizarMidiaSistema(track);       // disco na barra de mídia do sistema
 }
 
 /**

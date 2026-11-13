@@ -166,8 +166,11 @@ muhsic/
         ├── player-events.js .. Modo MANUAL/BOTÕES, gestos no vinil, teclado da
         │                       vitrola e eventos do <audio>
         ├── disc-drag.js ...... Arrastar o disco da prateleira até a vitrola
+        │                       (MANUAL) ou clicar e ele voa até ela (BOTÕES)
         ├── game.js ........... Jogo GUESS THE MUSIC (dificuldade, rodadas,
         │                       confirmação, placar e recordes)
+        ├── media-session.js .. Barra de mídia do sistema (Media Session API):
+        │                       disco desenhado em <canvas> + tocar/próxima/anterior
         ├── max-panel.js ...... Painel maximizado e seus gestos
         ├── navigation.js ..... Menu, voltar, dropdown, busca, teclado
         ├── themes.js ......... Acabamentos: aplicar, salvar e gerar o seletor
@@ -250,10 +253,11 @@ módulos do mesmo nível podem se chamar entre si.
                                     21  app/views/shelf.js
                                     22  app/disc-drag.js
                                     23  app/game.js
-                                    24  app/navigation.js
-                                    25  app/themes.js
-                                    26  app/user-ui.js
-                                    27  app/main.js   ← sempre por último
+                                    24  app/media-session.js
+                                    25  app/navigation.js
+                                    26  app/themes.js
+                                    27  app/user-ui.js
+                                    28  app/main.js   ← sempre por último
 
 Além disso, muhsic.html tem um pequeno <script> inline no <head> que
 redireciona para o login ANTES de desenhar a página, caso não exista sessão.
@@ -364,6 +368,10 @@ redireciona para o login ANTES de desenhar a página, caso não exista sessão.
   Modo de controle: loadControlMode, setControlMode, isManualMode,
   bindControlModeSwitch. No modo BOTÕES o giro e o scroll do disco são
   ignorados (clique, duplo clique e botão direito continuam).
+  Celular (PLAYER.mobileQuery = max-width 900px): o modo fica travado em
+  BOTÕES (body.controls-locked, chave desativada); voltando ao layout de
+  PC, volta a escolha salva. No modo BOTÕES um clique no disco da
+  prateleira o leva voando até a vitrola (disc-drag.js → voarParaVitrola).
   bindDeckControls: teclas da vitrola (#deckPrev, #deckPlay, #deckNext,
   #deckShuffle, #deckLike, #deckMax, #deckVolDown, #deckVolUp) e som de
   clique em todas as .key.
@@ -675,9 +683,10 @@ redireciona para o login ANTES de desenhar a página, caso não exista sessão.
   • Senhas em texto puro e autenticação no navegador: aceitável apenas por
     ser uma simulação acadêmica. Não usar com dados reais.
   • Dados salvos ficam apenas no navegador atual (não sincroniza).
-  • Gestos do vinil usam mouse; em telas de toque a vitrola começa no
-    modo BOTÕES. No toque, arrastar o disco é trocado por "tocar no disco"
-    para não atrapalhar a rolagem da tela.
+  • Gestos do vinil usam mouse; no layout de celular a vitrola fica travada
+    no modo BOTÕES, em que um toque no disco já o leva até a vitrola.
+  • A barra de mídia do sistema depende do navegador (Chrome/Edge no
+    Windows mostram o disco; outros podem mostrar só o texto).
   • O visual usa color-mix() do CSS: navegadores de 2023 em diante
     (Chrome 111+, Firefox 113+, Safari 16.2+).
   • Os botões ♥/+ salvam apenas álbuns; em playlists ainda não fazem nada.

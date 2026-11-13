@@ -5,10 +5,12 @@
    Só o DISCO sai da prateleira e fica "preso" ao cursor,
    girando; a etiqueta com o título continua no lugar.
 
-     mouse  → segurar e arrastar; soltar sobre a vitrola toca
-              a música, soltar fora devolve o disco à prateleira
-     toque  → um toque no disco toca a música (arrastar com o
-              dedo atrapalharia a rolagem da tela)
+     MANUAL → segurar e arrastar com o mouse; soltar sobre a
+              vitrola toca a música, soltar fora devolve o disco
+     BOTÕES → um clique (ou toque) no disco já o leva voando até
+              a vitrola. É o único modo no celular, onde segurar e
+              arrastar atrapalharia a rolagem da tela.
+     (em tela touch, um toque funciona como clique nos dois modos)
    ============================================================ */
 
 const DRAG_START_PX = 6;      // movimento mínimo para virar arraste
@@ -33,7 +35,7 @@ function onDiscPointerDown(e) {
     discDrag = {
         item, disc, songId,
         pointerId: e.pointerId,
-        touch: e.pointerType === 'touch',
+        tap: e.pointerType === 'touch' || !isManualMode(),   // basta clicar
         startX: e.clientX,
         startY: e.clientY,
         started: false,
@@ -41,7 +43,7 @@ function onDiscPointerDown(e) {
         size: 0
     };
 
-    if (!discDrag.touch) e.preventDefault();      // evita seleção de texto
+    if (e.pointerType !== 'touch') e.preventDefault();     // evita seleção de texto
     document.addEventListener('pointermove', onDiscPointerMove);
     document.addEventListener('pointerup', onDiscPointerUp);
     document.addEventListener('pointercancel', encerrarArraste);
@@ -52,7 +54,7 @@ function onDiscPointerMove(e) {
     if (!d || e.pointerId !== d.pointerId) return;
     const dist = Math.hypot(e.clientX - d.startX, e.clientY - d.startY);
 
-    if (d.touch) {                                 // no celular, mexer = rolar a tela
+    if (d.tap) {                                   // mexer = rolar a tela / desistir
         if (dist > TAP_MAX_PX) encerrarArraste();
         return;
     }
@@ -70,11 +72,9 @@ function onDiscPointerUp(e) {
     const d = discDrag;
     if (!d || e.pointerId !== d.pointerId) return;
 
-    if (d.touch) {                                 // toque simples: toca a música
-        const songId = d.songId;
-        encerrarArraste();
+    if (d.tap) {                                   // clique/toque: vai direto à vitrola
         playClickSound();
-        playFromShelf(songId);
+        voarParaVitrola(d);
         return;
     }
 
@@ -119,6 +119,21 @@ function soltarNaVitrola(d) {
 
     const songId = d.songId;
     finalizarDepois(d, 320, () => playFromShelf(songId));
+}
+
+/** Modo BOTÕES: o disco sai da prateleira e voa sozinho até o prato */
+function voarParaVitrola(d) {
+    const alvo = vinylWrapper?.getBoundingClientRect();
+    if (!alvo || !alvo.width) {                    // vitrola escondida: só toca
+        const songId = d.songId;
+        encerrarArraste();
+        playFromShelf(songId);
+        return;
+    }
+    levantarDisco(d);
+    posicionarFantasma(d, d.origem.x, d.origem.y);
+    void d.ghost.offsetWidth;                      // fixa o ponto de partida do voo
+    soltarNaVitrola(d);
 }
 
 /** Soltou fora: o disco volta para o lugar dele na prateleira */

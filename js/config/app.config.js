@@ -51,6 +51,7 @@ const PLAYER = {
     maxVisibleQueue:   7,     // itens em "A seguir" no painel maximizado
     maxHistory:        50,    // músicas lembradas pelo botão "anterior"
     dblClickMs:        300,   // espera antes do clique simples no disco virar play/pausa
+    mobileQuery:       '(max-width: 900px)',   // celular: layout empilhado, só modo BOTÕES
     restartThreshold:  3,     // segundos: antes disso "anterior" volta a faixa
     degreesPerSecond:  90,    // velocidade do vinil (1 volta a cada 4s)
     swapThreshold:     60,    // graus de giro manual para trocar de faixa

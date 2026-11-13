@@ -54,8 +54,9 @@ com cara de **tela de jogo** — nada de cópia de app de streaming:
 |------|-----------|
 | 🎧 **Toca-discos hi-fi** | Painel direito com prato, braço, visor LCD e VU meter. O disco gira em tempo real, freia ao pausar e o braço desce antes do play |
 | 🖱️ **Gestos** | Clique = play/pause · Girar = próxima/anterior · Scroll = volume · Duplo clique = curtir (sem pausar) · Botão direito = menu |
-| 🎚️ **Chave MANUAL / BOTÕES** | Escolha como controlar a vitrola: **Manual** (gestos no disco) ou **Botões** (teclado com anterior, play/pausa, próxima, embaralhar, curtir, modo vitrine e volume −/+). A escolha fica salva no perfil |
-| 📥 **Arrastar e soltar** | Segure um disco da prateleira: só o **disco** sai e fica preso ao cursor, girando. Solte na vitrola e ele pousa no prato e toca. No celular, um toque no disco já toca |
+| 🎚️ **Chave MANUAL / BOTÕES** | Escolha como controlar a vitrola: **Manual** (gestos no disco) ou **Botões** (teclado com anterior, play/pausa, próxima, embaralhar, curtir, modo vitrine e volume −/+). A escolha fica salva no perfil. **No celular** fica travada em Botões |
+| 📥 **Arrastar e soltar** | Segure um disco da prateleira: só o **disco** sai e fica preso ao cursor, girando. Solte na vitrola e ele pousa no prato e toca (modo **Manual**). No modo **Botões** (e no celular) basta **clicar** no disco: ele voa sozinho até a vitrola |
+| 🪟 **Barra de mídia do sistema** | Ao usar as teclas de mídia, a barra do Windows (e a tela de bloqueio do celular) mostra o **disco** da música atual com a capa no selo, título, artista e os botões tocar/pausar/próxima/anterior. No Guess the Music aparece um disco "?" |
 | 🔀 **Embaralhar** | Sorteia de novo as **próximas** faixas (da biblioteca inteira, sem repetir) — a música atual continua tocando |
 | 📚 **Próximas faixas** | Lista com as 5 próximas faixas abaixo do prato, igual à do modo vitrine; clique em uma para tocá-la |
 | ⏸️ **Freio do disco** | Ao pausar, o disco da vitrola **e** o da prateleira avançam um pouco e voltam, como uma freada real |
@@ -116,7 +117,7 @@ com cara de **tela de jogo** — nada de cópia de app de streaming:
 4. Abra uma pasta, **segure um disco e leve até a vitrola** — ele fica preso ao cursor e pousa no prato.
 5. Com a chave em **MANUAL**: gire o vinil para trocar de faixa e use o scroll para o volume.
 6. Pause e mostre a **freada** do disco (na vitrola e na prateleira).
-7. Vire a chave para **BOTÕES** → aparecem o teclado e o volume −/+.
+7. Vire a chave para **BOTÕES** → aparecem o teclado e o volume −/+, e basta **clicar** num disco para ele voar até a vitrola. Aperte uma tecla de mídia do teclado → a barra do Windows mostra o disco.
 8. Clique em **embaralhar** → as próximas faixas mudam, a atual continua.
 9. Dê duplo clique (ou ♥) para curtir → **Discos curtidos** aparece no topo do rack.
 10. Tecla ⤢ (ou botão direito → maximizar) → **modo vitrine** em tela cheia.

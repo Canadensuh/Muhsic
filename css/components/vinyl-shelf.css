@@ -47,6 +47,9 @@
 }
 .vinyl-item:hover { transform: translateY(-6px); }
 .vinyl-item:active { cursor: grabbing; }
+/* BOTÕES: clicar no disco já toca (não precisa arrastar) */
+body.controls-buttons .vinyl-item,
+body.controls-buttons .vinyl-item:active { cursor: pointer; }
 
 /* Disco tirado da prateleira (está preso ao cursor): fica só a marca do lugar */
 .vinyl-item.disc-lifted .shelf-vinyl {

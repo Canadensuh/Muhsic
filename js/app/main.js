@@ -46,6 +46,7 @@ function initMuhsic() {
     etapa('arrastar discos',    bindDiscDrag);
     etapa('curtir na prateleira', bindCoracoesPrateleira);
     etapa('jogo',               bindGame);
+    etapa('mídia do sistema',   bindMediaSession);
     etapa('painel maximizado',  bindMaxPanelEvents);
     etapa('navegação',          bindNavEvents);
     etapa('menu do usuário',    bindUserMenu);
