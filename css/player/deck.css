@@ -21,7 +21,7 @@
         inset 0 2px 0 rgba(255, 220, 170, 0.25),
         inset 0 -12px 24px rgba(0, 0, 0, 0.45),
         0 20px 50px rgba(0, 0, 0, 0.6),
-        0 0 0 1px #120b07;
+        0 0 0 1px var(--frame);
     scrollbar-width: none;
 }
 .deck::-webkit-scrollbar { display: none; }
@@ -69,7 +69,7 @@ body.is-playing .deck-led {
     padding: 10px 14px 12px;
     background:
         repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.18) 0 1px, transparent 1px 3px),
-        radial-gradient(ellipse at 30% 0%, rgba(255, 181, 71, 0.08), transparent 70%),
+        radial-gradient(ellipse at 30% 0%, color-mix(in srgb, var(--lcd-text) 8%, transparent), transparent 70%),
         var(--lcd-bg);
     border: 2px solid #050302;
     border-radius: 8px;
@@ -123,7 +123,7 @@ body.is-playing .deck-led {
     height: 100%;
     width: 0;
     background: repeating-linear-gradient(90deg, var(--lcd-text) 0 5px, transparent 5px 7px);
-    filter: drop-shadow(0 0 4px rgba(255, 181, 71, 0.7));
+    filter: drop-shadow(0 0 4px color-mix(in srgb, var(--lcd-text) 70%, transparent));
 }
 .progress-bar:hover { filter: brightness(1.2); }
 
@@ -156,34 +156,13 @@ body.is-playing .vu span { animation: vu 0.9s ease-in-out infinite alternate; }
     100% { transform: scaleY(0.95); }
 }
 
-/* ---------- Fila ---------- */
-.deck-queue {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 10px 12px;
-    min-height: 74px;
-    background: rgba(0, 0, 0, 0.28);
-    border-radius: 10px;
-    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5);
-}
-.deck-label {
-    font-family: var(--font-lcd);
-    font-size: 16px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(243, 230, 200, 0.6);
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-}
-
 /* ---------- Teclado de controle ---------- */
 .deck-keys {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 10px;
     padding: 12px 10px 16px;
-    background: linear-gradient(180deg, #2b241e, #1b1612);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--metal-2) 88%, #fff), color-mix(in srgb, var(--metal-2) 70%, #000));
     border-radius: 10px;
     box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.7), 0 1px 0 rgba(255, 220, 170, 0.15);
 }
@@ -192,6 +171,8 @@ body.is-playing .vu span { animation: vu 0.9s ease-in-out infinite alternate; }
 body.is-playing .deck-play .icon-play  { display: none; }
 body.is-playing .deck-play .icon-pause { display: inline-block; }
 #deckLike { color: var(--brick); }
+/* Música já curtida: a tecla ♥ fica afundada (clicar de novo descurte) */
+#deckLike.is-pressed { --k-top: #f1c9b8; --k-top-2: #e2a893; color: #a8261c; }
 
 /* ---------- Volume ---------- */
 .deck-volume {
@@ -214,6 +195,83 @@ body.is-playing .deck-play .icon-pause { display: inline-block; }
     height: 100%;
     width: calc(var(--vol, 0.7) * 100%);
     background: repeating-linear-gradient(90deg, var(--lcd-text) 0 6px, transparent 6px 8px);
-    filter: drop-shadow(0 0 4px rgba(255, 181, 71, 0.7));
+    filter: drop-shadow(0 0 4px color-mix(in srgb, var(--lcd-text) 70%, transparent));
     transition: width 0.12s linear;
 }
+
+/* ============================================================
+   CHAVE MANUAL / BOTÕES
+   ============================================================ */
+.mode-switch {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 4px 6px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 220, 170, 0.12);
+    cursor: pointer;
+}
+.mode-switch + .deck-led { margin-left: 0; }
+
+.mode-switch-label {
+    font-family: var(--font-lcd);
+    font-size: 15px;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(243, 230, 200, 0.35);
+    transition: color 0.2s, text-shadow 0.2s;
+}
+/* O rótulo do modo ativo acende como LCD */
+body:not(.controls-buttons) .mode-manual,
+body.controls-buttons .mode-buttons {
+    color: var(--lcd-text);
+    text-shadow: var(--lcd-glow);
+}
+
+/* Trilho de metal + alavanca em formato de tecla */
+.mode-switch-track {
+    position: relative;
+    width: 36px; height: 18px;
+    border-radius: 9px;
+    background: linear-gradient(180deg, #0c0a08, #2a2520);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.8), 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+.mode-switch-knob {
+    position: absolute;
+    top: 1px; left: 1px;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, var(--key-top), var(--key-side));
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.6), inset 0 -1px 0 var(--key-edge);
+    transition: transform 0.22s cubic-bezier(0.34, 1.5, 0.64, 1), background 0.2s;
+}
+body.controls-buttons .mode-switch-knob {
+    transform: translateX(18px);
+    background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--accent) 70%, #fff), var(--accent));
+}
+.mode-switch:active .mode-switch-knob { filter: brightness(0.9); }
+
+/* ============================================================
+   O QUE APARECE EM CADA MODO
+   ============================================================ */
+/* MANUAL (padrão): teclado e −/+ escondidos (os gestos são feitos no próprio disco) */
+.deck-keys,
+#deckVolDown,
+#deckVolUp { display: none; }
+
+body.controls-buttons .deck-keys      { display: grid; }
+body.controls-buttons #deckVolDown,
+body.controls-buttons #deckVolUp      { display: inline-flex; }
+
+/* ============================================================
+   AJUSTES DE ESPAÇO
+   Só a lista "Próximas" encolhe/rola; o resto mantém o tamanho.
+   ============================================================ */
+.deck > * { flex-shrink: 0; }
+.deck > .deck-queue { flex: 1 1 0; min-height: 120px; }
+
+.deck-brand { white-space: nowrap; font-size: 11px; }
+.deck-model { display: none; }      /* espaço para a chave MANUAL / BOTÕES */

@@ -7,7 +7,7 @@
      scroll ............ volume
      duplo clique ...... curtir
      botão direito ..... menu (aleatório / maximizar)
-     soltar um disco ... tocar a faixa arrastada
+     (arrastar discos até a vitrola: js/app/disc-drag.js)
    ============================================================ */
 
 let isDragging        = false;
@@ -16,12 +16,74 @@ let dragStartDiskAng  = 0;
 let dragTotalRotation = 0;
 let dragMoved         = false;
 
+/* ============================================================
+   MODO DE CONTROLE  (chave MANUAL / BOTÕES na vitrola)
+     manual  → gestos no disco: girar troca a faixa, scroll = volume
+     buttons → teclado e volume −/+ visíveis; giro e scroll desligados
+   Clique (tocar/pausar), duplo clique (curtir) e botão direito
+   (menu) funcionam nos dois modos. A escolha é salva por usuário.
+   ============================================================ */
+let controlMode = CONTROL_MODES.manual;
+
+function isManualMode() {
+    return controlMode === CONTROL_MODES.manual;
+}
+
+function setControlMode(mode, salvar = true) {
+    controlMode = mode === CONTROL_MODES.buttons ? CONTROL_MODES.buttons : CONTROL_MODES.manual;
+    const botoes = controlMode === CONTROL_MODES.buttons;
+    document.body.classList.toggle('controls-buttons', botoes);
+    document.body.classList.toggle('controls-manual', !botoes);
+    $('controlModeSwitch')?.setAttribute('aria-checked', String(botoes));
+    if (salvar) Store.set(STORAGE_KEYS.controls(currentUserId), controlMode);
+}
+
+/** Modo salvo; sem escolha salva, telas de toque começam em BOTÕES */
+function loadControlMode() {
+    const salvo = Store.get(STORAGE_KEYS.controls(currentUserId), null);
+    const toque = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+    setControlMode(salvo || (toque ? CONTROL_MODES.buttons : CONTROL_MODES.manual), false);
+}
+
+function bindControlModeSwitch() {
+    $('controlModeSwitch')?.addEventListener('click', (e) => {
+        e.currentTarget.blur();
+        playClickSound();
+        setControlMode(isManualMode() ? CONTROL_MODES.buttons : CONTROL_MODES.manual);
+    });
+}
+
+/* ============================================================
+   CLIQUE SIMPLES × DUPLO CLIQUE NO DISCO
+   Um clique = tocar/pausar; dois cliques = curtir. O clique simples
+   espera PLAYER.dblClickMs: se vier um segundo clique nesse tempo,
+   era um duplo clique (o evento "dblclick" curte) e a música NÃO pausa.
+   Usado pelo disco da vitrola e pelo do modo vitrine.
+   ============================================================ */
+let timerCliqueDisco = null;
+
+function cliqueNoDisco() {
+    if (timerCliqueDisco) {                 // 2º clique: é duplo clique
+        clearTimeout(timerCliqueDisco);
+        timerCliqueDisco = null;
+        return;
+    }
+    /* No Guess the Music o duplo clique não curte: responde na hora */
+    if (typeof modoJogoAtivo === 'function' && modoJogoAtivo()) { togglePlay(); return; }
+
+    timerCliqueDisco = setTimeout(() => {
+        timerCliqueDisco = null;
+        togglePlay();
+    }, PLAYER.dblClickMs);
+}
+
 /* ---------- Menu de contexto ---------- */
 function isContextMenuOpen() {
     return !!(contextMenu && contextMenu.classList.contains('visible'));
 }
 
 function openContextMenu() {
+    if (modoJogoAtivo()) return;
     if (contextMenu) contextMenu.classList.add('visible');
     if (ctxRandomBtn) ctxRandomBtn.classList.toggle('active', state.isShuffled);
 }
@@ -39,10 +101,9 @@ function bindPlayerEvents() {
     bindAudioEvents();
     bindProgressBar();
     bindVinylGestures();
-    bindVinylDrop();
 
     if (ctxRandomBtn) ctxRandomBtn.addEventListener('click', (e) => {
-        e.stopPropagation(); closeContextMenu(); tocarAleatoriaGlobal();
+        e.stopPropagation(); closeContextMenu(); embaralharProximas();
     });
     if (ctxMaximizeBtn) ctxMaximizeBtn.addEventListener('click', (e) => {
         e.stopPropagation(); closeContextMenu(); abrirMaxPanel();
@@ -112,6 +173,7 @@ function bindProgressBar() {
     if (!progressBar) return;
     progressBar.addEventListener('click', (e) => {
         const rect = progressBar.getBoundingClientRect();
+        if (modoJogoAtivo()) return;            // não dá para pular o trecho do jogo
         const pct = (e.clientX - rect.left) / rect.width;
         if (!isNaN(audio.duration)) audio.currentTime = pct * audio.duration;
     });
@@ -120,6 +182,7 @@ function bindProgressBar() {
 /* ---------- Gestos no vinil ---------- */
 function bindVinylGestures() {
     vinylWrapper.addEventListener('wheel', (e) => {
+        if (!isManualMode()) return;               // modo BOTÕES: scroll normal
         e.preventDefault(); e.stopPropagation();
         if (isContextMenuOpen()) return;
         applyVolume(state.volume + (e.deltaY > 0 ? -PLAYER.volumeStep : PLAYER.volumeStep));
@@ -155,6 +218,13 @@ function bindVinylGestures() {
         const cur = getMouseAngleFor(vinylWrapper, e);
         dragTotalRotation += angleDiff(cur, dragStartMouseAng);
         dragStartMouseAng = cur;
+
+        /* Modo BOTÕES: o disco não gira com o mouse (só detecta o clique) */
+        if (!isManualMode()) {
+            if (Math.abs(dragTotalRotation) > CLICK_TOLERANCE) dragMoved = true;
+            return;
+        }
+
         if (!dragMoved && Math.abs(dragTotalRotation) > CLICK_TOLERANCE) {
             dragMoved = true;
             cancelAnimationFrame(rafId);
@@ -169,6 +239,12 @@ function bindVinylGestures() {
         vinylWrapper.classList.remove('dragging');
         const total = dragTotalRotation;
 
+        if (!isManualMode()) {                     // modo BOTÕES: só clique
+            if (!dragMoved) cliqueNoDisco();
+            dragTotalRotation = 0;
+            return;
+        }
+
         if (total >= SWAP_THRESHOLD) {             // girou para frente
             accumulatedAngle = dragStartDiskAng + total;
             nextTrack();
@@ -176,7 +252,7 @@ function bindVinylGestures() {
             accumulatedAngle = dragStartDiskAng + total;
             prevTrack();
         } else if (!dragMoved) {                   // foi só um clique
-            togglePlay();
+            cliqueNoDisco();
         } else {                                   // giro curto: volta ao lugar
             accumulatedAngle = dragStartDiskAng;
             if (vinyl) vinyl.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1)';
@@ -184,6 +260,7 @@ function bindVinylGestures() {
             setTimeout(() => {
                 if (vinyl) vinyl.style.transition = 'none';
                 if (audio && !audio.paused) startSpin();
+                else if (modoJogoAtivo()) retomarGiroJogo();
             }, 420);
         }
         dragTotalRotation = 0;
@@ -196,7 +273,7 @@ function bindDeckControls() {
         deckPrev:    () => prevTrack(),
         deckPlay:    () => togglePlay(),
         deckNext:    () => nextTrack(),
-        deckShuffle: () => tocarAleatoriaGlobal(),
+        deckShuffle: () => embaralharProximas(),
         deckLike:    () => toggleLikeCurrent(),
         deckMax:     () => abrirMaxPanel(),
         deckVolDown: () => { applyVolume(state.volume - PLAYER.volumeStep * 2); showVolumeOverlay(); },
@@ -218,20 +295,3 @@ function bindDeckControls() {
     });
 }
 
-/* ---------- Arrastar disco da prateleira até a vitrola ---------- */
-function bindVinylDrop() {
-    vinylWrapper.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        e.dataTransfer.dropEffect = 'copy';
-        vinylWrapper.classList.add('drop-target');
-    });
-    vinylWrapper.addEventListener('dragleave', (e) => {
-        if (!vinylWrapper.contains(e.relatedTarget)) vinylWrapper.classList.remove('drop-target');
-    });
-    vinylWrapper.addEventListener('drop', (e) => {
-        e.preventDefault();
-        vinylWrapper.classList.remove('drop-target');
-        const songId = parseInt(e.dataTransfer.getData('text/plain'), 10);
-        if (songId) playFromShelf(songId);
-    });
-}

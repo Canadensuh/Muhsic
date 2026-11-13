@@ -44,6 +44,6 @@
     animation: blink 1.4s steps(2, start) infinite;
 }
 .ad-banner .ad-content > div { flex: 1; min-width: 0; }
-.ad-banner .ad-content strong { color: #fff7e6; font-size: 14px; }
+.ad-banner .ad-content strong { color: var(--text-on-accent); font-size: 14px; }
 .ad-banner .ad-content p { font-size: 13px; color: rgba(255, 247, 230, 0.85); margin-top: 2px; }
 .ad-cta { flex-shrink: 0; }

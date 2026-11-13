@@ -35,7 +35,9 @@ async function openDetail(type, name) {
     state.currentItemName = name;
     state.playlist = tracks;
 
-    $('page-home')?.classList.remove('active');
+    /* Esconde a aba aberta (Início, Buscar ou o jogo) */
+    document.querySelectorAll('.main .page.active').forEach(p => p.classList.remove('active'));
+    sairDaAbaDoJogo();
     $('playlistDetail')?.classList.add('active');
 
     const imagem   = capaDaColecao(tracks, cover);

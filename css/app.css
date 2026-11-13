@@ -24,8 +24,10 @@
 @import url('components/ad-banner.css');
 @import url('components/folder-cards.css');
 @import url('components/vinyl-shelf.css');
+@import url('components/track-rows.css');
 @import url('pages/detail.css');
 @import url('components/search.css');
+@import url('pages/game.css');
 @import url('components/login-animation.css');
 
 /* 4. Vitrola (painel direito) */

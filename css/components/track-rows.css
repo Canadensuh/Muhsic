@@ -1,0 +1,98 @@
+/* ============================================================
+   MUHSIC — COMPONENTS / TRACK-ROWS.CSS
+   ------------------------------------------------------------
+   Lista de faixas (uma embaixo da outra) usada em:
+     - "Próximas" da vitrola   (#queueStack)
+     - "A seguir" do modo vitrine (#maxNextList)
+   Gerada por faixaHTML() em js/app/queue.js.
+   ============================================================ */
+
+.track-row {
+    display: grid;
+    grid-template-columns: auto auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px 6px 8px;
+    border-radius: 8px;
+    background: var(--bg-card);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+.track-row:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-strong);
+    transform: translateX(3px);
+}
+
+.track-row-num {
+    font-family: var(--font-lcd);
+    font-size: 17px;
+    color: var(--text-muted);
+    min-width: 18px;
+}
+
+/* Mini disco com a capa no selo */
+.track-row-disc {
+    position: relative;
+    width: 36px; height: 36px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: repeating-radial-gradient(circle, #121010 0 2px, #1e1a17 2px 3px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.45);
+}
+.track-row-disc img,
+.track-row-disc .placeholder {
+    position: absolute;
+    inset: 28%;
+    width: 44%; height: 44%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.track-row-disc .placeholder {
+    display: grid;
+    place-items: center;
+    background: var(--accent);
+    color: var(--text-on-accent);
+    font-size: 8px;
+    font-weight: 700;
+}
+.track-row:hover .track-row-disc { animation: spin 2s linear infinite; }
+
+.track-row-info { display: flex; flex-direction: column; min-width: 0; line-height: 1.25; }
+.track-row-title,
+.track-row-artist {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.track-row-title  { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.track-row-artist { font-size: 11px; color: var(--text-muted); }
+
+.track-row-time {
+    font-family: var(--font-lcd);
+    font-size: 16px;
+    color: var(--text-muted);
+}
+
+.track-rows-empty {
+    padding: 12px;
+    text-align: center;
+    font-family: var(--font-lcd);
+    font-size: 17px;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+}
+
+/* Animação ao embaralhar: as faixas "caem" na lista de novo */
+.shuffling .track-row { animation: trackShuffle 0.5s cubic-bezier(0.34, 1.4, 0.64, 1) both; }
+.shuffling .track-row:nth-child(2) { animation-delay: 0.04s; }
+.shuffling .track-row:nth-child(3) { animation-delay: 0.08s; }
+.shuffling .track-row:nth-child(4) { animation-delay: 0.12s; }
+.shuffling .track-row:nth-child(5) { animation-delay: 0.16s; }
+.shuffling .track-row:nth-child(6) { animation-delay: 0.20s; }
+.shuffling .track-row:nth-child(7) { animation-delay: 0.24s; }
+@keyframes trackShuffle {
+    0%   { opacity: 0; transform: translateX(24px) rotate(1deg); }
+    100% { opacity: 1; transform: none; }
+}

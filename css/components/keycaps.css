@@ -109,7 +109,7 @@
     --k-top-2: var(--accent);
     --k-side: var(--accent-dark);
     --k-edge: color-mix(in srgb, var(--accent) 40%, #000);
-    --k-text: #fff7e6;
+    --k-text: var(--text-on-accent);
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 }
 .key--accent[data-legend]::before { color: rgba(255, 247, 230, 0.75); }
@@ -120,6 +120,34 @@
     --k-top-2: #b9aa84;
     --k-side: #8f8160;
     --k-edge: #6d6148;
+}
+
+/* Teclas de resposta: verde (sim) e vermelha (não) */
+.key--green {
+    --k-top: #7fcf6e;
+    --k-top-2: #4f9f43;
+    --k-side: #2f6a28;
+    --k-edge: #1f461a;
+    --k-text: #f4ffe9;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+}
+.key--red {
+    --k-top: #e8735c;
+    --k-top-2: #c4452c;
+    --k-side: #85291a;
+    --k-edge: #5a1a10;
+    --k-text: #fff3ee;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+}
+.key--green[data-legend]::before,
+.key--red[data-legend]::before { color: rgba(255, 255, 255, 0.7); }
+
+/* Tecla desligada (ex.: próxima/anterior durante o Guess the Music) */
+.key:disabled,
+.key[disabled] {
+    cursor: not-allowed;
+    opacity: 0.38;
+    filter: grayscale(0.7);
 }
 
 .key--sm  { padding: 8px 12px; min-height: 34px; font-size: 11px; --key-depth: 4px; border-radius: 7px; }

@@ -33,7 +33,21 @@
     <!-- Tela de carregamento ao entrar -->
     <div class="login-animation-overlay" id="loginAnimation">
         <div class="boot">
-            <img src="assets/img/muhsic-mark.svg" alt="Muhsic" class="boot-mark">
+            <svg class="boot-mark muhsic-mark" viewBox="0 0 100 100" role="img" aria-label="Muhsic">
+                <circle cx="50" cy="50" r="48" class="mark-body"/>
+                <g class="mark-grooves">
+                    <circle cx="50" cy="50" r="44"/><circle cx="50" cy="50" r="40"/>
+                    <circle cx="50" cy="50" r="36"/><circle cx="50" cy="50" r="32"/>
+                </g>
+                <path class="mark-shine" d="M14 30 A44 44 0 0 1 40 8"/>
+                <circle cx="50" cy="50" r="27" class="mark-label"/>
+                <g class="mark-bars">
+                    <rect x="31" y="44" width="4" height="12" rx="2"/><rect x="37" y="36" width="4" height="28" rx="2"/>
+                    <rect x="43" y="40" width="4" height="20" rx="2"/><rect x="49" y="45" width="4" height="10" rx="2"/>
+                    <rect x="55" y="40" width="4" height="20" rx="2"/><rect x="61" y="36" width="4" height="28" rx="2"/>
+                    <rect x="67" y="44" width="4" height="12" rx="2"/>
+                </g>
+            </svg>
             <p class="boot-title">MUHSIC</p>
             <p class="boot-text lcd-text">CARREGANDO LADO A<span class="blink">_</span></p>
             <div class="boot-bar"><span></span></div>
@@ -48,10 +62,25 @@
         <aside class="sidebar panel">
             <div class="sidebar-top">
                 <div class="logo">
-                    <img src="assets/img/muhsic-mark.svg" alt="" class="logo-mark">
+                    <!-- Mesmo desenho de assets/img/muhsic-mark.svg, pintado com as cores do acabamento -->
+                    <svg class="logo-mark muhsic-mark" viewBox="0 0 100 100" aria-hidden="true">
+                        <circle cx="50" cy="50" r="48" class="mark-body"/>
+                        <g class="mark-grooves">
+                            <circle cx="50" cy="50" r="44"/><circle cx="50" cy="50" r="40"/>
+                            <circle cx="50" cy="50" r="36"/><circle cx="50" cy="50" r="32"/>
+                        </g>
+                        <path class="mark-shine" d="M14 30 A44 44 0 0 1 40 8"/>
+                        <circle cx="50" cy="50" r="27" class="mark-label"/>
+                        <g class="mark-bars">
+                            <rect x="31" y="44" width="4" height="12" rx="2"/><rect x="37" y="36" width="4" height="28" rx="2"/>
+                            <rect x="43" y="40" width="4" height="20" rx="2"/><rect x="49" y="45" width="4" height="10" rx="2"/>
+                            <rect x="55" y="40" width="4" height="20" rx="2"/><rect x="61" y="36" width="4" height="28" rx="2"/>
+                            <rect x="67" y="44" width="4" height="12" rx="2"/>
+                        </g>
+                    </svg>
                     <span class="logo-word">MUHSIC</span>
                 </div>
-                <span class="version-badge">BETA 0.7</span>
+                <span class="version-badge">BETA 2.0</span>
             </div>
 
             <div class="menu-section">
@@ -63,8 +92,8 @@
                     <li class="key key--block nav-key" data-page="search" data-legend="F2">
                         <i class="fas fa-magnifying-glass"></i><span>Buscar</span>
                     </li>
-                    <li class="key key--block nav-key" data-page="library" data-legend="F3">
-                        <i class="fas fa-box-archive"></i><span>Coleção</span>
+                    <li class="key key--block nav-key nav-key--game" data-page="game" data-legend="F3" aria-label="Jogo: Guess the Music">
+                        <i class="fas fa-gamepad"></i><span>Guess the Music</span>
                     </li>
                 </ul>
             </div>
@@ -85,8 +114,8 @@
                 </div>
 
                 <div class="user-profile" id="userProfile" tabindex="0">
-                    <img src="https://res.cloudinary.com/oizv8icb/image/upload/v1786594773/178054037.jpg"
-                         alt="Avatar" class="avatar-img" id="userAvatar">
+                    <!-- Foto do perfil ou, sem foto, a inicial do nome (js/app/user-ui.js) -->
+                    <span class="avatar-img" id="userAvatar" aria-hidden="true"></span>
                     <div class="user-meta-top">
                         <span id="userName">—</span>
                         <small id="planInfo" class="plan-info">Plano: —</small>
@@ -110,9 +139,7 @@
             <div class="main-scroll">
 
                 <div class="welcome">
-                    <p class="welcome-kicker lcd-text">&gt; PERFIL CARREGADO</p>
                     <h1>Bem-vindo(a), <span id="greetingUser">—</span></h1>
-                    <p>Escolha uma pasta, puxe um disco e solte na vitrola.</p>
                 </div>
 
                 <div class="ad-banner" id="adBanner" style="display:none;">
@@ -120,7 +147,7 @@
                         <span class="ad-tag">Comercial</span>
                         <div>
                             <strong>Cansado dos intervalos?</strong>
-                            <p>Com o <strong>Muhsic+</strong> a música não para — e o aparelho ganha 7 acabamentos.</p>
+                            <p>Com o <strong>Muhsic+</strong> a música não para — e o aparelho ganha 12 acabamentos.</p>
                         </div>
                         <button class="key key--sm key--accent ad-cta" id="adUpgradeBtn">Ver planos</button>
                     </div>
@@ -141,12 +168,12 @@
                             <h2 id="detailTitle">Playlist</h2>
                             <div class="playlist-meta" id="detailMeta"></div>
                             <div class="playlist-actions" id="detailActions">
-                                <button class="key key--icon like-btn" id="detailLikeBtn" title="Curtir">
+                                <button class="key key--icon like-btn" id="detailLikeBtn" aria-label="Curtir">
                                     <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
                                         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                                     </svg>
                                 </button>
-                                <button class="key key--icon save-btn" id="detailSaveBtn" title="Salvar">
+                                <button class="key key--icon save-btn" id="detailSaveBtn" aria-label="Salvar">
                                     <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
                                         <circle cx="12" cy="12" r="10"/>
                                         <line x1="12" y1="8" x2="12" y2="16"/>
@@ -156,7 +183,6 @@
                             </div>
                         </div>
                     </div>
-                    <p class="shelf-hint"><i class="fas fa-hand-pointer"></i> Arraste um disco até a vitrola para tocar</p>
                     <div class="track-list" id="trackList"></div>
                 </section>
 
@@ -169,13 +195,88 @@
                     <div id="searchResults" class="track-list"></div>
                 </section>
 
-                <section class="page" id="page-library">
-                    <div class="section-header">
-                        <h2>Sua coleção</h2>
-                        <a href="#" id="libraryMeta">— discos</a>
+                <!-- ======================================================
+                     JOGO — GUESS THE MUSIC (js/app/game.js)
+                     ====================================================== -->
+                <section class="page" id="page-game">
+
+                    <!-- Tela 1: tela título do jogo + escolha do gênero -->
+                    <div class="game-screen game-select active" id="gameSelect">
+                        <div class="game-hero">
+                            <div class="game-hero-text">
+                                <span class="game-kicker lcd-text">&gt; INSIRA UMA FICHA<span class="blink">_</span></span>
+                                <h2 class="game-logo">Guess <span>the</span> Music</h2>
+                                <p class="game-lead">
+                                    Ouça um trecho de <strong>5, 3 ou 1 segundo</strong> — começo, meio ou fim —
+                                    e descubra qual dos <strong>4 discos</strong> está tocando.
+                                </p>
+                            </div>
+
+                            <!-- Placar geral do jogador -->
+                            <div class="game-scoreboard">
+                                <div class="game-score-lcd">
+                                    <span class="avatar-img game-score-avatar" id="gameScoreAvatar" aria-hidden="true"></span>
+                                    <div class="game-score-text">
+                                        <span class="game-score-label">SCORE · <span id="gameScoreName">P1</span></span>
+                                        <span class="game-score-value" id="gameTotalScore">000000</span>
+                                        <span class="game-score-sub" id="gameTotalSub">0 PARTIDAS · 0 ACERTOS · 0%</span>
+                                    </div>
+                                </div>
+                                <div class="game-score-actions">
+                                    <button class="key key--sm" id="gameOpenTable"><i class="fas fa-table-list"></i> Placar</button>
+                                    <button class="key key--sm key--mod" id="gameResetBtn"><i class="fas fa-rotate-left"></i> Resetar pontos</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section-header"><h2>Escolha o gênero</h2><a id="gameTotal"></a></div>
+                        <!-- Pastas no mesmo formato das capas do Início; o MIX é a pasta maior -->
+                        <div class="game-genres" id="gameGenres"></div>
                     </div>
-                    <div class="track-list" id="libraryList"></div>
+
+                    <!-- Tela 2: rodada (4 discos lado a lado). O trecho toca na VITROLA do painel direito. -->
+                    <div class="game-screen game-board" id="gameBoard">
+                        <div class="game-question">
+                            <button class="key key--sm key--mod game-quit" id="gameQuit" data-legend="ESC">
+                                <i class="fas fa-arrow-left"></i> Gêneros
+                            </button>
+                            <div class="game-lcd">
+                                <div class="game-lcd-top">
+                                    <span id="gameGenreName">MIX</span>
+                                    <span id="gameLevelName">FÁCIL</span>
+                                    <span>RODADA <b id="gameRound">1/1</b></span>
+                                    <span>PONTOS <b id="gameScore">0</b></span>
+                                </div>
+                                <div class="game-lcd-msg" id="gameMsg">ADIVINHE A MÚSICA</div>
+                                <div class="game-timer"><span id="gameTimer"></span></div>
+                            </div>
+                        </div>
+                        <div class="game-pips" id="gamePips"></div>
+                        <div class="game-discs" id="gameDiscs"></div>
+                    </div>
+
+                    <!-- Tela 3: placar final -->
+                    <div class="game-screen game-end" id="gameEnd">
+                        <div class="game-end-card">
+                            <span class="game-kicker lcd-text">FIM DE JOGO</span>
+                            <div class="game-end-score" id="gameEndScore">0/0</div>
+                            <div class="game-end-rank" id="gameEndRank">—</div>
+                            <p class="game-end-record" id="gameEndRecord"></p>
+                            <div class="game-end-actions">
+                                <button class="key key--accent" id="gameAgain"><i class="fas fa-rotate-right"></i> Jogar de novo</button>
+                                <button class="key key--mod" id="gameBackToGenres"><i class="fas fa-list"></i> Outro gênero</button>
+                            </div>
+                        </div>
+                    </div>
                 </section>
+            </div>
+            <!-- GUESS THE MUSIC: carimbo de ACERTOU / ERROU (cobre só a tela central) -->
+            <div class="game-result" id="gameResult" aria-live="assertive">
+                <div class="game-result-stamp">
+                    <i class="fas" id="gameResultIcon"></i>
+                    <strong id="gameResultTitle">ACERTOU!</strong>
+                    <span id="gameResultSong"></span>
+                </div>
             </div>
         </main>
 
@@ -187,7 +288,16 @@
             <div class="deck-head">
                 <span class="deck-brand">MUHSIC <b>HI-FI</b></span>
                 <span class="deck-model">MS-86</span>
-                <span class="deck-led" title="Ligado"></span>
+
+                <!-- Chave de modo: gestos no disco (MANUAL) ou teclado (BOTÕES) -->
+                <button class="mode-switch" id="controlModeSwitch" role="switch" aria-checked="false"
+                        aria-label="Alternar entre controle manual (gestos no disco) e botões">
+                    <span class="mode-switch-label mode-manual">Manual</span>
+                    <span class="mode-switch-track"><span class="mode-switch-knob"></span></span>
+                    <span class="mode-switch-label mode-buttons">Botões</span>
+                </button>
+
+                <span class="deck-led" aria-label="Ligado"></span>
             </div>
 
             <!-- Visor LCD -->
@@ -226,11 +336,13 @@
                         </div>
                     </div>
 
-                    <div class="vinyl-wrapper" id="vinyl-wrapper" title="Clique: tocar/pausar · Gire: trocar disco · Scroll: volume · Duplo clique: curtir · Botão direito: opções">
+                    <div class="vinyl-wrapper" id="vinyl-wrapper" aria-label="Clique: tocar/pausar · Gire: trocar disco · Scroll: volume · Duplo clique: curtir · Botão direito: opções">
                         <div class="vinyl" id="vinyl">
                             <div class="vinyl-label">
                                 <img id="cover-a" class="cover active" src="" alt="Capa">
                                 <img id="cover-b" class="cover" src="" alt="Capa">
+                                <!-- No jogo Guess the Music a capa some e o selo vira um "?" -->
+                                <span class="vinyl-mystery" aria-hidden="true">?</span>
                             </div>
                         </div>
 
@@ -252,14 +364,14 @@
                         </div>
 
                         <div class="context-menu" id="context-menu">
-                            <button class="ctx-btn" id="ctx-random" aria-label="Disco aleatório" title="Tocar disco aleatório">
+                            <button class="ctx-btn" id="ctx-random" aria-label="Embaralhar próximas">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/>
                                     <polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/>
                                     <line x1="4" y1="4" x2="9" y2="9"/>
                                 </svg>
                             </button>
-                            <button class="ctx-btn" id="ctx-maximize" aria-label="Maximizar player" title="Maximizar player">
+                            <button class="ctx-btn" id="ctx-maximize" aria-label="Maximizar player">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/>
                                     <line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/>
@@ -274,28 +386,30 @@
 
             <!-- Fila -->
             <div class="deck-queue">
-                <span class="deck-label">Próximos</span>
+                <div class="deck-queue-head">
+                    <span class="deck-label"><i class="fas fa-layer-group" id="deckQueueIcon"></i> <span id="deckQueueLabel">Próximas</span></span>
+                </div>
                 <div class="queue-stack" id="queueStack"></div>
             </div>
 
-            <!-- Teclado da vitrola -->
+            <!-- Modo BOTÕES: teclado da vitrola -->
             <div class="deck-keys">
-                <button class="key key--icon key--mod" id="deckPrev" title="Faixa anterior (←)"><i class="fas fa-backward-step"></i></button>
-                <button class="key key--icon key--accent deck-play" id="deckPlay" title="Tocar / pausar (Espaço)">
+                <button class="key key--icon key--mod" id="deckPrev" aria-label="Faixa anterior (←)"><i class="fas fa-backward-step"></i></button>
+                <button class="key key--icon key--accent deck-play" id="deckPlay" aria-label="Tocar / pausar (Espaço)">
                     <i class="fas fa-play icon-play"></i><i class="fas fa-pause icon-pause"></i>
                 </button>
-                <button class="key key--icon key--mod" id="deckNext" title="Próxima faixa (→)"><i class="fas fa-forward-step"></i></button>
-                <button class="key key--icon has-led" id="deckShuffle" title="Disco aleatório"><i class="fas fa-shuffle"></i></button>
-                <button class="key key--icon" id="deckLike" title="Curtir disco"><i class="fas fa-heart"></i></button>
-                <button class="key key--icon" id="deckMax" title="Modo vitrine"><i class="fas fa-expand"></i></button>
+                <button class="key key--icon key--mod" id="deckNext" aria-label="Próxima faixa (→)"><i class="fas fa-forward-step"></i></button>
+                <button class="key key--icon has-led" id="deckShuffle" aria-label="Embaralhar as próximas faixas"><i class="fas fa-shuffle"></i></button>
+                <button class="key key--icon" id="deckLike" aria-label="Curtir disco"><i class="fas fa-heart"></i></button>
+                <button class="key key--icon" id="deckMax" aria-label="Modo vitrine"><i class="fas fa-expand"></i></button>
             </div>
 
             <div class="deck-volume">
-                <button class="key key--icon key--sm key--mod" id="deckVolDown" title="Diminuir volume"><i class="fas fa-minus"></i></button>
+                <button class="key key--icon key--sm key--mod" id="deckVolDown" aria-label="Diminuir volume"><i class="fas fa-minus"></i></button>
                 <div class="volume-meter" id="volumeMeter" aria-label="Volume">
                     <span class="volume-meter-fill"></span>
                 </div>
-                <button class="key key--icon key--sm key--mod" id="deckVolUp" title="Aumentar volume"><i class="fas fa-plus"></i></button>
+                <button class="key key--icon key--sm key--mod" id="deckVolUp" aria-label="Aumentar volume"><i class="fas fa-plus"></i></button>
             </div>
         </aside>
 
@@ -340,14 +454,14 @@
                         </div>
 
                         <div class="max-context-menu" id="maxContextMenu">
-                            <button class="max-ctx-btn" id="maxCtxRandom" aria-label="Disco aleatório" title="Disco aleatório">
+                            <button class="max-ctx-btn" id="maxCtxRandom" aria-label="Embaralhar próximas">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/>
                                     <polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/>
                                     <line x1="4" y1="4" x2="9" y2="9"/>
                                 </svg>
                             </button>
-                            <button class="max-ctx-btn" id="maxCtxMinimize" aria-label="Minimizar" title="Minimizar">
+                            <button class="max-ctx-btn" id="maxCtxMinimize" aria-label="Minimizar">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/>
                                     <line x1="14" y1="10" x2="21" y2="3"/><line x1="3" y1="21" x2="10" y2="14"/>
@@ -380,6 +494,81 @@
 
     <audio id="audio" preload="metadata"></audio>
 
+    <!-- GUESS THE MUSIC: escolha da dificuldade -->
+    <div class="game-overlay" id="gameLevel" aria-hidden="true">
+        <div class="game-dialog game-dialog--level" role="dialog" aria-modal="true" aria-labelledby="gameLevelTitle">
+            <div class="settings-titlebar game-dialog-titlebar">
+                <!-- Logo em SVG embutido: usa as cores do acabamento (mesmo do rack) -->
+                <svg class="game-dialog-logo muhsic-mark" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48" class="mark-body"/><g class="mark-grooves"><circle cx="50" cy="50" r="44"/><circle cx="50" cy="50" r="40"/><circle cx="50" cy="50" r="36"/><circle cx="50" cy="50" r="32"/></g><path class="mark-shine" d="M14 30 A44 44 0 0 1 40 8"/><circle cx="50" cy="50" r="27" class="mark-label"/><g class="mark-bars"><rect x="31" y="44" width="4" height="12" rx="2"/><rect x="37" y="36" width="4" height="28" rx="2"/><rect x="43" y="40" width="4" height="20" rx="2"/><rect x="49" y="45" width="4" height="10" rx="2"/><rect x="55" y="40" width="4" height="20" rx="2"/><rect x="61" y="36" width="4" height="28" rx="2"/><rect x="67" y="44" width="4" height="12" rx="2"/></g></svg>
+                <h2 id="gameLevelTitle">Dificuldade</h2>
+                <button class="key key--icon key--sm key--mod settings-close" id="gameLevelClose" aria-label="Fechar" data-legend="ESC">
+                    <i class="fas fa-xmark"></i>
+                </button>
+            </div>
+            <div class="game-dialog-body">
+                <p class="game-level-genre lcd-text" id="gameLevelGenre">MIX</p>
+                <!-- Teclas geradas por js/app/game.js a partir de GAME.levels -->
+                <div class="game-levels" id="gameLevels"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GUESS THE MUSIC: "Tem certeza?" -->
+    <div class="game-overlay" id="gameConfirm" aria-hidden="true">
+        <div class="game-dialog" role="dialog" aria-modal="true" aria-labelledby="gameConfirmTitle">
+            <div class="settings-titlebar game-dialog-titlebar">
+                <!-- Logo em SVG embutido: usa as cores do acabamento (mesmo do rack) -->
+                <svg class="game-dialog-logo muhsic-mark" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48" class="mark-body"/><g class="mark-grooves"><circle cx="50" cy="50" r="44"/><circle cx="50" cy="50" r="40"/><circle cx="50" cy="50" r="36"/><circle cx="50" cy="50" r="32"/></g><path class="mark-shine" d="M14 30 A44 44 0 0 1 40 8"/><circle cx="50" cy="50" r="27" class="mark-label"/><g class="mark-bars"><rect x="31" y="44" width="4" height="12" rx="2"/><rect x="37" y="36" width="4" height="28" rx="2"/><rect x="43" y="40" width="4" height="20" rx="2"/><rect x="49" y="45" width="4" height="10" rx="2"/><rect x="55" y="40" width="4" height="20" rx="2"/><rect x="61" y="36" width="4" height="28" rx="2"/><rect x="67" y="44" width="4" height="12" rx="2"/></g></svg>
+                <h2 id="gameConfirmTitle">Tem certeza?</h2>
+            </div>
+            <div class="game-dialog-body">
+                <div class="game-dialog-disc" id="gameConfirmDisc"></div>
+                <div class="game-dialog-song">
+                    <strong id="gameConfirmSong">—</strong>
+                    <span id="gameConfirmArtist">—</span>
+                </div>
+                <div class="game-dialog-actions">
+                    <button class="key key--red" id="gameConfirmNo" data-legend="ESC">Não</button>
+                    <button class="key key--green" id="gameConfirmYes" data-legend="ENTER">Sim</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GUESS THE MUSIC: placar por gênero -->
+    <div class="game-overlay" id="gameTable" aria-hidden="true">
+        <div class="game-dialog game-dialog--wide" role="dialog" aria-modal="true" aria-labelledby="gameTableTitle">
+            <div class="settings-titlebar game-dialog-titlebar">
+                <!-- Logo em SVG embutido: usa as cores do acabamento (mesmo do rack) -->
+                <svg class="game-dialog-logo muhsic-mark" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48" class="mark-body"/><g class="mark-grooves"><circle cx="50" cy="50" r="44"/><circle cx="50" cy="50" r="40"/><circle cx="50" cy="50" r="36"/><circle cx="50" cy="50" r="32"/></g><path class="mark-shine" d="M14 30 A44 44 0 0 1 40 8"/><circle cx="50" cy="50" r="27" class="mark-label"/><g class="mark-bars"><rect x="31" y="44" width="4" height="12" rx="2"/><rect x="37" y="36" width="4" height="28" rx="2"/><rect x="43" y="40" width="4" height="20" rx="2"/><rect x="49" y="45" width="4" height="10" rx="2"/><rect x="55" y="40" width="4" height="20" rx="2"/><rect x="61" y="36" width="4" height="28" rx="2"/><rect x="67" y="44" width="4" height="12" rx="2"/></g></svg>
+                <h2 id="gameTableTitle">Placar por gênero</h2>
+                <button class="key key--icon key--sm key--mod settings-close" id="gameTableClose" aria-label="Fechar" data-legend="ESC">
+                    <i class="fas fa-xmark"></i>
+                </button>
+            </div>
+            <div class="game-table-wrap" id="gameTableBody"></div>
+        </div>
+    </div>
+
+    <!-- GUESS THE MUSIC: resetar pontos -->
+    <div class="game-overlay" id="gameReset" aria-hidden="true">
+        <div class="game-dialog" role="dialog" aria-modal="true" aria-labelledby="gameResetTitle">
+            <div class="settings-titlebar game-dialog-titlebar">
+                <!-- Logo em SVG embutido: usa as cores do acabamento (mesmo do rack) -->
+                <svg class="game-dialog-logo muhsic-mark" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48" class="mark-body"/><g class="mark-grooves"><circle cx="50" cy="50" r="44"/><circle cx="50" cy="50" r="40"/><circle cx="50" cy="50" r="36"/><circle cx="50" cy="50" r="32"/></g><path class="mark-shine" d="M14 30 A44 44 0 0 1 40 8"/><circle cx="50" cy="50" r="27" class="mark-label"/><g class="mark-bars"><rect x="31" y="44" width="4" height="12" rx="2"/><rect x="37" y="36" width="4" height="28" rx="2"/><rect x="43" y="40" width="4" height="20" rx="2"/><rect x="49" y="45" width="4" height="10" rx="2"/><rect x="55" y="40" width="4" height="20" rx="2"/><rect x="61" y="36" width="4" height="28" rx="2"/><rect x="67" y="44" width="4" height="12" rx="2"/></g></svg>
+                <h2 id="gameResetTitle">Resetar pontos?</h2>
+            </div>
+            <div class="game-dialog-body">
+                <p>O score, as partidas e todos os recordes deste perfil voltam para zero.</p>
+                <div class="game-dialog-actions">
+                    <button class="key key--red" id="gameResetNo" data-legend="ESC">Não</button>
+                    <button class="key key--green" id="gameResetYes">Sim, resetar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- ======================================================
          ACABAMENTO DO APARELHO (temas)
          ====================================================== -->
@@ -397,29 +586,8 @@
                 <p class="settings-sub">Escolha a cor do seu Muhsic. A escolha fica salva no seu perfil.</p>
 
                 <div class="settings-section">
-                    <div class="theme-grid" id="themeGrid">
-                        <button class="key theme-swatch" data-theme="default" title="Sunset">
-                            <span class="swatch-color" style="background:#e8702a;"></span><span>Sunset</span>
-                        </button>
-                        <button class="key theme-swatch" data-theme="light" title="Papel">
-                            <span class="swatch-color" style="background:#f3e6c8;"></span><span>Papel</span>
-                        </button>
-                        <button class="key theme-swatch" data-theme="red" title="Cereja">
-                            <span class="swatch-color" style="background:#d2364b;"></span><span>Cereja</span>
-                        </button>
-                        <button class="key theme-swatch" data-theme="blue" title="Cobalto">
-                            <span class="swatch-color" style="background:#3f7fc4;"></span><span>Cobalto</span>
-                        </button>
-                        <button class="key theme-swatch" data-theme="purple" title="Vinil">
-                            <span class="swatch-color" style="background:#a65597;"></span><span>Vinil</span>
-                        </button>
-                        <button class="key theme-swatch" data-theme="green" title="Oliva">
-                            <span class="swatch-color" style="background:#2fa39a;"></span><span>Oliva</span>
-                        </button>
-                        <button class="key theme-swatch" data-theme="orange" title="Âmbar">
-                            <span class="swatch-color" style="background:#f2b33d;"></span><span>Âmbar</span>
-                        </button>
-                    </div>
+                    <!-- As teclas de acabamento são geradas por js/app/themes.js a partir de THEMES -->
+                    <div class="theme-grid" id="themeGrid"></div>
 
                     <div class="settings-locked" id="settingsLocked" style="display:none;">
                         <i class="fas fa-lock"></i>
@@ -437,6 +605,7 @@
     <script src="js/config/plans.js"></script>
 
     <!-- 2. Dados -->
+    <script src="js/data/users.js"></script>
     <script src="js/data/songs.js"></script>
 
     <!-- 3. Núcleo (regras sem interface) -->
@@ -459,6 +628,8 @@
     <script src="js/app/views/sidebar.js"></script>
     <script src="js/app/views/detail.js"></script>
     <script src="js/app/views/shelf.js"></script>
+    <script src="js/app/disc-drag.js"></script>
+    <script src="js/app/game.js"></script>
     <script src="js/app/navigation.js"></script>
     <script src="js/app/themes.js"></script>
     <script src="js/app/user-ui.js"></script>

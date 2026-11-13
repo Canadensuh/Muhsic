@@ -56,6 +56,7 @@ let maxVolumeOverlayTimeout = null;
 function applyVolume(value) {
     state.volume = Math.max(0, Math.min(1, value));
     if (audio) audio.volume = state.volume;
+    if (typeof audioJogo !== 'undefined') audioJogo.volume = state.volume;   // trecho do jogo
     const offset = RING_CIRCUMFERENCE * (1 - state.volume);
     [volumeRingFill, volumeRingGlow, maxVolumeRingFill, maxVolumeRingGlow].forEach(ring => {
         if (ring) ring.style.strokeDashoffset = offset;
@@ -65,7 +66,7 @@ function applyVolume(value) {
     const meter = $('volumeMeter');
     if (meter) {
         meter.style.setProperty('--vol', state.volume);
-        meter.title = `Volume ${Math.round(state.volume * 100)}%`;
+        meter.setAttribute('aria-label', `Volume ${Math.round(state.volume * 100)}%`);
     }
 }
 
@@ -119,6 +120,7 @@ function exibirFaixa(track) {
     if (maxTitle)      maxTitle.textContent = track.title;
     if (maxArtist)     maxArtist.textContent = track.artist;
     if (maxCover && track.coverImage) maxCover.src = track.coverImage;
+    atualizarBotaoCurtir(track);        // ♥ afundado se a faixa já é curtida
 }
 
 /**
@@ -167,6 +169,7 @@ function loadTrack(index, autoPlay = false, addToHistory = false) {
 }
 
 function togglePlay() {
+    if (modoJogoAtivo()) { alternarTrechoJogo(); return; }     // Guess the Music
     if (!audio) return;
     if (audio.paused) {
         pendingPlay = true;
@@ -190,9 +193,8 @@ function tocarIndice(idx, songId) {
 
 /** Disco arrastado da prateleira para a vitrola */
 function playFromShelf(songId) {
-    if (!state.playlist.length) return;
     const idx = state.playlist.findIndex(s => s.id === songId);
-    if (idx === -1) return;
+    if (idx === -1) { tocarDiscoPorId(songId); return; }   // disco de outra lista
     tocarIndice(idx, songId);
 }
 
@@ -213,6 +215,7 @@ function tocarDiscoPorId(songId) {
    NAVEGAÇÃO ENTRE FAIXAS
    ============================================================ */
 function nextTrack() {
+    if (modoJogoAtivo()) { retomarGiroJogo(); return; }        // no jogo não se pula faixa
     if (!state.playlist.length && !state.isShuffled) return;
 
     /* 1) Há fila montada: toca o primeiro da fila */
@@ -239,6 +242,7 @@ function nextTrack() {
 }
 
 function prevTrack() {
+    if (modoJogoAtivo()) { repetirTrechoJogo(); return; }      // no jogo: ouvir o trecho de novo
     if (!state.playlist.length) return;
 
     /* Passou de 3s? Primeiro volta ao início da própria faixa */
@@ -267,21 +271,21 @@ function prevTrack() {
     buildQueue();
 }
 
-/** Ativa o modo aleatório e sorteia da biblioteca inteira */
-function tocarAleatoriaGlobal() {
+/**
+ * Embaralhar: sorteia NOVAMENTE as próximas faixas da fila, usando a
+ * biblioteca inteira. A música que está tocando não é interrompida.
+ * Cada clique gera uma nova sequência.
+ */
+function embaralharProximas() {
+    if (modoJogoAtivo()) return;
     const pool = getVisibleSongs(currentUserId).filter(s => s.id !== currentPlayingSongId);
     if (!pool.length) return;
 
-    if (!state.isShuffled) {
-        state.isShuffled = true;
-        if (ctxRandomBtn) ctxRandomBtn.classList.add('active');
-        if (maxCtxRandom) maxCtxRandom.classList.add('active');
-        $('deckShuffle')?.classList.add('active');
-    }
+    state.isShuffled = true;
+    [ctxRandomBtn, maxCtxRandom, $('deckShuffle')].forEach(btn => btn?.classList.add('active'));
 
-    const sorteada = pickRandom(pool);
-    tocarIndice(garantirNaPlaylist(sorteada), sorteada.id);
     animarShuffleVisual();
+    setTimeout(buildQueue, 250);    // troca a lista no meio da animação
 }
 
 /* ============================================================
@@ -321,7 +325,6 @@ async function sincronizarDuracoesBiblioteca() {
     }
     if (!mudou) return;
 
-    renderLibrary();
     renderSearchResults(getVisibleSongs(currentUserId));
     if (state.currentItem && state.currentItemName) openDetail(state.currentItem, state.currentItemName);
 }

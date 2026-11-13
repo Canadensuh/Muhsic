@@ -66,9 +66,26 @@ function getCurtidasVisiveis() {
    AÇÕES
    ============================================================ */
 
+/**
+ * Tecla ♥ do teclado da vitrola: fica PRESSIONADA (afundada, LED aceso)
+ * enquanto a música atual estiver curtida. Clicar de novo descurte.
+ */
+function atualizarBotaoCurtir(faixa) {
+    const btn = $('deckLike');
+    if (!btn) return;
+    const atual = faixa || getCurrentSong();
+    const curtida = !!(atual && isSongCurtida(atual.id));
+    btn.classList.toggle('is-pressed', curtida);
+    btn.classList.toggle('active', curtida);
+    btn.setAttribute('aria-pressed', String(curtida));
+    btn.setAttribute('aria-label', curtida ? 'Descurtir disco' : 'Curtir disco');
+}
+
 /** Re-renderiza tudo que depende das curtidas */
 function aoMudarCurtidas() {
     salvarCurtidas();
+    atualizarBotaoCurtir();
+    atualizarCoracoesPrateleira();      // ♥ nos discos de qualquer prateleira
     renderSidebar();
     renderHome();
 }
@@ -84,6 +101,7 @@ function playLikeAnimation(overlay) {
 
 /** Duplo clique no vinil: curte/descurte a faixa atual */
 function toggleLikeCurrent() {
+    if (modoJogoAtivo()) return;            // no jogo a música é segredo
     const track = getCurrentSong();
     if (!track) return;
 
@@ -104,11 +122,14 @@ function toggleLikeCurrent() {
     updateHighlight();
 }
 
-/** Botão ♥ na prateleira de "Discos curtidos" */
+/** Cartãozinho ♥ em cima de um disco (qualquer prateleira): descurte */
 function removerCurtida(songId) {
     likedSongs = likedSongs.filter(s => s.id !== songId);
     aoMudarCurtidas();
-    openDetail('liked', LIKED_COLLECTION);
+    /* Em "Discos curtidos" o disco sai da prateleira */
+    if (state.currentItem === 'liked' && state.currentItemName === LIKED_COLLECTION) {
+        openDetail('liked', LIKED_COLLECTION);
+    }
 }
 
 /** Botões ♥ / + no cabeçalho de um álbum */

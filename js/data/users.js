@@ -8,7 +8,7 @@
        login   → usuário usado para entrar
        pass    → senha
        plan    → 'free' | 'plus' | 'premium'  (ver js/config/plans.js)
-       avatar  → URL da imagem (opcional)
+       avatar  → URL da foto (opcional; sem foto, o app mostra a inicial do nome)
    ------------------------------------------------------------
    IMPORTANTE:
    - O ID 0 é RESERVADO para "global" (não é um usuário).
@@ -32,7 +32,7 @@ const users = [
         pass: '1234',
         name: 'Raiany',
         plan: 'plus',
-        avatar: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786594773/178054037.jpg'
+        avatar: null
     },
 
     {
@@ -41,7 +41,7 @@ const users = [
         pass: '1234',
         name: 'Carol',
         plan: 'plus',
-        avatar: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786594773/178054037.jpg'
+        avatar: null
     },
 
     {
@@ -50,7 +50,7 @@ const users = [
         pass: '1234',
         name: 'Teste',
         plan: 'free',
-        avatar: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786594773/178054037.jpg'
+        avatar: null
     }
 
 ];

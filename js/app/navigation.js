@@ -5,7 +5,7 @@
 
 function bindNavEvents() {
     const navItems = document.querySelectorAll('.nav-menu li');
-    const pages = { home: $('page-home'), search: $('page-search'), library: $('page-library') };
+    const pages = { home: $('page-home'), search: $('page-search'), game: $('page-game') };
 
     navItems.forEach(item => {
         item.addEventListener('click', () => {
@@ -18,8 +18,9 @@ function bindNavEvents() {
             pages[page].classList.add('active');
             $('playlistDetail')?.classList.remove('active');
 
-            if (page === 'search')  renderSearchResults(getVisibleSongs(currentUserId));
-            if (page === 'library') renderLibrary();
+            if (page === 'search') renderSearchResults(getVisibleSongs(currentUserId));
+            if (page !== 'game') sairDaAbaDoJogo();
+            if (page === 'game' && $('gameSelect')?.classList.contains('active')) renderGenerosJogo();
             setTimeout(updateHighlight, 50);
         });
     });
@@ -63,7 +64,7 @@ function bindSearch() {
     });
 }
 
-/** Espaço = play/pause · → próxima · ← anterior */
+/** Espaço = play/pause (no jogo: pausa/toca o trecho; ← repete) · → próxima · ← anterior */
 function bindKeyboard() {
     document.addEventListener('keydown', e => {
         if (e.target.tagName === 'INPUT') return;

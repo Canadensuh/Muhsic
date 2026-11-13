@@ -19,12 +19,13 @@
     :root { --tt-scale: 0.74; }
     .deck { gap: 10px; }
     .vu { display: none; }
-    .deck-queue { min-height: 62px; padding: 6px 10px; }
-    .queue-vinyl { width: 48px; height: 48px; }
+    .deck-queue { min-height: 110px; padding: 8px; }
+    .track-row { padding: 4px 8px 4px 6px; }
+    .track-row-disc { width: 30px; height: 30px; }
 }
 @media (max-height: 680px) {
     :root { --tt-scale: 0.62; }
-    .deck-head { display: none; }
+    .deck-brand, .deck-model { display: none; }
 }
 
 /* ---------- Painéis mais estreitos ---------- */
@@ -89,13 +90,17 @@
         display: grid;
         grid-template-columns: auto minmax(0, 1fr);
         grid-template-areas:
+            'tt head'
             'tt lcd'
             'tt keys';
         gap: 10px 14px;
         padding: 10px 12px;
         overflow: visible;
     }
-    .deck-head, .deck-queue, .deck-volume, .vu, .lcd-top { display: none; }
+    .deck-queue, .deck-volume, .vu, .lcd-top,
+    .deck-brand, .deck-model { display: none; }
+    .deck-head { grid-area: head; padding: 0; }
+    .mode-switch { margin-left: 0; }
     .turntable { grid-area: tt; align-self: center; }
     .lcd { grid-area: lcd; padding: 8px 12px; }
     .deck-keys { grid-area: keys; padding: 8px; gap: 6px; }

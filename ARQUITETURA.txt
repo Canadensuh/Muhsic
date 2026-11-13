@@ -1,6 +1,6 @@
 ================================================================================
                         MUHSIC — ARQUITETURA DO PROJETO
-                     Versão BETA 0.7  ·  MPS — MapleProjectSeries
+                     Versão BETA 2.0  ·  MPS — MapleProjectSeries
 ================================================================================
 
 SUMÁRIO
@@ -30,7 +30,8 @@ composta por duas páginas:
                   login / cadastro. Ao entrar, salva a sessão e redireciona.
 
   muhsic.html  →  O player. Só abre com uma sessão válida. Contém a barra
-                  lateral, as telas (Início, Buscar, Biblioteca, Detalhe),
+                  lateral, as telas (Início, Buscar, Detalhe e o jogo
+                  Guess the Music),
                   a vitrola, o painel maximizado e o modal de configurações.
 
 Mídias (músicas, capas, logos, sons) ficam hospedadas no Cloudinary. Os
@@ -103,36 +104,42 @@ muhsic/
 │   │
 │   ├── layout/
 │   │   ├── app.css ........... Grade de 3 painéis, .panel (parafusos), .page
-│   │   ├── sidebar.css ....... RACK: logo, menu em teclas, mini-pastas
+│   │   ├── sidebar.css ....... RACK: logo (SVG com as cores do acabamento),
+│   │   │                       menu em teclas, mini-pastas
 │   │   └── header.css ........ TELA: HUD, perfil, dropdown, boas-vindas
 │   │
 │   ├── components/
 │   │   ├── keycaps.css ....... Teclas de teclado antigo (.key e variações)
 │   │   ├── ad-banner.css ..... "Comercial" fictício (plano Free)
 │   │   ├── folder-cards.css .. Pastas de vinil (capa de papel) + cores .sleeve-*
-│   │   ├── vinyl-shelf.css ... Prateleira de madeira com discos arrastáveis
+│   │   ├── vinyl-shelf.css ... Prateleira de madeira, freio do disco e o disco
+│   │   │                       "preso ao cursor" durante o arraste
+│   │   ├── track-rows.css .... Lista de faixas (Próximas / A seguir)
 │   │   ├── search.css ........ Busca em formato de visor LCD
 │   │   ├── login-animation.css Tela de "boot" ao entrar
 │   │   └── settings-modal.css  Janela "Acabamento do aparelho" (temas)
 │   │
 │   ├── player/
-│   │   ├── deck.css .......... VITROLA: placa, visor LCD, VU, fila, teclado,
-│   │   │                       medidor de volume
+│   │   ├── deck.css .......... VITROLA: placa, chave MANUAL/BOTÕES, visor LCD,
+│   │   │                       VU, teclado (♥ afundado = curtida), volume
 │   │   ├── turntable.css ..... Toca-discos: prato, vinil, selo, braço
-│   │   ├── queue.css ......... Discos da fila (clicáveis)
+│   │   ├── queue.css ......... Bloco "Próximas" da vitrola
 │   │   ├── overlays.css ...... Anel de volume, animação ♥, menu de contexto
 │   │   └── max-panel.css ..... Modo vitrine (vitrola grande em tela cheia)
 │   │
 │   ├── pages/
 │   │   ├── landing.css ....... Landing (tela título, seções, modal de perfil)
+│   │   ├── game.css .......... Jogo GUESS THE MUSIC (gêneros, 4 discos,
+│   │   │                       janelas, carimbo, vitrola em modo jogo)
 │   │   └── detail.css ........ Página de detalhe de pasta
 │   │
 │   └── themes/
-│       └── themes.css ........ body[data-theme="..."] — 7 acabamentos
+│       └── themes.css ........ body[data-theme="..."] — 12 acabamentos
 │
 └── js/
     ├── config/
-    │   ├── app.config.js ..... APP, STORAGE_KEYS, ASSETS, PLAYER, THEMES
+    │   ├── app.config.js ..... APP, STORAGE_KEYS, ASSETS, PLAYER,
+    │   │                       CONTROL_MODES, THEMES, GAME
     │   └── plans.js .......... PLANS + getPlanConfig()
     │
     ├── data/
@@ -154,13 +161,18 @@ muhsic/
         ├── colors.js ......... Cor dominante da capa → cor da pasta
         ├── vinyl.js .......... Rotação do vinil (rAF) e matemática do giro
         ├── player.js ......... Tocar, pausar, próxima, anterior, volume
-        ├── queue.js .......... Fila automática + lista "A seguir"
+        ├── queue.js .......... Fila, embaralhar e listas de faixas
         ├── likes.js .......... Curtidas (com persistência por usuário)
-        ├── player-events.js .. Gestos no vinil compacto + eventos do <audio>
+        ├── player-events.js .. Modo MANUAL/BOTÕES, gestos no vinil, teclado da
+        │                       vitrola e eventos do <audio>
+        ├── disc-drag.js ...... Arrastar o disco da prateleira até a vitrola
+        ├── game.js ........... Jogo GUESS THE MUSIC (dificuldade, rodadas,
+        │                       confirmação, placar e recordes)
         ├── max-panel.js ...... Painel maximizado e seus gestos
         ├── navigation.js ..... Menu, voltar, dropdown, busca, teclado
-        ├── themes.js ......... Aplicar/salvar tema + modal de configurações
-        ├── user-ui.js ........ Nome/plano na tela, anúncio, animação de entrada
+        ├── themes.js ......... Acabamentos: aplicar, salvar e gerar o seletor
+        ├── user-ui.js ........ Nome, avatar (foto ou inicial), plano, anúncio,
+        │                       animação de entrada
         ├── main.js ........... Inicialização (sempre o último script)
         │
         └── views/
@@ -168,7 +180,7 @@ muhsic/
             ├── home.js ....... Tela Início
             ├── sidebar.js .... Barra lateral
             ├── detail.js ..... Página de detalhe
-            └── shelf.js ...... Prateleira, Biblioteca e resultados da busca
+            └── shelf.js ...... Prateleira e resultados da busca
 
 
 ================================================================================
@@ -217,28 +229,31 @@ módulos do mesmo nível podem se chamar entre si.
   ─────────────────────────          ─────────────────────────────────
   1  config/app.config.js            1  config/app.config.js
   2  config/plans.js                 2  config/plans.js
-  3  data/users.js                   3  data/songs.js
-  4  core/storage.js                 4  core/storage.js
-  5  core/utils.js                   5  core/utils.js
-  6  core/session.js                 6  core/session.js
-  7  core/auth.js                    7  core/library.js
-  8  pages/landing.js                8  app/state.js
-                                     9  app/colors.js
-                                    10  app/vinyl.js
-                                    11  app/player.js
-                                    12  app/queue.js
-                                    13  app/likes.js
-                                    14  app/player-events.js
-                                    15  app/max-panel.js
-                                    16  app/views/cards.js
-                                    17  app/views/home.js
-                                    18  app/views/sidebar.js
-                                    19  app/views/detail.js
-                                    20  app/views/shelf.js
-                                    21  app/navigation.js
-                                    22  app/themes.js
-                                    23  app/user-ui.js
-                                    24  app/main.js   ← sempre por último
+  3  data/users.js                   3  data/users.js   (foto do avatar)
+  4  core/storage.js                 4  data/songs.js
+  5  core/utils.js                   5  core/storage.js
+  6  core/session.js                 6  core/utils.js
+  7  core/auth.js                    7  core/session.js
+  8  pages/landing.js                8  core/library.js
+                                     9  app/state.js
+                                    10  app/colors.js
+                                    11  app/vinyl.js
+                                    12  app/player.js
+                                    13  app/queue.js
+                                    14  app/likes.js
+                                    15  app/player-events.js
+                                    16  app/max-panel.js
+                                    17  app/views/cards.js
+                                    18  app/views/home.js
+                                    19  app/views/sidebar.js
+                                    20  app/views/detail.js
+                                    21  app/views/shelf.js
+                                    22  app/disc-drag.js
+                                    23  app/game.js
+                                    24  app/navigation.js
+                                    25  app/themes.js
+                                    26  app/user-ui.js
+                                    27  app/main.js   ← sempre por último
 
 Além disso, muhsic.html tem um pequeno <script> inline no <head> que
 redireciona para o login ANTES de desenhar a página, caso não exista sessão.
@@ -252,10 +267,14 @@ redireciona para o login ANTES de desenhar a página, caso não exista sessão.
   APP .............. nome, versão, autor (a versão preenche os .version-badge)
   STORAGE_KEYS ..... nomes das chaves do localStorage
   GLOBAL_USER_ID ... 0 = música visível para todos
-  ASSETS ........... URLs de logos, capa de curtidos, avatar e sons
+  ASSETS ........... logo, capa de curtidos, carimbo e sons
   PLAYER ........... tamanho da fila, histórico, velocidade do vinil,
                      limite de giro, passo do volume, debounce da busca...
-  THEMES ........... lista de temas válidos
+  CONTROL_MODES .... "manual" (gestos) e "buttons" (teclado)
+  THEMES ........... 12 acabamentos: { id, name, tone, preview[4 cores] }
+  THEME_IDS ........ só os ids (validação)
+  GAME ............. jogo: dificuldades (5/3/1 s e pontos), 4 discos por
+                     rodada, 12 rodadas no MIX, troca da capa do MIX (5 s)
   LIKED_COLLECTION . nome da coleção "Discos curtidos"
 
 ── config/plans.js ─────────────────────────────────────────────────────────
@@ -306,7 +325,7 @@ redireciona para o login ANTES de desenhar a página, caso não exista sessão.
           currentItem, currentItemName }
   autoQueue, playHistory, flags (pendingPlay, musicaReiniciada...)
   Referências de DOM + cacheDomRefs()
-  getCurrentSong(), adicionarAoHistorico(), garantirNaPlaylist()
+  getCurrentSong() (pelo ID da faixa na vitrola), adicionarAoHistorico(), garantirNaPlaylist()
 
 ── app/colors.js ───────────────────────────────────────────────────────────
   extrairCorDominante(url)  média dos pixels de uma capa 50x50 (<canvas>)
@@ -322,48 +341,78 @@ redireciona para o login ANTES de desenhar a página, caso não exista sessão.
   setCover (crossfade), applyVolume, show(Max)VolumeOverlay,
   baixarBraco / levantarBraco, exibirFaixa, engatilharFaixaInicial,
   loadTrack, togglePlay, playFromShelf, tocarDiscoPorId,
-  nextTrack, prevTrack, tocarAleatoriaGlobal,
+  nextTrack, prevTrack, embaralharProximas (sorteia só as próximas),
   sincronizarDuracoesBiblioteca (corrige durações lendo os metadados reais)
 
 ── app/queue.js ────────────────────────────────────────────────────────────
   buildQueue, shiftQueue, pushToEnd, animarShuffleVisual,
-  renderQueue (pilha), getDiscosASeguir, renderMaxNext (lista "A seguir")
+  faixaHTML + renderListaDeFaixas (uma faixa por linha), renderQueue
+  ("Próximas" na vitrola), getDiscosASeguir, renderMaxNext ("A seguir")
 
 ── app/likes.js ────────────────────────────────────────────────────────────
   likedSongs / likedAlbums / likedGenres
   carregarCurtidas / salvarCurtidas (por usuário, salva apenas IDs/nomes)
   toggleLikeCurrent, removerCurtida, toggleAlbumCurtido,
+  atualizarBotaoCurtir (tecla ♥ afundada quando a faixa já é curtida),
   isAlbumCurtido, isGenreCurtido, getCurtidasVisiveis
 
 ── app/player-events.js ────────────────────────────────────────────────────
+  cliqueNoDisco: o clique simples espera PLAYER.dblClickMs; se vier um
+  segundo clique é duplo clique (curtir) e a música não pausa.
   bindPlayerEvents: eventos do <audio> (play, pause, timeupdate, ended...),
-  barra de progresso, gestos no vinil, menu de contexto e drag & drop.
+  barra de progresso, gestos no vinil e menu de contexto.
+  Modo de controle: loadControlMode, setControlMode, isManualMode,
+  bindControlModeSwitch. No modo BOTÕES o giro e o scroll do disco são
+  ignorados (clique, duplo clique e botão direito continuam).
   bindDeckControls: teclas da vitrola (#deckPrev, #deckPlay, #deckNext,
   #deckShuffle, #deckLike, #deckMax, #deckVolDown, #deckVolUp) e som de
   clique em todas as .key.
+
+── app/game.js ─────────────────────────────────────────────────────────────
+  GUESS THE MUSIC.
+  Tela título: renderScoreJogo (SCORE + foto via renderAvatar), renderTabelaPlacar,
+  reset; renderGenerosJogo usa createCardHTMLAsync (pastas do Início) e
+  pastaMixHTML (4 capas; trocarCapasMix a cada GAME.mixCoverMs).
+  Gênero → abrirDificuldade (GAME.levels: 5 s / 3 s / 1 s) → iniciarJogo.
+  Rodada: montarRodadas (resposta + 3 iscas), renderRodada (4 discos lado a
+  lado), escolherDiscoJogo → "Tem certeza?" → confirmarEscolhaJogo →
+  revelarNaVitrola (body.game-reveal) + carimbo → avancarRodadaJogo.
+  MODO JOGO NA VITROLA (entrarModoJogo / sairModoJogo, body.game-mode):
+    togglePlay → alternarTrechoJogo · prevTrack → repetirTrechoJogo ·
+    nextTrack, embaralhar, curtir, vitrine e menu de contexto bloqueados ·
+    renderQueue → renderOpcoesJogo ("Opções") · visor com ??? e a duração.
+  Trecho (audioJogo): só toca no clique; tocarDoInicioJogo →
+  continuarTrechoJogo → fimDoTrechoJogo (para e espera novo clique).
 
 ── app/max-panel.js ────────────────────────────────────────────────────────
   abrirMaxPanel, fecharMaxPanel, bindMaxPanelEvents (mesmos gestos,
   botão "Fechar vitrine" e clique no fundo escuro).
 
 ── app/navigation.js ───────────────────────────────────────────────────────
-  bindNavEvents (Início/Buscar/Biblioteca/voltar), bindUserMenu,
-  bindSearch (debounce), bindKeyboard (Espaço, ←, →).
+  bindNavEvents (Início/Buscar/Guess the Music/voltar), bindUserMenu,
+  bindSearch (debounce), bindKeyboard (Espaço, ←, →; no jogo, Espaço toca o trecho).
 
 ── app/themes.js ───────────────────────────────────────────────────────────
-  applyTheme(t), loadTheme(), markActiveTheme(), bindSettings()
+  applyTheme(t), loadTheme(), markActiveTheme(), renderThemeGrid()
+  (gera as teclas a partir de THEMES), bindSettings(). Também define
+  <body data-tone="light|dark"> para os ajustes de contraste.
 
 ── app/user-ui.js ──────────────────────────────────────────────────────────
-  applyUserToUI (nome, avatar, plano, anúncio, bloqueio de temas)
+  applyUserToUI (nome, plano, anúncio, bloqueio de temas)
+  renderAvatar: a foto vem de js/data/users.js (fonte da verdade);
+  sem foto, mostra a inicial do nome sobre as cores do acabamento
+  (.avatar-initial em layout/header.css: muda junto com o tema)
   showLoginAnimation
 
 ── app/views/*.js ──────────────────────────────────────────────────────────
   cards.js ..... createCardHTMLAsync, createSidebarItemAsync, bindAbrirDetalhe
   home.js ...... renderHome (Feito pra você, Álbuns, Playlists, Curtidos)
-  sidebar.js ... renderSidebar
+  sidebar.js ... renderSidebar ("Discos Curtidos" sempre em primeiro)
   detail.js .... openDetail (cabeçalho colorido, metadados, botões ♥/+)
-  shelf.js ..... renderVinylShelf, updateHighlight, renderLibrary,
-                 renderSearchResults
+  shelf.js ..... renderVinylShelf, updateHighlight (classes current,
+                 is-loaded e braking = freio ao pausar), renderSearchResults,
+                 coracaoHTML / atualizarCoracoesPrateleira / bindCoracoesPrateleira
+                 (cartãozinho ♥ em todo disco curtido; clicar descurte)
 
 ── app/main.js ─────────────────────────────────────────────────────────────
   initMuhsic() → initApp(). Cada etapa roda isolada (função etapa): se uma
@@ -384,7 +433,7 @@ redireciona para o login ANTES de desenhar a página, caso não exista sessão.
     2. layout/app, sidebar, header
     3. components/ad-banner, folder-cards, vinyl-shelf
        pages/detail
-       components/search, login-animation
+       components/search, pages/game, login-animation
     4. player/deck, turntable, queue, overlays
     5. components/settings-modal, player/max-panel
     6. base/responsive     ← @media sempre depois dos componentes
@@ -414,9 +463,14 @@ redireciona para o login ANTES de desenhar a página, caso não exista sessão.
 
   Estados controlados pelo JavaScript (classes no <body>):
     is-playing ........ disco tocando: LED aceso, VU animado, botão vira pausa,
-                        logo do rack gira
-    is-dragging-disc .. um disco está sendo arrastado: o prato pulsa e
+                        logo do rack gira (as cores do logo vêm do acabamento)
+    is-dragging-disc .. um disco está preso ao cursor: o prato pulsa e
                         aparece "SOLTE O DISCO AQUI"
+    controls-manual /
+    controls-buttons .. modo da chave: esconde ou mostra o teclado e o volume −/+
+                        (o atributo data-tone="light" marca acabamentos claros)
+  Classes nos discos da prateleira: current (girando), is-loaded (música
+  atual) e braking (freada ao pausar).
 
   Vitrola escalável:
     O toca-discos é desenhado numa "stage" fixa de 300×300 px e reduzido
@@ -428,7 +482,10 @@ redireciona para o login ANTES de desenhar a página, caso não exista sessão.
     Todo o visual usa variáveis (ex.: var(--accent)). O JavaScript define
     <body data-theme="red"> e o bloco body[data-theme="red"] em themes.css
     troca o --accent; os tons derivados são recalculados no <body>.
-    O tema "light" (Papel) também troca as superfícies e o texto.
+    Cada acabamento troca a tela inteira: superfícies, brilhos do fundo,
+    parafusos, madeira, metal, texto, acento, as 4 faixas (--stripe-1..4),
+    visor LCD e, no Grafite, as teclas. Os claros (Papel, Menta) usam
+    data-tone="light" para ajustes de contraste.
 
 
 ================================================================================
@@ -479,6 +536,9 @@ redireciona para o login ANTES de desenhar a página, caso não exista sessão.
   │ muhsic_users          │ contas criadas pelo formulário [ ... ]         │
   │ muhsic_theme_<id>     │ tema escolhido por cada usuário ("blue")       │
   │ muhsic_likes_<id>     │ { songs:[ids], albums:[nomes], genres:[nomes] }│
+  │ muhsic_controls_<id>  │ modo da vitrola: "manual" ou "buttons"         │
+  │ muhsic_game_<id>      │ jogo: { v:3, generos: { Pop: { partidas,       │
+  │                       │   acertos, rodadas, score, melhor:{facil,...}}}}│
   │ muhsic_lastSongId     │ última música tocada                           │
   └───────────────────────┴────────────────────────────────────────────────┘
 
@@ -511,7 +571,7 @@ redireciona para o login ANTES de desenhar a página, caso não exista sessão.
      4. carregarCurtidas()        curtidas salvas do usuário
      5. bind*()                   todos os eventos
      6. initApp()
-          renderHome → renderSidebar → renderLibrary → renderSearchResults
+          renderHome → renderSidebar → renderSearchResults
           prepararPrimeiraFaixa (engatilha sem tocar) → buildQueue
           sincronizarDuracoesBiblioteca (em segundo plano)
      7. showLoginAnimation()
@@ -562,10 +622,13 @@ redireciona para o login ANTES de desenhar a página, caso não exista sessão.
    1. Adicione a entrada em js/config/plans.js.
    2. Inclua a <option> no <select id="regPlan"> do index.html.
 
-  ── Novo tema ────────────────────────────────────────────────────────────
-   1. Adicione o nome em THEMES (js/config/app.config.js).
-   2. Crie body[data-theme="nome"] { ... } em css/themes/themes.css.
-   3. Adicione o botão .theme-swatch no modal em muhsic.html.
+  ── Novo acabamento ────────────────────────────────────────────────────────────
+   1. Em css/themes/themes.css, copie um bloco body[data-theme="..."] e
+      troque as cores (superfícies, madeira, metal, texto, acento,
+      faixas e LCD). Mantenha cores "apagadas" para o clima retrô.
+   2. Em THEMES (js/config/app.config.js) adicione
+      { id, name, tone: "dark" | "light", preview: [4 cores] }.
+   O botão aparece sozinho no seletor de acabamentos.
 
   ── Novo componente visual (CSS) ─────────────────────────────────────────
    1. Crie o arquivo em css/components/ (ou player/, layout/).
@@ -612,9 +675,9 @@ redireciona para o login ANTES de desenhar a página, caso não exista sessão.
   • Senhas em texto puro e autenticação no navegador: aceitável apenas por
     ser uma simulação acadêmica. Não usar com dados reais.
   • Dados salvos ficam apenas no navegador atual (não sincroniza).
-  • Gestos do vinil usam mouse; em telas de toque use o teclado da vitrola
-    (play, próxima, anterior, volume...). Arrastar discos também depende
-    de mouse (drag & drop nativo do HTML).
+  • Gestos do vinil usam mouse; em telas de toque a vitrola começa no
+    modo BOTÕES. No toque, arrastar o disco é trocado por "tocar no disco"
+    para não atrapalhar a rolagem da tela.
   • O visual usa color-mix() do CSS: navegadores de 2023 em diante
     (Chrome 111+, Firefox 113+, Safari 16.2+).
   • Os botões ♥/+ salvam apenas álbuns; em playlists ainda não fazem nada.

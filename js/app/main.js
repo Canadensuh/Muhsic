@@ -39,8 +39,13 @@ function initMuhsic() {
     applyUserToUI();
     etapa('curtidas', carregarCurtidas);
 
+    etapa('modo de controle',   loadControlMode);
     etapa('eventos do player',  bindPlayerEvents);
     etapa('teclas da vitrola',  bindDeckControls);
+    etapa('chave manual/botões', bindControlModeSwitch);
+    etapa('arrastar discos',    bindDiscDrag);
+    etapa('curtir na prateleira', bindCoracoesPrateleira);
+    etapa('jogo',               bindGame);
     etapa('painel maximizado',  bindMaxPanelEvents);
     etapa('navegação',          bindNavEvents);
     etapa('menu do usuário',    bindUserMenu);
@@ -72,7 +77,6 @@ async function initApp() {
 
     await etapa('início', renderHome);
     await etapa('barra lateral', renderSidebar);
-    etapa('biblioteca', renderLibrary);
     etapa('busca', () => renderSearchResults(visible));
 
     prepararPrimeiraFaixa();

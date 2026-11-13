@@ -55,7 +55,7 @@
     overflow: hidden;
     background-size: cover;
     background-position: center;
-    background-color: #2a1d15;
+    background-color: var(--screw-dark);
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.15);
     isolation: isolate;
 }
@@ -116,7 +116,7 @@
     font-weight: 400;
     font-size: clamp(26px, 3.4vw, 46px);
     line-height: 1.02;
-    color: #fff7e6;
+    color: var(--text-on-accent);
     text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.45);
     overflow-wrap: anywhere;
 }
@@ -132,7 +132,7 @@
     letter-spacing: 0.04em;
     color: var(--lcd-text);
     background: rgba(26, 16, 6, 0.85);
-    border: 1px solid rgba(255, 181, 71, 0.2);
+    border: 1px solid color-mix(in srgb, var(--lcd-text) 20%, transparent);
     border-radius: 4px;
 }
 .playlist-meta .meta-item i { font-size: 12px; opacity: 0.8; }
@@ -146,6 +146,6 @@
     --k-top-2: var(--teal);
     --k-side: #16514c;
     --k-edge: #0d302d;
-    --k-text: #fff7e6;
+    --k-text: var(--text-on-accent);
 }
-.playlist-actions button.saved svg { stroke: #fff7e6; stroke-width: 3; }
+.playlist-actions button.saved svg { stroke: var(--text-on-accent); stroke-width: 3; }

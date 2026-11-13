@@ -2,82 +2,235 @@
    MUHSIC — THEMES / THEMES.CSS
    ------------------------------------------------------------
    "Acabamentos" do aparelho, aplicados via <body data-theme>.
-   Cada tema troca o --accent; os tons derivados (glow, soft,
-   faixas) são recalculados automaticamente (base/variables.css).
+   Cada acabamento redefine a tela INTEIRA: fundo, painéis,
+   parafusos, madeira, metal, texto, acento, as 4 faixas,
+   o visor LCD e (em alguns) as teclas.
+   Os tons combinados são recalculados em base/variables.css.
+
+   Para criar um acabamento novo:
+     1. Copie um bloco abaixo e troque as cores
+     2. Registre em THEMES (js/config/app.config.js)
    ============================================================ */
 
-/* Sunset (padrão) */
-body[data-theme="default"] { --accent: #e8702a; --accent-hover: #ff8a3d; }
-
-/* Cereja */
-body[data-theme="red"]     { --accent: #d2364b; --accent-hover: #ec5468; }
-
-/* Cobalto */
-body[data-theme="blue"]    { --accent: #3f7fc4; --accent-hover: #5c9ce0; }
-
-/* Vinil (ameixa) */
-body[data-theme="purple"]  { --accent: #a65597; --accent-hover: #c271b3; }
-
-/* Oliva / verde-água */
-body[data-theme="green"]   { --accent: #2fa39a; --accent-hover: #46c2b8; }
-
-/* Âmbar */
-body[data-theme="orange"]  { --accent: #e09a1f; --accent-hover: #f5b440; }
+/* ------------------------------------------------------------
+   SUNSET 86 (padrão) — café, madeira e laranja
+   Usa os valores de base/variables.css.
+   ------------------------------------------------------------ */
+body[data-theme="default"] { }
 
 /* ------------------------------------------------------------
-   Papel — versão clara (aparelho creme, como os rádios de mesa)
-   O visor LCD e a madeira continuam escuros de propósito.
+   GRAFITE — preto, cinza e cinza-chumbo, com detalhe vermelho
+   ------------------------------------------------------------ */
+body[data-theme="graphite"] {
+    --bg-screen: #0e0f10;  --bg-panel: #1b1c1e;  --bg-panel-2: #242528;  --bg-inset: #0a0a0b;
+    --bg-card: rgba(230, 230, 228, 0.04);  --bg-card-hover: rgba(230, 230, 228, 0.08);
+    --glow-1: rgba(200, 200, 210, 0.07);   --glow-2: rgba(208, 87, 74, 0.06);
+    --frame: #050506;  --screw: #6a6d72;  --screw-dark: #222326;
+    --wood-1: #1d1e20;  --wood-2: #2b2d30;  --wood-3: #3a3c40;
+    --metal-1: #4a4c50;  --metal-2: #2a2b2e;
+    --text-primary: #e6e6e3;  --text-secondary: #a9abae;  --text-muted: #6f7276;
+    --accent: #d0574a;  --accent-hover: #e2685b;
+    --stripe-1: #c9cbce;  --stripe-2: #d0574a;  --stripe-3: #7c7f84;  --stripe-4: #44474c;
+    --key-top: #e4e4df;  --key-top-2: #cfcfc8;  --key-side: #a3a39b;  --key-edge: #74746d;
+    --key-text: #2a2a28;  --key-legend: #7c7c75;
+    --lcd-bg: #06090c;  --lcd-text: #a8e0ff;
+    --border-color: rgba(230, 230, 228, 0.09);  --border-strong: rgba(230, 230, 228, 0.2);
+}
+
+/* ------------------------------------------------------------
+   CACAU — chocolate, caramelo e creme
+   ------------------------------------------------------------ */
+body[data-theme="cocoa"] {
+    --bg-screen: #140c09;  --bg-panel: #22150f;  --bg-panel-2: #2c1c14;  --bg-inset: #0c0705;
+    --glow-1: rgba(201, 139, 74, 0.15);  --glow-2: rgba(243, 230, 200, 0.05);
+    --frame: #0b0604;  --screw: #765b49;  --screw-dark: #2a1912;
+    --wood-1: #3a2015;  --wood-2: #57301f;  --wood-3: #73412a;
+    --metal-1: #3a302a;  --metal-2: #211a16;
+    --text-primary: #f2e4d4;  --text-secondary: #cdb197;  --text-muted: #8e7462;
+    --accent: #c98b4a;  --accent-hover: #dda262;
+    --stripe-1: #f3e6c8;  --stripe-2: #c98b4a;  --stripe-3: #8a4f2a;  --stripe-4: #4a2c1c;
+    --lcd-bg: #140b04;  --lcd-text: #ffcf8a;
+}
+
+/* ------------------------------------------------------------
+   CEREJA — vinho, jacarandá e vermelho-cereja
+   ------------------------------------------------------------ */
+body[data-theme="red"] {
+    --bg-screen: #1a0d0f;  --bg-panel: #2a1316;  --bg-panel-2: #351a1e;  --bg-inset: #100709;
+    --bg-card: rgba(245, 220, 215, 0.04);  --bg-card-hover: rgba(245, 220, 215, 0.08);
+    --glow-1: rgba(210, 54, 75, 0.16);  --glow-2: rgba(242, 179, 61, 0.06);
+    --frame: #12070a;  --screw: #7a5056;  --screw-dark: #2d1418;
+    --wood-1: #3a1517;  --wood-2: #5a2226;  --wood-3: #7a3236;
+    --metal-1: #3a2e30;  --metal-2: #221a1c;
+    --text-primary: #f5e2dc;  --text-secondary: #cfa9a3;  --text-muted: #8f6a66;
+    --accent: #d2364b;  --accent-hover: #ec5468;
+    --stripe-1: #f2b33d;  --stripe-2: #e8a598;  --stripe-3: #d2364b;  --stripe-4: #7a1f2e;
+    --border-color: rgba(245, 220, 215, 0.10);  --border-strong: rgba(245, 220, 215, 0.22);
+}
+
+/* ------------------------------------------------------------
+   MEL — âmbar, mel e marrom dourado
+   ------------------------------------------------------------ */
+body[data-theme="orange"] {
+    --bg-screen: #1a1206;  --bg-panel: #2a1d0c;  --bg-panel-2: #352510;  --bg-inset: #120c04;
+    --glow-1: rgba(224, 154, 31, 0.16);  --glow-2: rgba(196, 69, 44, 0.07);
+    --frame: #100a03;  --screw: #7d6640;  --screw-dark: #2c1f0c;
+    --wood-1: #4a2e10;  --wood-2: #6e451a;  --wood-3: #8f5c25;
+    --metal-1: #3e3529;  --metal-2: #231d14;
+    --text-primary: #f7e9c8;  --text-secondary: #d4b98a;  --text-muted: #937a52;
+    --accent: #e09a1f;  --accent-hover: #f5b440;
+    --stripe-1: #f7d58a;  --stripe-2: #e09a1f;  --stripe-3: #b8641d;  --stripe-4: #6e3c14;
+    --lcd-text: #ffc04d;
+}
+
+/* ------------------------------------------------------------
+   OLIVA — verde-oliva militar, mostarda e visor de fósforo verde
+   ------------------------------------------------------------ */
+body[data-theme="green"] {
+    --bg-screen: #10140c;  --bg-panel: #1b2115;  --bg-panel-2: #242c1c;  --bg-inset: #0a0d07;
+    --bg-card: rgba(230, 240, 215, 0.04);  --bg-card-hover: rgba(230, 240, 215, 0.08);
+    --glow-1: rgba(143, 168, 88, 0.15);  --glow-2: rgba(242, 179, 61, 0.07);
+    --frame: #080a05;  --screw: #6b7556;  --screw-dark: #1e2416;
+    --wood-1: #2c2a17;  --wood-2: #454022;  --wood-3: #5e5730;
+    --metal-1: #34382b;  --metal-2: #1d2017;
+    --text-primary: #ecefdc;  --text-secondary: #b8bd9c;  --text-muted: #7b8063;
+    --accent: #8fa858;  --accent-hover: #a7c26c;
+    --stripe-1: #e3c567;  --stripe-2: #c98b3a;  --stripe-3: #8fa858;  --stripe-4: #4c6b3c;
+    --lcd-bg: #070c05;  --lcd-text: #a6f08a;
+    --border-color: rgba(230, 240, 215, 0.10);  --border-strong: rgba(230, 240, 215, 0.22);
+}
+
+/* ------------------------------------------------------------
+   LITORAL 85 — verde-mar escuro, coral e areia
+   ------------------------------------------------------------ */
+body[data-theme="coast"] {
+    --bg-screen: #0b1716;  --bg-panel: #122423;  --bg-panel-2: #182f2d;  --bg-inset: #071010;
+    --bg-card: rgba(220, 245, 240, 0.04);  --bg-card-hover: rgba(220, 245, 240, 0.08);
+    --glow-1: rgba(232, 128, 106, 0.15);  --glow-2: rgba(47, 163, 154, 0.12);
+    --frame: #050d0c;  --screw: #5a7a75;  --screw-dark: #16302d;
+    --wood-1: #3b2e22;  --wood-2: #57432f;  --wood-3: #73593d;
+    --metal-1: #33403e;  --metal-2: #1b2423;
+    --text-primary: #e8f3ee;  --text-secondary: #a9c4bd;  --text-muted: #6d8a83;
+    --accent: #e8806a;  --accent-hover: #f59a86;
+    --stripe-1: #f4d08a;  --stripe-2: #e8806a;  --stripe-3: #2fa39a;  --stripe-4: #1f6f6a;
+    --lcd-bg: #04100d;  --lcd-text: #8ff0d0;
+    --border-color: rgba(220, 245, 240, 0.10);  --border-strong: rgba(220, 245, 240, 0.22);
+}
+
+/* ------------------------------------------------------------
+   COBALTO — azul-noite, cobalto e laranja complementar
+   ------------------------------------------------------------ */
+body[data-theme="blue"] {
+    --bg-screen: #0c1220;  --bg-panel: #141d30;  --bg-panel-2: #1b2640;  --bg-inset: #080d17;
+    --bg-card: rgba(220, 230, 250, 0.04);  --bg-card-hover: rgba(220, 230, 250, 0.08);
+    --glow-1: rgba(63, 127, 196, 0.16);  --glow-2: rgba(232, 112, 42, 0.06);
+    --frame: #060a12;  --screw: #5d6b85;  --screw-dark: #1a2338;
+    --wood-1: #121a2c;  --wood-2: #1d2a45;  --wood-3: #2a3b5e;
+    --metal-1: #3a4252;  --metal-2: #1f2533;
+    --text-primary: #e3ebf7;  --text-secondary: #a6b5cc;  --text-muted: #6c7a92;
+    --accent: #3f7fc4;  --accent-hover: #5c9ce0;
+    --stripe-1: #f2b33d;  --stripe-2: #e8702a;  --stripe-3: #3f7fc4;  --stripe-4: #1f3f6e;
+    --lcd-bg: #050b14;  --lcd-text: #7fd4ff;
+    --border-color: rgba(220, 230, 250, 0.10);  --border-strong: rgba(220, 230, 250, 0.22);
+}
+
+/* ------------------------------------------------------------
+   VINIL — ameixa, malva e rosa antigo
+   ------------------------------------------------------------ */
+body[data-theme="purple"] {
+    --bg-screen: #160d17;  --bg-panel: #241426;  --bg-panel-2: #2f1b31;  --bg-inset: #0e070f;
+    --bg-card: rgba(240, 220, 240, 0.04);  --bg-card-hover: rgba(240, 220, 240, 0.08);
+    --glow-1: rgba(166, 85, 151, 0.16);  --glow-2: rgba(232, 112, 42, 0.07);
+    --frame: #0d060e;  --screw: #7a5a7c;  --screw-dark: #2a172c;
+    --wood-1: #2c1730;  --wood-2: #432446;  --wood-3: #5c335f;
+    --metal-1: #3a2f3b;  --metal-2: #211a22;
+    --text-primary: #f1e2ef;  --text-secondary: #c8a9c4;  --text-muted: #8a6c86;
+    --accent: #a65597;  --accent-hover: #c271b3;
+    --stripe-1: #e8a598;  --stripe-2: #c9658a;  --stripe-3: #a65597;  --stripe-4: #5a3f8a;
+    --lcd-bg: #12070c;  --lcd-text: #ffb08a;
+    --border-color: rgba(240, 220, 240, 0.10);  --border-strong: rgba(240, 220, 240, 0.22);
+}
+
+/* ------------------------------------------------------------
+   FLIPERAMA — roxo-noite de salão de jogos, magenta e ciano
+   (cores de neon "apagadas" para não estourar)
+   ------------------------------------------------------------ */
+body[data-theme="arcade"] {
+    --bg-screen: #0f0b1a;  --bg-panel: #1a1428;  --bg-panel-2: #221a34;  --bg-inset: #09060f;
+    --bg-card: rgba(230, 220, 255, 0.04);  --bg-card-hover: rgba(230, 220, 255, 0.08);
+    --glow-1: rgba(217, 72, 143, 0.15);  --glow-2: rgba(79, 184, 196, 0.10);
+    --frame: #07050c;  --screw: #5e5478;  --screw-dark: #1c1630;
+    --wood-1: #15101f;  --wood-2: #211a31;  --wood-3: #2e2544;
+    --metal-1: #2e2a3a;  --metal-2: #18151f;
+    --text-primary: #ece6f8;  --text-secondary: #b3a8cc;  --text-muted: #776c90;
+    --accent: #d9488f;  --accent-hover: #ec66a7;
+    --stripe-1: #f2c14e;  --stripe-2: #e8702a;  --stripe-3: #d9488f;  --stripe-4: #4fb8c4;
+    --lcd-bg: #050a0c;  --lcd-text: #6ff0e6;
+    --border-color: rgba(230, 220, 255, 0.10);  --border-strong: rgba(230, 220, 255, 0.22);
+}
+
+/* ------------------------------------------------------------
+   PAPEL — aparelho creme, como os rádios de mesa (claro)
    ------------------------------------------------------------ */
 body[data-theme="light"] {
-    --accent: #c4452c;
-    --accent-hover: #df5d42;
-
-    --bg-screen:     #d9c8a4;
-    --bg-panel:      #efe3c6;
-    --bg-panel-2:    #f6ecd4;
-    --bg-inset:      #e2d2ad;
-    --bg-card:       rgba(51, 38, 27, 0.05);
-    --bg-card-hover: rgba(51, 38, 27, 0.10);
-
-    --text-primary:   #33261b;
-    --text-secondary: #5e4a35;
-    --text-muted:     #8a7356;
-
-    --border-color:  rgba(51, 38, 27, 0.14);
-    --border-strong: rgba(51, 38, 27, 0.28);
+    --bg-screen: #d9c8a4;  --bg-panel: #efe3c6;  --bg-panel-2: #f6ecd4;  --bg-inset: #e2d2ad;
+    --bg-card: rgba(51, 38, 27, 0.05);  --bg-card-hover: rgba(51, 38, 27, 0.10);
+    --glow-1: rgba(196, 69, 44, 0.15);  --glow-2: rgba(47, 163, 154, 0.12);
+    --frame: #5e4a35;  --screw: #b9a47e;  --screw-dark: #8a7356;
+    --wood-1: #6b4a2e;  --wood-2: #8b6240;  --wood-3: #a87b52;
+    --metal-1: #8f877a;  --metal-2: #5f584e;
+    --text-primary: #33261b;  --text-secondary: #5e4a35;  --text-muted: #8a7356;
+    --accent: #c4452c;  --accent-hover: #df5d42;
+    --border-color: rgba(51, 38, 27, 0.14);  --border-strong: rgba(51, 38, 27, 0.28);
     --shadow-panel: 0 14px 30px rgba(60, 40, 20, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
-body[data-theme="light"].app-body {
-    background:
-        radial-gradient(ellipse 70% 50% at 85% 0%, rgba(196, 69, 44, 0.15), transparent 60%),
-        repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.015) 0 2px, transparent 2px 6px),
-        var(--bg-screen);
-}
-body[data-theme="light"] .crt::after,
-body[data-theme="light"].crt::after { opacity: 0.25; }
-body[data-theme="light"] .welcome h1,
-body[data-theme="light"] .section-header h2 { text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.6); }
-body[data-theme="light"] .rack { background: rgba(51, 38, 27, 0.06); box-shadow: inset 0 3px 8px rgba(60, 40, 20, 0.2); }
-body[data-theme="light"] .panel {
-    background:
-        radial-gradient(circle at 12px 12px, #b9a47e 0 2.5px, #8a7356 3px, transparent 3.5px),
-        radial-gradient(circle at calc(100% - 12px) 12px, #b9a47e 0 2.5px, #8a7356 3px, transparent 3.5px),
-        radial-gradient(circle at 12px calc(100% - 12px), #b9a47e 0 2.5px, #8a7356 3px, transparent 3.5px),
-        radial-gradient(circle at calc(100% - 12px) calc(100% - 12px), #b9a47e 0 2.5px, #8a7356 3px, transparent 3.5px),
-        linear-gradient(180deg, var(--bg-panel-2) 0%, var(--bg-panel) 100%);
-}
-/* Elementos que ficam sempre sobre fundo escuro mantêm o texto claro */
-body[data-theme="light"] .playlist-info h2,
-body[data-theme="light"] .max-title,
-body[data-theme="light"] .max-player-next-title,
-body[data-theme="light"] .max-next-title,
-body[data-theme="light"] .settings-titlebar h2,
-body[data-theme="light"] .deck-model { color: #f3e6c8; }
-body[data-theme="light"] .max-player-panel { --text-primary: #f3e6c8; --text-muted: #c9b48f; }
 
-/* Textos de LCD que ficam soltos sobre o painel claro */
-body[data-theme="light"] .user-profile .user-meta-top small,
-body[data-theme="light"] .section-header a,
-body[data-theme="light"] .welcome-kicker,
-body[data-theme="light"] .shelf-hint { color: var(--accent-dark); text-shadow: none; }
-body[data-theme="light"] .pasta-info p { color: var(--text-muted); }
+/* ------------------------------------------------------------
+   MENTA — verde-menta de eletrodoméstico dos anos 70/80 (claro)
+   ------------------------------------------------------------ */
+body[data-theme="mint"] {
+    --bg-screen: #c8d8cc;  --bg-panel: #e3ece2;  --bg-panel-2: #eef4ec;  --bg-inset: #cfdccf;
+    --bg-card: rgba(30, 50, 40, 0.05);  --bg-card-hover: rgba(30, 50, 40, 0.10);
+    --glow-1: rgba(47, 143, 134, 0.15);  --glow-2: rgba(232, 128, 106, 0.12);
+    --frame: #4b6358;  --screw: #9db3a6;  --screw-dark: #6e8a7d;
+    --wood-1: #7a5a3c;  --wood-2: #9a7552;  --wood-3: #b8946c;
+    --metal-1: #8e9b93;  --metal-2: #5d6a63;
+    --text-primary: #1f2e28;  --text-secondary: #4b5f56;  --text-muted: #7d9087;
+    --accent: #2f8f86;  --accent-hover: #3aa89e;
+    --stripe-1: #f2c96b;  --stripe-2: #e8806a;  --stripe-3: #2f8f86;  --stripe-4: #1f5e58;
+    --lcd-bg: #08120e;  --lcd-text: #9cf0c0;
+    --border-color: rgba(30, 50, 40, 0.14);  --border-strong: rgba(30, 50, 40, 0.28);
+    --shadow-panel: 0 14px 30px rgba(30, 50, 40, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* ============================================================
+   AJUSTES PARA ACABAMENTOS CLAROS  (body[data-tone="light"])
+   ============================================================ */
+body[data-tone="light"].crt::after { opacity: 0.22; }
+
+body[data-tone="light"] .welcome h1,
+body[data-tone="light"] .section-header h2 { text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.6); }
+
+body[data-tone="light"] .rack {
+    background: rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Textos que ficam SEMPRE sobre superfícies escuras continuam claros */
+body[data-tone="light"] .playlist-info h2,
+body[data-tone="light"] .settings-titlebar h2,
+body[data-tone="light"] .deck-model { color: #f3e6c8; }
+body[data-tone="light"] .max-player-panel {
+    --text-primary: #f3e6c8;
+    --text-secondary: #c9b48f;
+    --text-muted: #a8957a;
+    --bg-card: rgba(243, 230, 200, 0.05);
+    --bg-card-hover: rgba(243, 230, 200, 0.1);
+    --border-strong: rgba(243, 230, 200, 0.22);
+}
+
+/* Textos de LCD soltos sobre o painel claro */
+body[data-tone="light"] .user-profile .user-meta-top small,
+body[data-tone="light"] .section-header a,
+body[data-tone="light"] .welcome-kicker,
+body[data-tone="light"] .shelf-hint { color: var(--accent-dark); text-shadow: none; }

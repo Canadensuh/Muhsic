@@ -4,7 +4,7 @@
 > Projeto acadêmico do grupo **MPS — MapleProjectSeries**.
 
 ![Status](https://img.shields.io/badge/status-BETA-orange)
-![Versão](https://img.shields.io/badge/versão-0.7-blue)
+![Versão](https://img.shields.io/badge/versão-2.0-blue)
 ![Stack](https://img.shields.io/badge/stack-HTML%20%7C%20CSS%20%7C%20JS-orange)
 ![Dependências](https://img.shields.io/badge/frameworks-nenhum-lightgrey)
 ![Licença](https://img.shields.io/badge/licença-MPS-red)
@@ -53,16 +53,19 @@ com cara de **tela de jogo** — nada de cópia de app de streaming:
 | Área | O que faz |
 |------|-----------|
 | 🎧 **Toca-discos hi-fi** | Painel direito com prato, braço, visor LCD e VU meter. O disco gira em tempo real, freia ao pausar e o braço desce antes do play |
-| 🖱️ **Gestos** | Clique = play/pause · Girar = próxima/anterior · Scroll = volume · Duplo clique = curtir · Botão direito = menu |
-| ⌨️ **Teclado da vitrola** | Teclas físicas: anterior, play/pausa, próxima, aleatório, curtir, modo vitrine e volume −/+ com medidor de LEDs |
-| 📥 **Arrastar e soltar** | Arraste qualquer disco da prateleira até a vitrola — o prato acende e mostra "SOLTE O DISCO AQUI" |
-| 🔀 **Aleatório inteligente** | Sorteia músicas da biblioteca inteira, não só da lista atual |
-| 📚 **Fila automática** | Os 3 próximos discos ficam no painel da vitrola; clique em um para tocá-lo |
+| 🖱️ **Gestos** | Clique = play/pause · Girar = próxima/anterior · Scroll = volume · Duplo clique = curtir (sem pausar) · Botão direito = menu |
+| 🎚️ **Chave MANUAL / BOTÕES** | Escolha como controlar a vitrola: **Manual** (gestos no disco) ou **Botões** (teclado com anterior, play/pausa, próxima, embaralhar, curtir, modo vitrine e volume −/+). A escolha fica salva no perfil |
+| 📥 **Arrastar e soltar** | Segure um disco da prateleira: só o **disco** sai e fica preso ao cursor, girando. Solte na vitrola e ele pousa no prato e toca. No celular, um toque no disco já toca |
+| 🔀 **Embaralhar** | Sorteia de novo as **próximas** faixas (da biblioteca inteira, sem repetir) — a música atual continua tocando |
+| 📚 **Próximas faixas** | Lista com as 5 próximas faixas abaixo do prato, igual à do modo vitrine; clique em uma para tocá-la |
+| ⏸️ **Freio do disco** | Ao pausar, o disco da vitrola **e** o da prateleira avançam um pouco e voltam, como uma freada real |
+| 🎮 **Guess the Music** | Jogo no menu lateral: tela título com **SCORE** (e a foto do perfil), placar por gênero e reset. Escolha um gênero (pastas iguais às do Início) ou o **MIX** (capa com 4 capas que trocam a cada 5 s) e a dificuldade: **Fácil 5 s**, **Médio 3 s** ou **Difícil 1 s**. Clique no disco da vitrola (selo "?") para ouvir o trecho de um ponto aleatório; escolha entre **4 discos lado a lado**, confirme em "Tem certeza?" e veja **ACERTOU / ERROU** com a capa revelada na vitrola |
 | 🖥️ **Modo vitrine** | Vitrola grande em tela cheia com a lista "A seguir" (7 discos) |
 | 🎨 **Pastas de vinil** | Capas com textura de papel; no hover os discos saem da pasta. A cor vem da capa via `<canvas>` |
-| ❤️ **Curtidas** | Curta músicas e álbuns — **salvo por usuário** e mantido após recarregar |
+| ❤️ **Curtidas** | Curta músicas e álbuns — **salvo por usuário** e mantido após recarregar. No modo Botões, a tecla ♥ fica afundada se a música já é curtida; apertar de novo descurte. Todo disco curtido ganha um cartãozinho ♥ (pastas, Buscar, Discos curtidos); clicar nele descurte |
 | 🔍 **Busca** | Campo em visor LCD; busca por título, artista, álbum, playlist ou gênero, ignorando acentos |
-| 🎨 **7 acabamentos** | Sunset, Papel (claro), Cereja, Cobalto, Vinil, Oliva e Âmbar (salvo por usuário) |
+| 🎨 **12 acabamentos** | Mudam a tela inteira (fundo, painéis, madeira, metal, visor e teclas): Sunset 86, Papel, Grafite, Cacau, Cereja, Mel, Oliva, Litoral 85, Cobalto, Vinil, Fliperama e Menta |
+| 👤 **Avatar** | Perfis com foto mostram a foto; os demais ganham a inicial do nome sobre as cores do acabamento (muda com o tema) |
 | 💎 **Planos** | Free (com anúncio), Muhsic+ e Premium |
 | 🔒 **Conteúdo exclusivo** | Músicas visíveis apenas para usuários específicos |
 | ⌨️ **Atalhos** | `Espaço` play/pause · `→` próxima · `←` anterior · `Esc` fecha menus |
@@ -103,16 +106,22 @@ com cara de **tela de jogo** — nada de cópia de app de streaming:
 
 > O login não diferencia maiúsculas de minúsculas; a senha diferencia.
 > Contas novas podem ser criadas na aba **Novo perfil** (ficam salvas no navegador).
+> Os dados de teste ficam só neste README — a tela de login não os exibe.
+> Apenas o perfil **Muh.png** tem foto; os outros mostram a inicial do nome.
 
 ### Roteiro sugerido para apresentação
 1. Na landing, role pelas seções (Recursos, Como tocar, Planos, Ficha técnica).
-2. Entre como **Teste** (Free) → mostre o "comercial" e os acabamentos bloqueados.
-3. Desligue (sair) e entre como **Muh.png** (Premium) → músicas exclusivas aparecem.
-4. Abra uma pasta, **puxe um disco e solte na vitrola** — o braço desce e a música começa.
-5. Gire o vinil para trocar de faixa, use o scroll (ou VOL −/+) para o volume.
-6. Dê duplo clique para curtir → a pasta **Discos curtidos** aparece no rack.
-7. Tecla ⤢ (ou botão direito → maximizar) → **modo vitrine** em tela cheia.
-8. Menu do perfil → **Acabamento do aparelho** → troque a cor; recarregue — tudo continua salvo.
+2. Entre como **Teste** (Free) → mostre o avatar com a inicial, o "comercial" e os acabamentos bloqueados.
+3. Desligue (sair) e entre como **Muh.png** (Premium) → foto de perfil e músicas exclusivas.
+4. Abra uma pasta, **segure um disco e leve até a vitrola** — ele fica preso ao cursor e pousa no prato.
+5. Com a chave em **MANUAL**: gire o vinil para trocar de faixa e use o scroll para o volume.
+6. Pause e mostre a **freada** do disco (na vitrola e na prateleira).
+7. Vire a chave para **BOTÕES** → aparecem o teclado e o volume −/+.
+8. Clique em **embaralhar** → as próximas faixas mudam, a atual continua.
+9. Dê duplo clique (ou ♥) para curtir → **Discos curtidos** aparece no topo do rack.
+10. Tecla ⤢ (ou botão direito → maximizar) → **modo vitrine** em tela cheia.
+11. Menu do perfil → **Acabamento do aparelho** → passe por Grafite, Fliperama e Menta (até o logo muda de cor); recarregue — tudo continua salvo.
+12. Menu → **Guess the Music** → mostre o SCORE e o Placar → **MIX** → **Médio** → clique no disco da vitrola (selo "?") → gire para trás para repetir → clique num dos 4 discos → "Tem certeza?" → SIM → a capa aparece na vitrola.
 
 ---
 
@@ -145,17 +154,17 @@ muhsic/
 │   ├── app.css             ← Entrada do player (muhsic.html)
 │   ├── base/               ← tokens, reset, efeitos CRT, responsivo
 │   ├── layout/             ← os 3 painéis: app, rack (sidebar), tela (header)
-│   ├── components/         ← teclas, pastas, prateleira, busca, modais, anúncio
+│   ├── components/         ← teclas, pastas, prateleira, faixas, busca, modais, anúncio
 │   ├── player/             ← deck hi-fi, toca-discos, fila, overlays, modo vitrine
-│   ├── pages/              ← landing e detalhe de pasta
-│   └── themes/             ← acabamentos de cor por usuário
+│   ├── pages/              ← landing, detalhe de pasta e o jogo
+│   └── themes/             ← 12 acabamentos (cores da tela inteira)
 │
 └── js/
     ├── config/             ← constantes, URLs, parâmetros do player, planos
     ├── data/               ← "banco de dados": users.js e songs.js
     ├── core/               ← regras sem interface: storage, sessão, auth, biblioteca
     ├── pages/              ← landing.js (modal de login/cadastro)
-    └── app/                ← player: estado, vitrola, fila, curtidas, eventos
+    └── app/                ← player: estado, vitrola, fila, curtidas, arraste de discos, jogo, eventos
         └── views/          ← renderização das telas
 ```
 
@@ -196,7 +205,7 @@ Contas criadas pelo formulário recebem um ID único e veem as músicas globais.
 | **SVG** | Logo e ilustrações próprias |
 | **JavaScript (ES2020)** | Toda a lógica, sem frameworks nem build |
 | **Canvas API** | Extração da cor dominante das capas |
-| **localStorage** | Sessão, contas criadas, curtidas e tema |
+| **localStorage** | Sessão, contas criadas, curtidas, tema, modo da vitrola e recordes do jogo |
 | **Font Awesome 6** | Ícones |
 | **Google Fonts** | Bungee, VT323 e Rubik |
 | **Cloudinary** | Hospedagem de áudio e imagens |

@@ -1,35 +1,52 @@
 /* ============================================================
    MUHSIC — BASE / VARIABLES.CSS
+   ------------------------------------------------------------
    Design tokens da identidade "Hi-Fi anos 80".
-   Os temas (themes/themes.css) sobrescrevem estas variáveis.
+   Os ACABAMENTOS (themes/themes.css) sobrescrevem os tokens
+   do bloco :root — superfícies, madeira, metal, visor, teclas,
+   acento e as 4 faixas — e o bloco "derivados" (no fim deste
+   arquivo) recalcula sozinho os tons combinados.
    ============================================================ */
 
 :root {
-    /* ---------- Superfícies (café, madeira e escuridão de sala de som) ---------- */
-    --bg-screen:     #160f0b;
-    --bg-panel:      #231711;
-    --bg-panel-2:    #2e1f17;
-    --bg-inset:      #0f0907;
+    /* ---------- Superfícies ---------- */
+    --bg-screen:     #160f0b;    /* fundo atrás dos painéis      */
+    --bg-panel:      #231711;    /* painéis (rack e tela)        */
+    --bg-panel-2:    #2e1f17;    /* topo dos painéis / janelas   */
+    --bg-inset:      #0f0907;    /* áreas rebaixadas             */
     --bg-card:       rgba(243, 230, 200, 0.04);
     --bg-card-hover: rgba(243, 230, 200, 0.08);
+    --glow-1:        rgba(232, 112, 42, 0.14);   /* brilho no canto superior */
+    --glow-2:        rgba(47, 163, 154, 0.08);   /* brilho no canto inferior */
+    --frame:         #1b110b;    /* contorno escuro de aparelhos */
+    --screw:         #6f5c46;    /* parafusos dos painéis        */
+    --screw-dark:    #2a1d15;
 
+    /* ---------- Madeira (gabinete da vitrola, prateleira) ---------- */
     --wood-1: #3a2216;
     --wood-2: #5a3420;
     --wood-3: #7b482a;
-    --wood-grain:
-        repeating-linear-gradient(92deg, rgba(0,0,0,0.00) 0 6px, rgba(0,0,0,0.10) 6px 7px, rgba(0,0,0,0.00) 7px 15px, rgba(255,220,170,0.05) 15px 16px),
-        linear-gradient(180deg, var(--wood-3) 0%, var(--wood-2) 45%, var(--wood-1) 100%);
+
+    /* ---------- Metal (tampa da vitrola, base do teclado) ---------- */
+    --metal-1: #3b342d;
+    --metal-2: #231d18;
 
     /* ---------- Texto ---------- */
     --text-primary:   #f3e6c8;
     --text-secondary: #c9b48f;
     --text-muted:     #8c7558;
     --text-dark:      #33261b;
+    --text-on-accent: #fff7e6;
 
-    /* ---------- Acentos (os temas trocam o --accent) ---------- */
+    /* ---------- Acento e faixas ---------- */
     --accent:       #e8702a;
     --accent-hover: #ff8a3d;
+    --stripe-1: #f2b33d;
+    --stripe-2: #e8702a;
+    --stripe-3: #c4452c;
+    --stripe-4: #2fa39a;
 
+    /* Cores fixas da paleta (ícones, planos, etiquetas) */
     --mustard: #f2b33d;
     --brick:   #c4452c;
     --teal:    #2fa39a;
@@ -45,11 +62,9 @@
     --key-text:   #3a2e22;
     --key-legend: #8a7657;
 
-    /* ---------- Visor LCD âmbar ---------- */
+    /* ---------- Visor LCD ---------- */
     --lcd-bg:   #1a1006;
     --lcd-text: #ffb547;
-    --lcd-dim:  rgba(255, 181, 71, 0.22);
-    --lcd-glow: 0 0 6px rgba(255, 181, 71, 0.55);
 
     /* ---------- Bordas, raios, sombras ---------- */
     --border-color:  rgba(243, 230, 200, 0.10);
@@ -72,23 +87,35 @@
     --tt-scale:      1;       /* escala da vitrola (ajustada no responsivo) */
 
     /* ---------- Imagens ---------- */
-    --mfade-url: url('../../assets/img/mark-bars.svg');
+    /* Máscara do "M" embutida (data URI): funciona até abrindo o site direto do disco,
+       onde o navegador bloqueia máscaras vindas de arquivos externos. Mesmo desenho de assets/img/mark-bars.svg */
+    --mfade-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='black'%3E%3Crect x='8' y='38' width='9' height='24' rx='4.5'/%3E%3Crect x='21' y='18' width='9' height='64' rx='4.5'/%3E%3Crect x='34' y='28' width='9' height='44' rx='4.5'/%3E%3Crect x='47' y='39' width='9' height='22' rx='4.5'/%3E%3Crect x='60' y='28' width='9' height='44' rx='4.5'/%3E%3Crect x='73' y='18' width='9' height='64' rx='4.5'/%3E%3Crect x='86' y='38' width='9' height='24' rx='4.5'/%3E%3C/g%3E%3C/svg%3E");
     --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .9 0 0 0 0 .8 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* ------------------------------------------------------------
-   Tokens DERIVADOS do acento.
-   Declarados também no <body> porque é nele que o tema troca
-   o --accent; assim estes valores são recalculados por tema.
+   Tokens DERIVADOS.
+   Declarados também no <body> porque é nele que o acabamento
+   troca as cores-base; assim são recalculados para cada tema.
    ------------------------------------------------------------ */
 :root, body {
     --accent-soft: color-mix(in srgb, var(--accent) 20%, transparent);
     --accent-glow: color-mix(in srgb, var(--accent) 55%, transparent);
     --accent-dark: color-mix(in srgb, var(--accent) 60%, #000);
 
-    /* Faixas "sunset" dos anos 80 */
+    --lcd-dim:  color-mix(in srgb, var(--lcd-text) 22%, transparent);
+    --lcd-glow: 0 0 6px color-mix(in srgb, var(--lcd-text) 55%, transparent);
+
+    --wood-grain:
+        repeating-linear-gradient(92deg, rgba(0,0,0,0.00) 0 6px, rgba(0,0,0,0.10) 6px 7px, rgba(0,0,0,0.00) 7px 15px, rgba(255,240,220,0.05) 15px 16px),
+        linear-gradient(180deg, var(--wood-3) 0%, var(--wood-2) 45%, var(--wood-1) 100%);
+    --metal-plate:
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 3px),
+        linear-gradient(160deg, var(--metal-1) 0%, var(--metal-2) 100%);
+
+    /* Faixas "sunset" dos anos 80 (as cores vêm do acabamento) */
     --stripes-v: linear-gradient(180deg,
-        var(--mustard) 0 25%, var(--accent) 25% 50%, var(--brick) 50% 75%, var(--teal) 75% 100%);
+        var(--stripe-1) 0 25%, var(--stripe-2) 25% 50%, var(--stripe-3) 50% 75%, var(--stripe-4) 75% 100%);
     --stripes-h: linear-gradient(90deg,
-        var(--mustard) 0 25%, var(--accent) 25% 50%, var(--brick) 50% 75%, var(--teal) 75% 100%);
+        var(--stripe-1) 0 25%, var(--stripe-2) 25% 50%, var(--stripe-3) 50% 75%, var(--stripe-4) 75% 100%);
 }

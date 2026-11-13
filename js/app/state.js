@@ -102,8 +102,17 @@ function cacheDomRefs() {
     maxVolumeRingGlow = $('maxVolumeRingGlow');
 }
 
-/** Faixa atual da lista ativa */
+/**
+ * Faixa que está na vitrola. Usa o ID carregado (e não só o índice),
+ * porque abrir outra lista troca state.playlist sem trocar a música.
+ */
 function getCurrentSong() {
+    if (currentPlayingSongId !== null) {
+        const naLista = state.playlist.find(s => s.id === currentPlayingSongId);
+        if (naLista) return naLista;
+        const noCatalogo = getSongById(currentPlayingSongId, currentUserId);
+        if (noCatalogo) return noCatalogo;
+    }
     if (!state.playlist.length) return null;
     return state.playlist[state.currentIndex % state.playlist.length];
 }

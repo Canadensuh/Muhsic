@@ -135,7 +135,7 @@
     justify-content: center;
     background-size: cover;
     background-position: center;
-    background-color: #2a1d15;
+    background-color: var(--screw-dark);
     isolation: isolate;
     transform-origin: left center;
     transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.55s ease;

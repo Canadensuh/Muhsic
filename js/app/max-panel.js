@@ -17,6 +17,7 @@ function isMaxPanelOpen() {
 }
 
 function abrirMaxPanel() {
+    if (modoJogoAtivo()) return;            // desligado durante o Guess the Music
     if (!maxPanel) return;
     maxPanel.classList.add('open');
     maxPanel.setAttribute('aria-hidden', 'false');
@@ -68,11 +69,12 @@ function bindMaxPanelEvents() {
         if (e.target === maxPanel) fecharMaxPanel();
     });
     if (maxCtxRandom) maxCtxRandom.addEventListener('click', (e) => {
-        e.stopPropagation(); closeMaxContextMenu(); tocarAleatoriaGlobal();
+        e.stopPropagation(); closeMaxContextMenu(); embaralharProximas();
     });
 
     if (maxVinylWrapper) {
         maxVinylWrapper.addEventListener('wheel', (e) => {
+            if (!isManualMode()) return;               // modo BOTÕES: scroll normal
             e.preventDefault(); e.stopPropagation();
             if (isMaxContextMenuOpen()) return;
             applyVolume(state.volume + (e.deltaY > 0 ? -PLAYER.volumeStep : PLAYER.volumeStep));
@@ -92,8 +94,10 @@ function bindMaxPanelEvents() {
             maxDragStartDiskAng = maxAccumulatedAngle;
             maxDragTotalRotation = 0;
             maxDragMoved = false;
-            stopMaxSpin();
-            if (maxVinyl) maxVinyl.style.transition = 'none';
+            if (isManualMode()) {                      // só o modo MANUAL segura o disco
+                stopMaxSpin();
+                if (maxVinyl) maxVinyl.style.transition = 'none';
+            }
             e.preventDefault();
         });
 
@@ -109,6 +113,12 @@ function bindMaxPanelEvents() {
         const cur = getMouseAngleFor(maxVinylWrapper, e);
         maxDragTotalRotation += angleDiff(cur, maxDragStartMouseAng);
         maxDragStartMouseAng = cur;
+
+        if (!isManualMode()) {                         // modo BOTÕES: não gira
+            if (Math.abs(maxDragTotalRotation) > CLICK_TOLERANCE) maxDragMoved = true;
+            return;
+        }
+
         if (!maxDragMoved && Math.abs(maxDragTotalRotation) > CLICK_TOLERANCE) {
             maxDragMoved = true;
             maxVinylWrapper.classList.add('dragging');
@@ -122,6 +132,12 @@ function bindMaxPanelEvents() {
         if (maxVinylWrapper) maxVinylWrapper.classList.remove('dragging');
         const total = maxDragTotalRotation;
 
+        if (!isManualMode()) {                         // modo BOTÕES: só clique
+            if (!maxDragMoved) cliqueNoDisco();
+            maxDragTotalRotation = 0;
+            return;
+        }
+
         if (total >= SWAP_THRESHOLD) {
             maxAccumulatedAngle = maxDragStartDiskAng + total;
             setMaxRotation(maxAccumulatedAngle);
@@ -131,7 +147,7 @@ function bindMaxPanelEvents() {
             setMaxRotation(maxAccumulatedAngle);
             prevTrack();
         } else if (!maxDragMoved) {
-            togglePlay();
+            cliqueNoDisco();
         } else {
             maxAccumulatedAngle = maxDragStartDiskAng;
             if (maxVinyl) maxVinyl.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1)';

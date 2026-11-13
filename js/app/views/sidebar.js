@@ -15,16 +15,17 @@ async function renderSidebar() {
     if (!c) return;
 
     const curtidas = getCurtidasVisiveis();
-    const itensCurtidos = curtidas.length ? [
-        { name: LIKED_COLLECTION, tracks: curtidas, type: 'liked' },
+    const itensCurtidos = [
+        ...(curtidas.length ? [{ name: LIKED_COLLECTION, tracks: curtidas, type: 'liked' }] : []),
         ...likedAlbums.map(a => ({ name: a.name, tracks: a.tracks, type: 'liked', cover: a.coverImage })),
         ...likedGenres.map(g => ({ name: g.name, tracks: g.tracks, type: 'liked' }))
-    ] : [];
+    ];
 
+    /* "Discos Curtidos" fica em primeiro: é a coleção pessoal do usuário */
     let html = '';
+    html += await renderSecaoSidebar('Discos Curtidos', itensCurtidos);
     html += await renderSecaoSidebar('Álbuns Salvos',   paraCards(groupByCategory(currentUserId, 'album', 'album'), 'album'));
     html += await renderSecaoSidebar('Playlists',       paraCards(groupByCategory(currentUserId, 'playlist', 'playlist'), 'playlist'));
-    html += await renderSecaoSidebar('Discos Curtidos', itensCurtidos);
     html += await renderSecaoSidebar('Gêneros',         paraCards(groupByCategory(currentUserId, 'genre', 'genre'), 'genre'));
 
     c.innerHTML = html;
