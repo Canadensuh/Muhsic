@@ -51,6 +51,15 @@ const users = [
         name: 'Teste',
         plan: 'free',
         avatar: null
+    },
+
+    {
+        id: 5,
+        login: 'Kaioxys',
+        pass: 'kaio123',
+        name: 'Kaioxys',
+        plan: 'premium',
+        avatar: null
     }
 
 ];
