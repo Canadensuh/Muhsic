@@ -763,6 +763,17 @@ const baseSongs = [
         duration: 205,
         userIds: [0]
     },
+    {
+        id: 1203,
+        title: 'Mice City',
+        artist: 'Hotel Ugly',
+        category: 'genre',
+        genre: 'Indie',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652626/ab67616d0000e1a3dd36a2682b5654c23d306a3c.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652382/Mice_City_spotdown.org.mp3',
+        duration: 180,
+        userIds: [0]
+    },
 
     /* ============================================================
        GÊNERO: ALTERNATIVO  (GLOBAL — todos veem, ID 0)
@@ -935,6 +946,61 @@ const baseSongs = [
         genre: 'Trap',
         coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839379/ab67616d00001e02eb021b18fcead1189954756d.jpg',
         url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839339/PARTY_spotdown.org.mp3',
+        duration: 200,
+        userIds: [0]
+    },
+    {
+        id: 1207,
+        title: '100% MOLHO',
+        artist: 'Brandão85, Jovem Dex, Leviano, Alee',
+        category: 'genre',
+        genre: 'Trap',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652631/ab67616d0000e1a351f1bdb15406e4706081c00d.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652385/100_MOLHO_spotdown.org.mp3',
+        duration: 291,
+        userIds: [0]
+    },
+    {
+        id: 1211,
+        title: 'D&G',
+        artist: 'Brandão85',
+        category: 'genre',
+        genre: 'Trap',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652629/ab67616d0000e1a37c67b622061fcbea42b12ac6.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652387/D_G_spotdown.org.mp3',
+        duration: 135,
+        userIds: [0]
+    },
+    {
+        id: 1226,
+        title: 'EM DIREÇÃO DO SOL',
+        artist: 'Brandão85, Alee',
+        category: 'genre',
+        genre: 'Trap',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652626/ab67616d0000e1a3d6fdb8c2abad44620e46ad02.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652396/EM_DIRE%C3%87%C3%83O_DO_SOL_spotdown.org.mp3',
+        duration: 180,
+        userIds: [0]
+    },
+    {
+        id: 1232,
+        title: 'BLUNT DE GOIABA',
+        artist: 'Brandão85',
+        category: 'genre',
+        genre: 'Trap',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652626/ab67616d0000e1a3d6fdb8c2abad44620e46ad02.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652399/BLUNT_DE_GOIABA_spotdown.org.mp3',
+        duration: 150,
+        userIds: [0]
+    },
+    {
+        id: 1242,
+        title: 'Isso é Sério',
+        artist: 'Matuê, Brandão85',
+        category: 'genre',
+        genre: 'Trap',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786599224/ab67616d00001e022eb219eef2414503421a5704.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652404/Isso_%C3%A9_S%C3%A9rio_spotdown.org.mp3',
         duration: 200,
         userIds: [0]
     },
@@ -1133,6 +1199,83 @@ const baseSongs = [
         coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795693/ab67616d0000e1a38cdb0d29bb99ad4febccac39.webp',
         url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795646/Beautiful_spotdown.org.mp3',
         duration: 270,
+        userIds: [0]
+    },
+    {
+        id: 1204,
+        title: 'Like That',
+        artist: 'Future, Metro Boomin, Kendrick Lamar',
+        category: 'genre',
+        genre: 'Hip Hop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652626/ab67616d0000e1a3cec3fc072352b5f4f637d9fa.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652384/Like_That_spotdown.org.mp3',
+        duration: 267,
+        userIds: [0]
+    },
+    {
+        id: 1205,
+        title: 'Money Trees',
+        artist: 'Kendrick Lamar, Jay Rock',
+        category: 'genre',
+        genre: 'Hip Hop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652631/ab67616d0000e1a378de8b28de36a74afc0348b5.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652384/Money_Trees_spotdown.org.mp3',
+        duration: 386,
+        userIds: [0]
+    },
+    {
+        id: 1206,
+        title: 'Roses',
+        artist: 'Kanye West',
+        category: 'genre',
+        genre: 'Hip Hop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684132/ab67616d0000e1a3428d2255141c2119409a31b2.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652385/Roses_spotdown.org.mp3',
+        duration: 245,
+        userIds: [0]
+    },
+    {
+        id: 1208,
+        title: 'Swimming Pools (Drank)',
+        artist: 'Kendrick Lamar',
+        category: 'genre',
+        genre: 'Hip Hop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652624/ab67616d0000e1a3b5ef185d28724c5573c2ac9c.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652385/Swimming_Pools_Drank__spotdown.org.mp3',
+        duration: 220,
+        userIds: [0]
+    },
+    {
+        id: 1210,
+        title: 'All Mine',
+        artist: 'Kanye West',
+        category: 'genre',
+        genre: 'Hip Hop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652628/ab67616d0000e1a30cd942c1a864afa4e92d04f2.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652387/All_Mine_spotdown.org.mp3',
+        duration: 145,
+        userIds: [0]
+    },
+    {
+        id: 1213,
+        title: 'So Fresh, So Clean',
+        artist: 'Outkast',
+        category: 'genre',
+        genre: 'Hip Hop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652631/ab67616d0000e1a3153b3d6495031cb813a7451c.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652387/So_Fresh_So_Clean_spotdown.org.mp3',
+        duration: 240,
+        userIds: [0]
+    },
+    {
+        id: 1227,
+        title: "Wat's Wrong",
+        artist: 'Isaiah Rashad, Zacari, Kendrick Lamar',
+        category: 'genre',
+        genre: 'Hip Hop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652627/ab67616d0000e1a3ed5e0ac2ad3fd4932103bd19.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652396/Wat_s_Wrong_feat._Zacari_Kendrick_Lamar__spotdown.org.mp3',
+        duration: 263,
         userIds: [0]
     },
 
@@ -1338,6 +1481,72 @@ const baseSongs = [
         duration: 240,
         userIds: [0]
     },
+    {
+        id: 1200,
+        title: 'Born Again',
+        artist: 'LISA, Doja Cat, RAYE',
+        category: 'genre',
+        genre: 'Pop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652623/ab67616d0000aa5495ce3d848f4e452489d4a12c.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652380/Born_Again_feat._Doja_Cat_RAYE__spotdown.org.mp3',
+        duration: 197,
+        userIds: [0]
+    },
+    {
+        id: 1202,
+        title: 'Gabriela',
+        artist: 'KATSEYE',
+        category: 'genre',
+        genre: 'Pop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652627/ab67616d0000e1a3f8d4d00ffe09373efb13ce29.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652382/Gabriela_spotdown.org.mp3',
+        duration: 197,
+        userIds: [0]
+    },
+    {
+        id: 1218,
+        title: "Can't Take My Eyes Off You",
+        artist: 'Engelbert Humperdinck',
+        category: 'genre',
+        genre: 'Pop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652630/ab67616d0000e1a313f61b73b155d49c9ad671b9.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652391/Can_t_Take_My_Eyes_Off_You_spotdown.org.mp3',
+        duration: 180,
+        userIds: [0]
+    },
+    {
+        id: 1221,
+        title: 'A Man Without Love',
+        artist: 'Engelbert Humperdinck',
+        category: 'genre',
+        genre: 'Pop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652630/ab67616d0000e1a313f61b73b155d49c9ad671b9.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652393/A_Man_Without_Love_spotdown.org.mp3',
+        duration: 197,
+        userIds: [0]
+    },
+    {
+        id: 1224,
+        title: 'Put Your Head on My Shoulder',
+        artist: 'Paul Anka',
+        category: 'genre',
+        genre: 'Pop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652626/ab67616d0000e1a3ca4474ff02298f4b3257765f.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652395/Put_Your_Head_on_My_Shoulder_spotdown.org.mp3',
+        duration: 155,
+        userIds: [0]
+    },
+    {
+        id: 1240,
+        title: 'idontwannabeyouanymore',
+        artist: 'Billie Eilish',
+        category: 'genre',
+        genre: 'Pop',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652622/ab67616d0000aa54a9f6c04ba168640b48aa5795.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652404/idontwannabeyouanymore_spotdown.org.mp3',
+        duration: 203,
+        userIds: [0]
+    },
 
     /* ============================================================
        GÊNERO: R&B  (GLOBAL — todos veem, ID 0)
@@ -1396,6 +1605,28 @@ const baseSongs = [
         coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786599224/ab67616d00001e0290b4e1905b1fc48c537ec053.jpg',
         url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839338/Miami_feat._BIA__spotdown.org.mp3',
         duration: 220,
+        userIds: [0]
+    },
+    {
+        id: 1219,
+        title: 'Pink + White',
+        artist: 'Frank Ocean',
+        category: 'genre',
+        genre: 'R&B',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652623/ab67616d0000aa54c5649add07ed3720be9d5526.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652392/Pink_White_spotdown.org.mp3',
+        duration: 184,
+        userIds: [0]
+    },
+    {
+        id: 1241,
+        title: 'BITCHES BREW',
+        artist: 'SAILORR',
+        category: 'genre',
+        genre: 'R&B',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652628/ab67616d0000e1a3fc2a3be6f09be4ea189ee808.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652404/BITCHES_BREW_spotdown.org.mp3',
+        duration: 151,
         userIds: [0]
     },
 
@@ -1588,6 +1819,17 @@ const baseSongs = [
         duration: 205,
         userIds: [0]
     },
+    {
+        id: 1236,
+        title: 'Cryogen',
+        artist: 'Muse',
+        category: 'genre',
+        genre: 'Rock',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652625/ab67616d0000e1a3b295bd39e098e7b68d57aacf.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652402/Cryogen_spotdown.org.mp3',
+        duration: 301,
+        userIds: [0]
+    },
 
     /* ============================================================
        GÊNERO: METAL  (GLOBAL — todos veem, ID 0)
@@ -1703,6 +1945,127 @@ const baseSongs = [
         duration: 230,
         userIds: [1]
     },
+    {
+        id: 1209,
+        title: 'People = Shit',
+        artist: 'Slipknot',
+        category: 'genre',
+        genre: 'Metal',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652624/ab67616d0000e1a3a62eefef8ee83d5e09aa8331.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652386/People_Shit_spotdown.org.mp3',
+        duration: 216,
+        userIds: [0]
+    },
+    {
+        id: 1212,
+        title: 'Kingslayer',
+        artist: 'Bring Me The Horizon, BABYMETAL',
+        category: 'genre',
+        genre: 'Metal',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652632/ab67616d0000e1a35149c948fde506624246a684.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652387/Kingslayer_feat._BABYMETAL__spotdown.org.mp3',
+        duration: 219,
+        userIds: [0]
+    },
+    {
+        id: 1215,
+        title: 'Ball Tongue',
+        artist: 'Korn',
+        category: 'genre',
+        genre: 'Metal',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786589285/ab67616d00001e027153b1cf6ee990c2a9fa46cc.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652390/Ball_Tongue_spotdown.org.mp3',
+        duration: 269,
+        userIds: [0]
+    },
+    {
+        id: 1217,
+        title: 'Flores',
+        artist: 'LVCAS',
+        category: 'genre',
+        genre: 'Metal',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1786684138/ab67616d00001e0279f5ddb4fa5e66daee7f573d.jpg',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652390/Flores_spotdown.org.mp3',
+        duration: 263,
+        userIds: [0]
+    },
+    {
+        id: 1222,
+        title: 'Shadow Moses',
+        artist: 'Bring Me The Horizon',
+        category: 'genre',
+        genre: 'Metal',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652632/ab67616d0000e1a3566acaba72c5509e3887c4b0.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652394/Shadow_Moses_spotdown.org.mp3',
+        duration: 242,
+        userIds: [0]
+    },
+    {
+        id: 1223,
+        title: 'Joseph',
+        artist: 'Falling In Reverse, Corey Taylor, Serj Tankian',
+        category: 'genre',
+        genre: 'Metal',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652792/ab6761610000101f8ae6f4bb57ae969c45da2310.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652394/Joseph_spotdown.org.mp3',
+        duration: 240,
+        userIds: [0]
+    },
+    {
+        id: 1225,
+        title: 'Nothing Else Matters',
+        artist: 'Metallica',
+        category: 'genre',
+        genre: 'Metal',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652625/ab67616d0000e1a3c1a13209dfe146aef3296e34.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652395/Nothing_Else_Matters_-_Remastered_2021_spotdown.org.mp3',
+        duration: 389,
+        userIds: [0]
+    },
+    {
+        id: 1228,
+        title: 'Sulfur',
+        artist: 'LANDMVRKS',
+        category: 'genre',
+        genre: 'Metal',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652628/ab67616d0000e1a30d15371424eb182e4579162b.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652396/Sulfur_spotdown.org.mp3',
+        duration: 206,
+        userIds: [0]
+    },
+    {
+        id: 1231,
+        title: 'The House of Wolves',
+        artist: 'Bring Me The Horizon',
+        category: 'genre',
+        genre: 'Metal',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652632/ab67616d0000e1a3566acaba72c5509e3887c4b0.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652399/The_House_of_Wolves_spotdown.org.mp3',
+        duration: 205,
+        userIds: [0]
+    },
+    {
+        id: 1235,
+        title: 'Arsenal',
+        artist: 'Slipknot',
+        category: 'genre',
+        genre: 'Metal',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652629/ab67616d0000e1a32c90ec867609c3db4d7fbed5.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652400/Arsenal_spotdown.org.mp3',
+        duration: 220,
+        userIds: [0]
+    },
+    {
+        id: 1239,
+        title: 'Behelit',
+        artist: 'Slaughter To Prevail',
+        category: 'genre',
+        genre: 'Metal',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652634/ab67616d0000e1a376838f1fed17aec4368e630e.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652404/Behelit_spotdown.org_1.mp3',
+        duration: 240,
+        userIds: [0]
+    },
 
     /* ============================================================
        GÊNERO: REGGAETON  (GLOBAL — todos veem, ID 0)
@@ -1733,6 +2096,98 @@ const baseSongs = [
         coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1787795695/ab67616d00001e02a539563b3d77bd3ba17d016e.jpg',
         url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1787795652/When_You_Gonna_Give_It_Up_to_Me_-_Radio_Version_spotdown.org.mp3',
         duration: 230,
+        userIds: [0]
+    },
+
+    /* ============================================================
+       GÊNERO: REGIONAL MEXICANO  (GLOBAL — todos veem, ID 0)
+       ============================================================ */
+
+    {
+        id: 1229,
+        title: 'Ella Baila Sola',
+        artist: 'Eslabon Armado, Peso Pluma',
+        category: 'genre',
+        genre: 'Regional Mexicano',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652632/ab67616d0000e1a32071a0c79802d9375a53bfef.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652397/Ella_Baila_Sola_spotdown.org.mp3',
+        duration: 165,
+        userIds: [0]
+    },
+    {
+        id: 1238,
+        title: 'Jugaste y Sufrí',
+        artist: 'Eslabon Armado, DannyLux',
+        category: 'genre',
+        genre: 'Regional Mexicano',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652632/ab67616d0000e1a3657fa1079d4f17b7e06dd86e.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652402/Jugaste_y_Sufr%C3%AD_spotdown.org.mp3',
+        duration: 247,
+        userIds: [0]
+    },
+
+    /* ============================================================
+       GÊNERO: CUMBIA  (GLOBAL — todos veem, ID 0)
+       ============================================================ */
+
+    {
+        id: 1230,
+        title: 'La Resaka',
+        artist: 'Supermerk2',
+        category: 'genre',
+        genre: 'Cumbia',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652623/ab67616d0000aa5472a104e3406b961d71e67060.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652398/La_resaka_spotdown.org.mp3',
+        duration: 200,
+        userIds: [0]
+    },
+    {
+        id: 1234,
+        title: 'Que Nadie Sepa Mi Sufrir',
+        artist: 'La Sonora Dinamita',
+        category: 'genre',
+        genre: 'Cumbia',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652622/ab67616d0000aa54beb4d5ca020da5cfc6fc1835.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652400/Que_Nadie_Sepa_Mi_Sufrir_spotdown.org.mp3',
+        duration: 200,
+        userIds: [0]
+    },
+    {
+        id: 1243,
+        title: 'Que Calor',
+        artist: 'Supermerk2',
+        category: 'genre',
+        genre: 'Cumbia',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652623/ab67616d0000aa5472a104e3406b961d71e67060.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652405/Que_Calor_spotdown.org.mp3',
+        duration: 210,
+        userIds: [0]
+    },
+
+    /* ============================================================
+       GÊNERO: MERENGUE  (GLOBAL — todos veem, ID 0)
+       ============================================================ */
+
+    {
+        id: 1233,
+        title: 'Se Encendió el Beeper',
+        artist: 'Oro Sólido',
+        category: 'genre',
+        genre: 'Merengue',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652623/ab67616d0000aa540c3233a50822fcf773bd6dd3.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652400/Se_Encendio_el_Beeper_spotdown.org.mp3',
+        duration: 230,
+        userIds: [0]
+    },
+    {
+        id: 1237,
+        title: 'Suavemente',
+        artist: 'Elvis Crespo',
+        category: 'genre',
+        genre: 'Merengue',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652631/ab67616d0000e1a3374a32d39696d6ee63c41ca4.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652402/Suavemente_spotdown.org.mp3',
+        duration: 268,
         userIds: [0]
     },
 
@@ -1784,6 +2239,28 @@ const baseSongs = [
         duration: 245,
         userIds: [0]
     },
+    {
+        id: 1216,
+        title: '死神',
+        artist: 'Kenshi Yonezu',
+        category: 'genre',
+        genre: 'J-POP',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652630/ab67616d0000e1a303d3216d6c463f993c96c9c7.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652390/%E6%AD%BB%E7%A5%9E_spotdown.org.mp3',
+        duration: 185,
+        userIds: [0]
+    },
+    {
+        id: 1220,
+        title: 'JANE DOE',
+        artist: 'Kenshi Yonezu, Hikaru Utada',
+        category: 'genre',
+        genre: 'J-POP',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652633/ab67616d0000e1a38131aa99fb87ff0e9c511851.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652393/JANE_DOE_spotdown.org.mp3',
+        duration: 240,
+        userIds: [0]
+    },
 
     /* ============================================================
        GÊNERO: K-POP  (GLOBAL — todos veem, ID 0)
@@ -1809,6 +2286,17 @@ const baseSongs = [
         coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839379/ab67616d00001e02acf8ff27be32aec99d6c99a0.jpg',
         url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839334/Strategy_feat._Megan_Thee_Stallion__spotdown.org.mp3',
         duration: 190,
+        userIds: [0]
+    },
+    {
+        id: 1201,
+        title: 'ICONIC BY MISTAKE',
+        artist: 'LE SSERAFIM, ILLIT, KATSEYE',
+        category: 'genre',
+        genre: 'K-POP',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652624/ab67616d0000aa5455886e2f0784a2b7b62b7fe7.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652381/ICONIC_BY_MISTAKE_spotdown.org.mp3',
+        duration: 180,
         userIds: [0]
     },
 
@@ -1945,6 +2433,17 @@ const baseSongs = [
         coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1788839379/ab67616d00001e0243a58a3269fa18d1e4f8b5ca.jpg',
         url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1788839341/Virtual_Insanity_-_Remastered_2006_spotdown.org.mp3',
         duration: 260,
+        userIds: [0]
+    },
+    {
+        id: 1214,
+        title: 'L-O-V-E',
+        artist: 'Michael Bublé',
+        category: 'genre',
+        genre: 'Jazz',
+        coverImage: 'https://res.cloudinary.com/oizv8icb/image/upload/v1795652629/ab67616d0000e1a32ceedc8c879a1f6784fbeef5.webp',
+        url: 'https://res.cloudinary.com/oizv8icb/video/upload/v1795652389/L_O_V_E_spotdown.org.mp3',
+        duration: 155,
         userIds: [0]
     }
 

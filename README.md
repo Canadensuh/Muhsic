@@ -3,8 +3,8 @@
 > Player de música com alma de **vitrola dos anos 80**, feito em HTML, CSS e JavaScript puro.
 > Projeto acadêmico do grupo **MPS — MapleProjectSeries**.
 
-![Status](https://img.shields.io/badge/status-BETA-orange)
-![Versão](https://img.shields.io/badge/versão-2.0-blue)
+![Status](https://img.shields.io/badge/status-OFICIAL-brightgreen)
+![Versão](https://img.shields.io/badge/versão-v1.0-blue)
 ![Stack](https://img.shields.io/badge/stack-HTML%20%7C%20CSS%20%7C%20JS-orange)
 ![Dependências](https://img.shields.io/badge/frameworks-nenhum-lightgrey)
 ![Licença](https://img.shields.io/badge/licença-MPS-red)

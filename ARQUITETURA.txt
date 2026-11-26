@@ -1,6 +1,6 @@
 ================================================================================
                         MUHSIC — ARQUITETURA DO PROJETO
-                     Versão BETA 2.0  ·  MPS — MapleProjectSeries
+                    Versão MUHSIC v1.0  ·  MPS — MapleProjectSeries
 ================================================================================
 
 SUMÁRIO

@@ -10,8 +10,8 @@
 /* ---------- Identidade do projeto ---------- */
 const APP = {
     name:    'Muhsic',
-    stage:   'BETA',
-    version: '2.0',
+    stage:   'OFICIAL',
+    version: '1.0',
     author:  'Murilo N.B',
     org:     'MPS — MapleProjectSeries'
 };

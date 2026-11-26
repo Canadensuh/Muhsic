@@ -3,6 +3,37 @@
 Todas as mudanças relevantes do Muhsic são registradas aqui.
 O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
+## [v1.0] — 2026-11-25 · MUHSIC v1.0 (versão oficial)
+
+### Lançamento oficial
+- O Muhsic saiu do BETA: a numeração recomeça em **v1.0**, sucedendo a BETA 2.0.
+- O selo de versão (`.version-badge`) agora mostra **v1.0** ao lado da marca MUHSIC
+  (`APP.stage = 'OFICIAL'`, `APP.version = '1.0'`); a ficha técnica da landing exibe
+  "MS-86 · MUHSIC v1.0". README e ARQUITETURA atualizados.
+- Cache dos scripts e do CSS renovado (`?v=3`) para carregar o novo catálogo.
+
+### Catálogo: 44 músicas novas (IDs 1200–1243)
+- Títulos e créditos conferidos por pesquisa. Participações (feat.) ficam no campo de
+  artista. Correções em relação aos nomes enviados: *Pink + White*, *So Fresh, So Clean*,
+  *Can't Take My Eyes Off You*, *A Man Without Love*, *Wat's Wrong* (artista principal:
+  Isaiah Rashad), *Jugaste y Sufrí*, *Se Encendió el Beeper*, **LANDMVRKS**,
+  **Eslabon Armado**, **Hikaru Utada**, **Supermerk2**, **Brandão85**.
+- **Novos gêneros:** **Regional Mexicano** (Eslabon Armado), **Cumbia** (Supermerk2,
+  La Sonora Dinamita) e **Merengue** (Oro Sólido, Elvis Crespo).
+- **Metal (+11):** People = Shit, Arsenal (Slipknot), Kingslayer, Shadow Moses,
+  The House of Wolves (Bring Me The Horizon), Ball Tongue (Korn), Flores (LVCAS),
+  Joseph (Falling In Reverse, Corey Taylor, Serj Tankian), Nothing Else Matters
+  (Metallica), Sulfur (LANDMVRKS), Behelit (Slaughter To Prevail).
+- **Hip Hop (+7):** Like That, Money Trees, Swimming Pools (Drank), Wat's Wrong,
+  Roses, All Mine, So Fresh, So Clean.
+- **Pop (+6):** Born Again (LISA, Doja Cat, RAYE), Gabriela (KATSEYE),
+  idontwannabeyouanymore (Billie Eilish), Can't Take My Eyes Off You e A Man Without
+  Love (Engelbert Humperdinck), Put Your Head on My Shoulder (Paul Anka).
+- **Trap (+5):** 100% MOLHO, D&G, EM DIREÇÃO DO SOL, BLUNT DE GOIABA (Brandão85) e
+  Isso é Sério (Matuê, Brandão85).
+- **Outros:** ICONIC BY MISTAKE (K-POP), 死神 e JANE DOE (J-POP), Pink + White e
+  BITCHES BREW (R&B), Mice City (Indie), Cryogen (Rock), L-O-V-E (Jazz).
+
 ## [2.0] — 2026-11-13 · BETA 2.0
 
 ### Catálogo revisado (gêneros e créditos)

@@ -58,9 +58,9 @@ function pickRandom(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
 
-/** Preenche todos os selos de versão (.version-badge) a partir do APP */
+/** Preenche todos os selos de versão (.version-badge) a partir do APP — ex.: "v1.0" */
 function renderVersionBadges() {
     document.querySelectorAll('.version-badge').forEach(el => {
-        el.textContent = `${APP.stage} ${APP.version}`;
+        el.textContent = `v${APP.version}`;
     });
 }
